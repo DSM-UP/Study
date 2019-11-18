@@ -1,0 +1,91 @@
+# 4. EventHandling
+
+## 1. 이벤트를 사용할 때 주의 사항
+
+1.이벤트 이름은 카멜 표기법으로 작성
+ex) onclick -> onClick / onkeyup -> onKeyUp
+
+2.이벤트에 실행할 자바스크립트 코드를 전달하는 것이 아니라, 함수 형태의 값을 전달
+리액트에서는 함수 형태의 객체를 전달
+
+3.DOM 요소에만 이벤트 설정 가능
+우리가 직접 만든 컴포넌트에는 이벤트를 자체적으로 설정할 수 없음
+전달받은 props를 컴포넌트 내부의 DOM 이벤트로 설정 가능
+
+## 2. 이벤트 핸들링 익히기
+
+비동기적으로 이벤트 객체를 참조할 때 e.persist() 함수 호출
+
+이벤트를 처리할 때 렌더링을 하는 동시에 함수를 만들어서 전달
+(렌더링에 화살표 함수로 다 넣음)
+위 방법 대신 함수를 미리 준비하여 전달하는 방법도 있음
+성능면에서 차이가 거의 없지만, 가독성은 훨씬 높음
+
+함수가 호출될 때 this는 호출부에 따라 결정되므로, 클래스의 임의 메소드가 특정 HTML 요소의 이벤트로 등록되는 과정에서 메소드와 this의 관계가 끊어져 버림
+이 때문에 임의 메소드가 이벤트로 등록되어도 this를 컴포넌트 자신으로 제대로 가리키기 위해서는 메소드를 this와 바인딩하는 작업이 필요
+
+객체 안에서 key를 []로 감싸면 그 안에 넣은 레퍼런스가 가리키는 실제 값이 key 값으로 사용됨
+
+// EventPractice.js //
+import React, { useState } from "react";
+
+const EventPractice = () => {
+  const [form, setForm] = useState({
+    username: "",
+    message: ""
+  });
+
+  const { username, message } = form;
+  const onChange = e => {
+    const nextForm = {
+      ...form, // 기존의 form 내용을 이 자리에 복사한 뒤
+      [e.target.name]: e.target.value // 원하는 값을 덮어 씌우기
+    };
+    setForm(nextForm);
+  };
+  const onClick = () => {
+    alert(username + ": " + message);
+    setForm({
+      username: "",
+      message: ""
+    });
+  };
+  const onKeyPress = e => {
+    if (e.key === "Enter") {
+      onClick();
+    }
+  };
+  return (
+    <div>
+      <h1>이벤트 연습</h1>
+      <input
+        type="text"
+        name="username"
+        placeholder="사용자명"
+        value={username}
+        onChange={onChange}
+      />
+      <input
+        type="text"
+        name="message"
+        placeholder="아무거나 입력해 보세요"
+        value={message}
+        onChange={onChange}
+        onKeyPress={onKeyPress}
+      />
+      <button onClick={onClick}>확인</button>
+    </div>
+  );
+};
+
+export default EventPractice;
+
+// App.js //
+import React from "react";
+import EventPractice from "./EventPractice";
+
+const App = () => {
+  return <EventPractice />;
+};
+
+export default App;

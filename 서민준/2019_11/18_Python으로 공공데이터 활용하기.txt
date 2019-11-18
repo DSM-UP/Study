@@ -1,0 +1,189 @@
+""" 파이썬으로 공공데이터를 활용한 미세먼지 알리미 만들기 """
+!pip install schedule
+
+# HTTP 통신
+
+import requests
+from urllib.parse import urlencode, quote_plus, urlparse
+from urllib.request import urlopen
+import urllib
+
+# 데이터 가공
+
+from bs4 import BeautifulSoup
+import json
+
+# 시간 관련
+
+import datetime
+from time import sleep
+import schedule
+
+# 할당 받은 API 키를 입력한다.
+
+API_key_Telegram = '937492163:AAHGhzoOXCjqN5mWZj3enL-bNbHEcho_X2w'
+
+def get_myChatID() :
+    
+    # 이 코드셀에서 에러가 난다면, 해당 텔레그램 봇에서 직접 아무 메시지나 "두 번" 입력
+
+    endpoint = 'https://api.telegram.org/bot'
+    query = '/' + 'getUpdates'
+    URL = endpoint + API_key_Telegram + query
+    
+    print(URL)
+    
+    request = urllib.request.Request(URL)
+    response = urllib.request.urlopen(request)
+    rescode = response.getcode()
+    request_body = urlopen(request).read()
+
+    if rescode == 200 :
+        print(rescode)
+        print('SUCCESS \n')
+        chat_id = json.loads(request_body)['result'][0]['message']['from']['id']
+        print('나의 chat ID : '+ str(chat_id))
+     
+        return str(chat_id)
+    
+    else :
+        print(rescode)
+        print('FAILED')
+
+# 이 함수가 에러 없이 실행되면 텔레그램에 무사히 연동된 것이다.
+
+get_myChatID()
+
+def send_message(input_text) :
+    
+    # 유저마다 chat id가 다르다.
+    chat_id = get_myChatID()
+    
+    endpoint = 'https://api.telegram.org/bot'
+    action = '/' + 'sendmessage'
+    param_list = [
+        'chat_id=' + str(chat_id), 
+        'text=' + input_text
+    ]
+    param = '&'.join(param_list)
+    query = action + '?' + param
+    
+    URL = endpoint + API_key_Telegram + query
+    print(URL)
+    
+    try : 
+        r = requests.get(URL)
+        print(r.text)
+    
+    except Exception as e:
+        print(str(e))
+
+send_message("Hello, My name is MiseaMisea_Bot!")
+
+# 공공데이터 API 활용
+
+API_key_opendata = 'sagczVENkyaCoPImqU%2BhzSAg0OgmD2hQeeMdWIrJ0c4CpNiuBYklbI230xE3kBKSlaemP8Q1pGr0Gwnus07qlQ%3D%3D'
+
+def getData_airPollution() :
+    
+    # API : 대기오염정보 조회 서비스
+    endpoint = 'http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getCtprvnMesureSidoLIst'
+    
+    headers_params = { 
+    #quote_plus('ServiceKey') : api_key_utf8, 
+    # Service Key는 특수문자를 포함하고 있기 때문에 인코딩 parameter 객체에 넣기에는 인코딩 과정이 복잡하다.
+    # 아래 코드 셀에서 직접 URL의 Service Key 부분만 수동으로 타이핑하자.
+        quote_plus('ServiceKey') : API_key_opendata, 
+        quote_plus('pageNo') : '1', 
+        quote_plus('numOfRows') : '50', 
+        quote_plus('sidoName') : '대전', ### 도시명 수정 가능 ###
+        quote_plus('searchCondition') : 'HOUR'
+    }
+
+    queryParams = ('?' + 
+                  'ServiceKey=' + API_key_opendata + '&' + 
+                  urllib.parse.urlencode(headers_params, 'UTF-8'))
+
+    url = endpoint  + queryParams
+    
+    request = urllib.request.Request(url)
+    request.get_method = lambda : 'GET'
+
+    response = urllib.request.urlopen(request)
+    rescode = response.getcode()
+    request_body = urlopen(request).read()
+    print('request 완료\n')
+    
+    # 여기까지 API 호출 코드였다. #
+    # 아래부터 API로 받아온 데이터를 가공하는 작업 --> 시간, 지역구, 각종 대기오염 정보 #
+    
+    request_soup = BeautifulSoup(request_body, 'html.parser')
+    
+    ### 지역구 변경 가능
+    index_gu = 3
+
+    ### <서울>
+    ### 0 강남구, 1 강동구, 2 강북구, 3 강서구, 4 관악구,
+    ### 5 광진구, 6 구로구, 7 금천구, 8 노원구, 9 도봉구,
+    ### 10 동대문구, 11 동작구, 12 마포구, 13 서대문구, 14 서초구,
+    ### 15 성동구, 16 성북구, 17 송파구, 18 양천구, 19 영등포구,
+    ### 20 용산구, 21 은평구, 22 종로구, 23 중구, 24 중랑구
+
+    ### <대전>
+    ### 0 대덕구, 1 동구, 2 서구, 3 유성구, 4 중구
+    
+    result_dict = {
+        'datatime' : request_soup.body.find_all('datatime')[index_gu].text, # 데이터 최근 업데이트 시간
+        'cityname' : request_soup.body.find_all('cityname')[index_gu].text, # 지역구
+        'so2value' : request_soup.body.find_all('so2value')[index_gu].text, # 아황산가스 평균농도,
+        'covalue' : request_soup.body.find_all('covalue')[index_gu].text, # 일산화탄소 평균농도 
+        'o3value' : request_soup.body.find_all('o3value')[index_gu].text, # 오존 평균농도
+        'no2value' : request_soup.body.find_all('no2value')[index_gu].text, # 이산화질소 평균농도
+        'pm10value' : request_soup.body.find_all('pm10value')[index_gu].text, # 미세먼지 PM10 평균농도
+        'pm25value' : request_soup.body.find_all('pm25value')[index_gu].text # 미세먼지 PM2.5 평균농도
+    }
+        
+      
+    
+    return result_dict
+    print(result_dict)
+
+getData_airPollution()
+
+def process_to_article() : 
+
+    dict_to_process = getData_airPollution()
+    # 위에서 이미 정의한, 데이터 수집 함수(getData_airPollution)가 포함된다.
+    # 즉, 데이터 기사문으로 가공하는 이 함수를 실행하면, 자동으로 데이터 수집을 먼저 진행하게 된다.
+
+    
+    ### 아래 코드는 눈에 보이는 메시지로, 구체적인 형태로 가공하는 작업
+    text_result =  (
+        dict_to_process['datatime'] + ' 기준' + '\n' + 
+        dict_to_process['cityname'] + '의 미세먼지 농도는' + '\n' + 
+        'PM10 : ' + dict_to_process['pm10value'] + 'ppm' + '\n' + 
+        'PM2.5 : ' + dict_to_process['pm25value'] + 'ppm'
+    )
+    
+    print(text_result)
+    return text_result
+
+process_to_article()
+
+def message_article():
+  
+  article = process_to_article()
+  # 위에서 이미 정의한, 데이터 수집 함수(process_to_article)가 포함된다.
+  # 즉, 기사문을 텔레그램으로 전송하는 이 함수를 실행하면, 
+  # 자동으로 데이터 수집을 먼저, 그 다음으로는 수집한 데이터를 기사문으로 가공하는 작업을 진행하게 된다.
+
+  send_message(article)
+
+# 최종 완결 형태인 함수 하나가 만들어졌다.
+# 아래 함수를 실행하면 우리 텔레그램으로 기사문이 전송된다. 
+
+message_article()
+
+while True : # Always
+  message_article()
+  sleep(3600)
