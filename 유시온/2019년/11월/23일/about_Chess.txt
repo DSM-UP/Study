@@ -1,0 +1,113 @@
+A. 앙파상
+B. 캐슬링
+C. 프로모션
+D. 체크
+E. 체크메이트
+F. 스테일메이트
+//G. 터치무브
+//   1) [공백 집기 X] [불이동 선택 X]
+//   2) [공백 집기 X] [불이동 선택 O] ○
+//   3) [공백 집기 O] [불이동 선택 X]
+//   4) [공백 집기 O] [불이동 선택 O]
+
+1. 테이블은 8*8이지만, 좌표표시를 위해 10*10의 배열로 설정하였다. 
+2. 각각의 칸은 처음에 '　' (ㄱ 한자 공백)으로 설정하였다. 
+3. 파이썬 3.7콘솔의 경우, 체스 기호를 지원하지 않으므로, 파이참 자체 콘솔에서 할 수 있는 print('\n'*50)으로 구현
+
+1. 팀은 흑/백으로 나뉜다. 각자의 팀은 서로의 King을 잡는 것(또는 체크메이트*)이 목표이다.
+2. King은 자신이 죽는 경우로 절대 움직일 수 없다. 그러나 움직일 수 있는 경우가 아니고, 체크가 아닌 경우는 스테일메이트*로 무승부가 된다.
+
+
+
+수정사항
+1. 움직일 수 없는 말 선택 불가 오류.
+2. table_color 중복 오류. 해결, 아주 나이쑸쑤ㅜ쑤쑤ㅜㅆ ㅋㅋ케케케ㅔ케케케케ㅔ
+
+
+★ 만약 체스가 생각보다 빨리 끝난다면, 소켓 통신을 한 번 해 보자!! ㅋㅋㅋ
+
+
+게임 시작.
+1. chess() 실행.
+    a. set_table() 실행.
+        게임 시작 전, 테이블 기본 처리.
+        출력이 아닌, 테이블 객체에 값 넣어주기.
+
+    b. print_table(table_color) 실행.
+        table_color : 체스 말의 선택시 바닥 색 변화를 위한 리스트 인수.
+        테이블 객체에 넣어 둔 값들을 기반으로 출력.
+
+        1) cls()
+            print('\n'*50)으로, 스크린 정리의 역할임.
+
+
+2. turn_start() 실행. //현재는 반복문 단계
+    a.color_del() 실행.
+        table_color 리스트를 모두 비움.
+
+    현재 turn을 출력해줌. //수정 필요
+    선택 할 말의 좌표를 받음.
+    b. selecting(input_x, input_y)
+       좌표를 매개로 selecting(input_x, input_y) 함수 실행
+
+2.b. selecting(input_x, input_y)
+    1) table_to_code(x, y)를 실행. 반환값은 x_index와 y_index에 저장
+        x, y는 매개변수로 넘어간 input_x와 input_y임
+        a) chess_width 리스트에서 x값을 탐색하여, 코드상의 값을 반환
+        b) chess_height 리스트에서 y값을 탐색하여, 코드상의 값을 같이 반환
+
+    2) color_add(find_piece(x, y)) 실행
+        a) find_piece(x, y)
+            x와 y로 piece_list에서 각각의 piece가 가진 location 값과 비교.
+            piece를 발견하면, piece 반환
+
+        b) color_add(piece)
+            color_del() 실행
+                table_color 리스트를 모두 비움.
+
+            piece가 잘못 넘어온 오류 처리
+
+            table_to_code(x, y) 실행
+                color_add의 x, y에 코드상 piece의 좌표값 저장.
+
+            piece가 갈 수 있는 방향을 for문을 통해 하나씩 비교
+                만일 dir_x와 dir_y가 0이 아니면 그 방향으로 갈 수 있음을 의미함.
+
+                A. 나이트
+                    이름에 Knight유무 확인
+                    Knight가 갈 수 있는 위치 생성
+                    위치가 테이블 위인지 비교
+                    위치가 우리팀(상대팀은 공격 가능)인지 확인
+                    위치를 table_color에 추가
+
+                B. 일반적인 체스말
+                    나이트 확인 후, 말 위치가 테이블 위인지 비교
+                    상대 팀이 있는지 확인
+                    위치를 table_color에 추가
+
+                C. 폰
+                    이름에 Pawn유무 확인
+                    팀 확인
+                    위치를 팀 반대 방향으로 수정
+                    위치를 table_color에 추가
+
+    3) 선택 좌표 확인
+        A. 아무것도 없는 것을 선택하진 않았는가?
+        B. 움직일 수 없는 것을 선택하진 않았는가?
+        C. 선택한 말이 우리 팀이 맞는가?
+
+        옳지 않은 선택의 경우, turn_start()를 재실행
+
+        D. 옳은 말 선택
+            table_color 범위 내에서 이동/공격 좌표를 입력받음
+            move(input_x, input_y, piece) 실행
+                input_x, input_y는 움직일 지점.
+                piece는 움직일 말.
+
+            1. move(x, y, piece) 함수
+                x, y 좌표를 table_to_code함수의 인자로 넘겨 새로고침한다.
+                pre_x, pre_y는 움직이기 전 좌표를 의미함.
+                chess_table에서 piece가 있었던 좌표를 비움. '　'
+                움직인 좌표에 piece가 있는지 확인
+                만일 있다면 그piece의 location은 [-1, -1]로 변환
+                그piece가 King이라면, die() 실행
