@@ -1,0 +1,134 @@
+// introduceDev.js //
+import React from "react";
+import "./IntroduceDev.css";
+
+const IntroduceDev = () => {
+  function showGitAddress(Link) {
+    var newWin = window.open(Link, "_blank");
+    newWin.focus();
+  }
+
+  return (
+    <>
+      <div className="IntDev-main-container">
+        <div className="IntDev-center-wrapper">
+          <div className="IntDev-devs-wrapper">
+            <span className="IntDev-devs-role">Web</span>
+            <span
+              className="IntDev-devs-members"
+              onClick={() => {
+                showGitAddress("https://github.com/Sonwanseo");
+              }}
+            >
+              손완서
+            </span>
+            <span
+              className="IntDev-devs-members"
+              onClick={() => {
+                showGitAddress("https://github.com/YeongG");
+              }}
+            >
+              공영길
+            </span>
+          </div>
+          <div className="IntDev-devs-wrapper">
+            <span className="IntDev-devs-role">Unity</span>
+            <span
+              className="IntDev-devs-members"
+              onClick={() => {
+                showGitAddress("https://github.com/Parkjonghyo");
+              }}
+            >
+              박종효
+            </span>
+            <span
+              className="IntDev-devs-members"
+              onClick={() => {
+                showGitAddress("https://github.com/hvboq");
+              }}
+            >
+              여동민
+            </span>
+          </div>
+          <div className="IntDev-devs-wrapper">
+            <span className="IntDev-devs-role">3D Modeling</span>
+            <span
+              className="IntDev-devs-members"
+              onClick={() => {
+                showGitAddress("https://github.com/legends5274");
+              }}
+            >
+              김진혁
+            </span>
+            <span
+              className="IntDev-devs-members"
+              onClick={() => {
+                showGitAddress("https://github.com/Hotteock3388");
+              }}
+            >
+              김효선
+            </span>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default IntroduceDev;
+
+// introduceDev.css //
+.IntDev-main-container {
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  height: 20rem;
+}
+
+.IntDev-center-wrapper {
+  display: flex;
+  width: 50%;
+  height: 10rem;
+  text-align: center;
+}
+
+.IntDev-devs-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.IntDev-devs-role {
+  font-size: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.IntDev-devs-members {
+  flex: 1;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+
+  /*Reflection*/
+  -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.7, transparent), to(rgba(0, 0, 0, 0.1)));
+}
+
+.IntDev-devs-members:hover {
+  font-size: 2rem;
+  color: plum;
+  opacity: 1;
+
+  /*Reflection*/
+  -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.7, transparent), to(rgba(0, 0, 0, 0.4)));
+
+  /*Glow*/
+  -webkit-box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+  -moz-box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+}
