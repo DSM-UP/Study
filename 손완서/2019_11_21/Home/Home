@@ -1,0 +1,90 @@
+// Home.js //
+import React, { useRef } from "react";
+import "./Home.css";
+
+const Home = () => {
+  var imgList = [
+    "https://cdn.discordapp.com/attachments/646963399061667849/647255590384435221/unknown.png",
+    "https://pbs.twimg.com/media/C1lvoS4UUAA5_RZ.jpg",
+    "https://i.pinimg.com/originals/40/f5/70/40f57018864a127aa5e2e6fd6e4dfbd8.jpg"
+  ];
+  const img = useRef();
+
+  function getImgSrc() {
+    // const outputImgLists = imgLists.map(List => imgLists.imgLink);
+    const nowImg = [...imgList];
+    nowImg.push(nowImg[0]);
+    nowImg.splice(0, 1);
+    imgList = [...nowImg];
+    img.current.src = nowImg[0];
+  }
+
+  setInterval(getImgSrc, 1000);
+
+  return (
+    <>
+      <div className="Home-main-container">
+        <div className="Home-top-wrapper">
+          <h1 className="Home-project-name">ESVR</h1>
+          <div className="Home-slim-line" />
+          <p className="Home-project-benefit">
+            &nbsp;Explore the School for using Virtual Reality&nbsp;
+          </p>
+          <div className="Home-slim-line" />
+        </div>
+        <div className="Home-bottom-wrapper">
+          <img className="Home-animation" ref={img} alt="사진이 안나오네요?" />
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Home;
+
+// Home.css //
+@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap%27");
+body {
+  font-family: "Nanum Gothic", "sans-serif";
+}
+
+.Home-main-container {
+  height: auto;
+  width: 100%;
+  margin-top: 6rem;
+}
+
+.Home-top-wrapper {
+  width: 100%;
+  text-align: center;
+}
+
+.Home-project-name {
+  font-size: 5rem;
+  font-weight: bolder;
+  margin: 0;
+}
+
+.Home-project-benefit {
+  display: inline-block;
+}
+
+.Home-slim-line {
+  margin: 0 auto;
+  display: inline-block;
+  width: 40px;
+  height: 5px;
+  border-top: 1px solid rgba(160, 160, 159, 1);
+}
+
+.Home-bottom-wrapper {
+  margin-top: 10rem;
+  width: 100%;
+  text-align: center;
+}
+
+.Home-animation {
+  margin: 0 auto;
+  width: 46%;
+  height: 50rem;
+}

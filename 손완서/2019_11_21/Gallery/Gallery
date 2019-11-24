@@ -1,0 +1,104 @@
+// Gallery.js //
+import React, { useState } from "react";
+import "./Gallery.css";
+
+const Gallery = () => {
+  const [index, setIndex] = useState(0);
+  const imgList = [
+    {
+      id: 1,
+      link:
+        "https://cdn.discordapp.com/attachments/646963399061667849/647256010955685909/unknown.png",
+      name: "교실"
+    },
+    {
+      id: 2,
+      link: "https://pbs.twimg.com/media/C1lvoS4UUAA5_RZ.jpg",
+      name: "기숙사"
+    },
+    {
+      id: 3,
+      link:
+        "https://i.pinimg.com/originals/40/f5/70/40f57018864a127aa5e2e6fd6e4dfbd8.jpg",
+      name: "행정실"
+    }
+  ];
+  const changePlusIndex = () => setIndex(index => (index >= 2 ? 0 : index + 1));
+  const changeMinusIndex = () =>
+    setIndex(index => (index <= 0 ? 2 : index - 1));
+
+  return (
+    <>
+      <div className="Gallery-main-container">
+        <div className="Gallery-top-wrapper">
+          <button className="Gallery-minus-button" onClick={changePlusIndex}>
+            Previous
+          </button>
+          <img
+            className="Gallery-img-slide"
+            src={imgList[index].link}
+            alt="사진이 안나오네요?"
+          />
+          <button className="Gallery-plus-button" onClick={changeMinusIndex}>
+            Next
+          </button>
+        </div>
+        <div className="Gallery-bottom-wrapper">
+          <p className="Gallery-img-name">{imgList[index].name}</p>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Gallery;
+
+// Gallery.css //
+.Gallery-main-container {
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  display: inline-table;
+}
+
+.Gallery-top-wrapper {
+  top: 0;
+  display: flex;
+  margin: 0 auto;
+}
+
+.Gallery-minus-button {
+  margin-top: 7rem;
+  border: none;
+  background-color: #e0ecf8;
+  font-size: 1rem;
+  width: 100px;
+  height: 100px;
+  margin-right: 5rem;
+}
+
+.Gallery-img-slide {
+  width: 1147px;
+  height: 525px;
+}
+
+.Gallery-plus-button {
+  margin-left: 5rem;
+  border: none;
+  background-color: #e0ecf8;
+  font-size: 1rem;
+  width: 100px;
+  height: 100px;
+  margin-top: 7rem;
+}
+
+.Gallery-bottom-wrapper {
+  display: flex;
+  bottom: 0;
+  justify-content: center;
+}
+
+.Gallery-img-name {
+  font-size: 5rem;
+  font-weight: bold;
+}
