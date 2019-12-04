@@ -32,7 +32,7 @@ time.sleep(2)
 # driver.implicitly_wait(5)
 dms_room_list[8].click()
 WebDriverWait(driver, 3)
-time.sleep(3)
+time.sleep(3) 
 
 # dms_11_reservation
 dms_seat_list_11 = driver.find_elements_by_class_name('apply--content--extension--seat')
