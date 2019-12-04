@@ -3,7 +3,7 @@
 - 오늘 서버 개발을 하면서 에러 핸들러에 대해 알게 됐다. 
 
   ~~~javascript
-  const express = require('express');
+  const express = require('express'); 
   const app = express();
   
   app.use(...);
