@@ -1,0 +1,21 @@
+body{ width: 100%; height: 100%; margin: 0; background:black; }
+
+.whole_wrapper{ width: 800px; height: 1280px; position: absolute; left: 50%; transform: translateX(-50%); background: #f2f2f2; }
+
+header{ height: 60px; background: #00cc66; }
+header > a.menu_bar{ display: inline-block; height: 100%; width: 15%; background: skyblue; border: none;}
+header > p{height: 100%; width: 80%; color: white; vertical-align: top; display: inline-block; font-size: 24px; margin: 15px 0 0 15px; border: none;}
+
+article{ height: 400px; width: 100%; background: pink;}
+article > .title{ color: white; font-size: 80px; padding: 100px 0 0 45px; font-weight: bold;}
+article > .sub_title{ color: white; font-size: 30px; padding: 15px 0 0 40px; font-weight: bold;}
+
+nav { width: 100%; height: 80px; font-size: 0;}
+nav > a {width: 33%; height: 100%; display: inline-block; border: 1px solid #00cc66; margin: 0; box-sizing: border-box; vertical-align: middle; padding: 14px 0 0 0; font-size: 32px; text-align: center; text-decoration: none; color: #00cc66;}
+nav > a:nth-child(3) {width: 34%;}
+
+nav > a.nav_now {background: #00cc66; color: white;}
+
+section { width: 100%; height: 740px;}
+section > .forms > { width: 100%; height: 740px;}
+section > .forms > a { display: inline-block; width: 100%; height: 247px; background: #f2f2f2; vertical-align: middle; text-align: center; font-size: 64px; font-weight: bold; text-decoration: none; color: #00cc66; border: 1px solid #00cc66; box-sizing: border-box; padding: 85px 0 0 0;}
