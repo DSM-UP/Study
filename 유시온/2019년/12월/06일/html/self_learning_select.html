@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DMI</title>
+    <link rel="stylesheet" href="../css/self_learning_select.css">
+    <link rel="stylesheet" href="../css/modal.css">
+</head>
+<body>
+    <div class="whole_wrapper">
+        <header>
+            <a href="#" class="menu_bar"></a>
+            <p>대덕소프트웨어마이스터고등학교</p>
+        </header>
+
+        <article>
+            <div class="title">자율학습</div>
+            <div class="sub_title">동아리, 자율학습, 방과후 출결관리를 할 수 있습니다.</div>
+        </article>
+
+        <nav>
+            <a href="file:///C:/Users/user/Desktop/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/DDaMamIn/html/main.html">메인 페이지</a>
+            <a href="file:///C:/Users/user/Desktop/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/DDaMamIn/html/club_select.html">동아리</a>
+            <a href="file:///C:/Users/user/Desktop/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/DDaMamIn/html/self_learning_select.html" class="nav_now">자율학습</a>
+        </nav>
+
+        <section>
+            <div class="forms">
+                <button class="forms_modal">1학년</button>
+                <button class="forms_modal">2학년</button>
+                <button class="forms_modal">3학년</button>
+                <button class="forms_modal">자율학습</button>
+            </div>
+        </section>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="modal_header">
+                    <select name="grade" class="modal_grade">
+                        <option value="1학년">1학년</option>
+                        <option value="2학년">2학년</option>
+                        <option value="3학년">3학년</option>
+                    </select>
+                    <select name="class" class="modal_class">
+                        <option value="1반">1반</option>
+                        <option value="2반">2반</option>
+                        <option value="3반">3반</option>
+                        <option value="4반">4반</option>
+                    </select>
+                    <span class="modal_close">&times;</span>
+                </div>
+                <div class="modal_section">
+                    <!--테이블 예시-->
+                    <!--7교시부터 시작하는 날의 테이블 -->
+                    <table class="start7">
+                        <thead>
+                            <tr>
+                                <th>학번</th>
+                                <th>이름</th>
+                                <th>7</th>
+                                <th>8</th>
+                                <th>9</th>
+                                <th>10</th>
+                                <th>비고</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1101</td>
+                                <td>공영길</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>1102</td>
+                                <td>김대웅</td>
+                            </tr>
+                            <tr>
+                                <td>1103</td>
+                            </tr>
+                            <tr>
+                                <td>1104</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!--8교시부터 시작하는 날의 테이블-->
+                    <!-- <table class="start8">
+                            <thead>
+                                <tr>
+                                    <th>학번</th>
+                                    <th>이름</th>
+                                    <th>8</th>
+                                    <th>9</th>
+                                    <th>10</th>
+                                    <th>비고</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1101</td>
+                                    <td>공영길</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>1102</td>
+                                    <td>김대웅</td>
+                                </tr>
+                                <tr>
+                                    <td>1103</td>
+                                </tr>
+                                <tr>
+                                    <td>1104</td>
+                                </tr>
+                            </tbody>
+                        </table> -->
+                </div>
+            </div>
+        </div>
+    </div> 
+</body>
+<script src="../js/modal.js"></script>
+</html>
