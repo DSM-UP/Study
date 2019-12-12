@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Modify List</h1>
+
+    {% if list_info %}
+    <form action="{% url 'lists:modCon' %}" method="post">
+        {% csrf_token %}
+        name : {{list_info.l_name}}<br>
+        <input type="hidden" name="name" value={{list_info.l_name}}>
+        detail : <input type="text" name="detail" value={{list_info.l_detail}}>
+        <br>
+        <input type="submit" name="Modify">
+    </form>
+    {% else %}
+        <p>There is no list!</p>
+    {% endif %}
+
+    <br>
+
+    <a href="{% url 'lists:add' %}">신규 List 작성</a>
+</body>
+</html>
