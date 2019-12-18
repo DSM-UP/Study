@@ -1,0 +1,9 @@
+div#whole-wrapper { height: 100%; background: url("../image/bg-image1.jpg") no-repeat 100% 100% fixed; background-size: cover;}
+div#whole-wrapper > div#background { height: 100%; width: 100%; background: rgba(191, 191, 191, 0.64);}
+div#whole-wrapper > div#background > div#calendar_btn { width: 0; height: 0; border-top: 50px solid transparent; border-bottom: 50px solid transparent; border-right: 50px solid none; border-left: 50px solid white; position: absolute; top: 340px; left: 80px; background: none;}
+div#whole-wrapper > div#background > div#calendar_btn:hover {cursor: pointer; border-left: 50px solid rgb(248, 209, 209); transition: all 0.3s;}
+div#whole-wrapper > div#background > div#main-textbox { margin: 280px 0 0 400px; width: 800px; padding: 30px 0; border-top: 1px solid white; border-bottom: 1px solid white;}
+div#whole-wrapper > div#background > div#main-textbox > div#main-text { width: 100%; text-align: center; color: white; font-size: 64px; font-weight: bold; padding: 0 0 20px 0;}
+div#whole-wrapper > div#background > div#main-textbox > div#sub-text { width: 100%; text-align: center; color: white; font-size: 24px; }
+div#whole-wrapper > div#background > div#main-textbox::after { position: absolute; top: 180px; left: 800PX; content: '';color: white; border-left: 1px solid white; height: 100px;}
+div#whole-wrapper > div#background > div#main-textbox::before { position: absolute; top: 510px; left: 800PX; content: '';color: white; border-left: 1px solid white; height: 100px;}
