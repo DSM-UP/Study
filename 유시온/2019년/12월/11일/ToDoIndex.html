@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/default.css">
+    <link rel="stylesheet" href="../css/ToDoIndex.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css//selectbox.css">
+</head>
+<body>
+    <div id="whole-wrapper">
+        <div id="background">
+            <div id="calendar_btn"></div>
+            <div id="main-textbox">
+                <div id="main-text">To Do List</div>
+                <div id="sub-text">CutyApple's Solo Project, To Do List Web Site.<br>It made with Django.</div>
+            </div>
+        </div>
+
+        <div id="myModal" class="modal">
+            <div id="modal-today">
+                <div id="add-btn">+</div>
+                <div id="today">5</div>
+                <div id="whatday">THURSDAY</div>
+                <ol>
+                    <li>
+                        <div class="checks etrans">
+                            <input type="checkbox" id="ex_chk3"> 
+                            <label for="ex_chk3">체크박스</label> 
+                        </div>
+                        <p>2</p>
+                    </li>
+                </ol>
+            </div>
+            <div id="modal-calendar">
+                <div id="pre-year"></div>
+                <div id="this-month"></div>
+                <div id="next-year"></div>
+
+                <div id="search-btn">SEARCH DATE</div>
+            </div>
+
+            <span class="modal_close">&times;</span>
+        </div>
+    </div>
+    <script src="../js/modal.js"></script>
+</body>
+</html>

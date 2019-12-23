@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>All List</h1>
+
+    {% if list_list %}
+    <ol>
+        {% for l in list_list %}
+        <li>
+            <a href="{% url 'lists:listDet' l.l_name %}">{{l.l_name}}</a>
+            <a href="{% url 'lists:listMod' l.l_name %}">수정</a>
+            <a href="{% url 'lists:listDel' l.l_name %}">삭제</a>
+        </li>
+        {% endfor %}
+    </ol>
+    {% else %}
+        <p>There is no list!</p>
+    {% endif %}
+
+    <br>
+
+    <a href="{% url 'lists:add' %}">신규 List 작성</a>
+</body>
+</html>

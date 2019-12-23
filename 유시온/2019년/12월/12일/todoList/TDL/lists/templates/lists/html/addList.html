@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-Type" content="text/html" charset=UTF-8>
+        <title>Title</title>
+        <link href="../css/addList.css">
+    </head>
+    <body>
+        <h1>Add List</h1>
+
+        <form action="{% url 'lists:addConList' %}" method="post">
+            {% csrf_token %}
+            name : <input type="text" name="name"><br>
+            detail : <input type="text" name="detail"><br>
+            <input type="submit" name="Add"><br>
+        </form>
+    </body>
+</html>
