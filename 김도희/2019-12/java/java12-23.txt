@@ -1,0 +1,30 @@
+public class histogram1223 {
+	/*public static void main(String[] args)
+	{
+		int[] cycle = new int[10];
+		
+		System.out.print("숫자를 10개 입력 : ");
+		Scanner in = new Scanner(System.in);   //scan문
+		int num, share;
+		
+		for(int i=0; i<10; i++) {
+			num = in.nextInt();    // 10번 입력받음
+			
+			if(num < 0)
+				continue;  // 입력받은 수 가 음수면 다시 for문으로 돌아감
+			
+			cycle[num/10]++;  // cycle배열 인덱스 (num/10값) 1증가
+		}
+		
+		for(int i=0;i<10;i++)
+		{
+			System.out.print((i*10)+" ~ "+(i*10+9)+" : ");  //출력
+			
+			for(int j=0; j < cycle[i]; j++)
+			{
+				System.out.print("*");   //증가시킨 수 만큼 1증가
+			}
+			System.out.print("\n");
+		}
+	}
+}
