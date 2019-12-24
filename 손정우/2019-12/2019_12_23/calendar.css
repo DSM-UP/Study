@@ -1,0 +1,43 @@
+.Calendar {
+    border: 1px solid black;
+    /* width: 600px;
+    height: 600px; */
+    padding: 0px;
+}
+.Week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 0px;
+    margin: 0px;
+}
+.Week > .DayOfWeek {
+    border-right: 1px solid gray;
+    list-style: none;
+    text-align: center;
+}
+.Week > .DayOfWeek.Saturday {
+    border: none;
+}
+
+.Days{
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    /* border: 1px solid red; */
+    
+}
+.Days > .Week > .Date{
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    padding: 5px;
+    margin: 0px;
+}
+.Days > .Week > .Date > .Teachers {
+    margin: 0px;
+    padding: 0px;
+}
+.Days > .Week > .Date > .Teachers > li {
+    list-style: none;
+}
+.Days > .Week > .weekend{
+    border-right: none;
+}
