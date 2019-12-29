@@ -69,3 +69,5 @@
 - 따라서 빌드 도구 즉, Maven을 이용하여 컴파일을 하고 실행을 해보자.
 - 컴파일을 하기 위해서 간단하게 아까 들어갔던 위치(프로젝트를 생성하고 그 프로젝트 안에 들어가서)에서 mvn compile을 하면 원래 src라는 소스파일 밖에 없었는데 target 이라는 폴더가 생기고 그 안에 class 파일이 생긴다.
 - 그 뒤에 java -cp target\javaprj-1.0-SNAPSHOT.jar com.newlecture.App 을 cmd에 치게 되면 Hello World! 라는 것이 뜨게 된다.
+- 이렇게 IDE없이 Maven만으로 컴파일과 실행이 가능하다는 것을 알 수 있었다.
+
