@@ -1,0 +1,235 @@
+* {
+    margin : 0;
+    padding : 0;
+    overflow-x : hidden;
+    overflow-y : hidden;
+}
+
+#wrapper {
+    width : 100vw;
+    height : 100vh;
+    background : linear-gradient(to bottom, #222A35, #000000);
+}
+
+#top_wrapper {
+    height : 50%;
+}
+
+#leftStarSpace {
+    width : 30%;
+    height : 100%;
+    float : left;
+}
+
+#middleSpace {
+    width : 40%;
+    height : 100%;
+    float : left;
+}
+
+#rightStarSpace {
+    width : 30%;
+    height : 100%;
+    float : right;
+}
+
+#title {
+    font-family : "Copperplate Gothic Light", fantasy;
+    font-weight : bold;
+    font-size : 80px;
+    color : white;
+    text-align : center;
+    margin-top : 100px;
+}
+
+#search_wrapper {
+    width : 100%;
+    height : 50px;
+    background : #00B0F0;
+    border-radius : 10px;
+    text-align : center;
+    padding-top : 8px;
+    margin-top : 15%;
+}
+
+#search_bar {
+    width : 86%;
+    height : 75%;
+    background : white;
+    display : inline-block;
+    margin-left : 10px;
+    float : left;
+    
+    font-family : "Copperplate Gothic Light", fantasy;
+    font-weight : bold;
+    font-size : 20px;
+}
+
+#search_button {
+    width : 10%;
+    height : 79%;
+    background : white;
+    margin-top : 1px;
+    margin-left : 2px;
+    float : left;
+    border : 0px solid #00B0F0;
+}
+
+#radios {
+    margin-top : 5px;
+    margin-left : 20px;
+}
+
+.condition_name {
+    font-family : "Copperplate Gothic Light", fantasy;
+    font-weight : bold;
+    font-size : 20px;
+    color : white;
+    margin-right : 15px;
+}
+
+
+#bot_wrapper {
+    height : 50%;
+}
+
+#objects {
+    width : 80%;
+    height : 80%;
+    margin-left : 10%;
+    margin-top : 5%;
+    overflow-y : scroll;
+    border-top : 4px solid orange;
+}
+
+.object {
+    width : 300px;
+    height : 360px;
+    background : linear-gradient(to bottom, #0F1317 10%, #181717 90%);
+    border-radius : 15%;
+    float : left;
+    margin-left : 35px;
+    margin-right : 35px;
+    margin-bottom : 26px;
+}
+
+.article_title {
+    font-family : "Copperplate Gothic Light", fantasy;
+    font-weight : bold;
+    font-size : 15px;
+    color : white;
+    text-align : center;
+    margin-top : 15px;
+    margin-left : 15px;
+    margin-right : 15px;
+}
+
+.main_image {
+    width : 90%;
+    height : 50%;
+    margin : 20px 15px 0px 15px;
+}
+
+.title-singer {
+    font-family : "Copperplate Gothic Light", fantasy;
+    font-weight : bold;
+    font-size : 20px;
+    color : white;
+    text-align : center;
+    margin-top : 10px;
+}
+
+#hill {
+    width : 100%;
+    height : 50px;
+    background : #181717;
+    border-radius: 100% 100% 0% 0%;
+    position : absolute;
+    bottom : 0px;
+}
+
+.yellowStar {
+    width : 30px;
+    height : 30px;
+    position : absolute;
+}
+
+#star1 {
+    top : 100px;
+    left : 100px;
+}
+
+#star2 {
+    top : 130px;
+    left : 200px;
+}
+
+#star3 {
+    top : 200px;
+    left : 220px;
+}
+
+#star4 {
+    top : 250px;
+    left : 270px;
+}
+
+#star5 {
+    top : 320px;
+    left : 230px;
+}
+
+#star6 {
+    top : 380px;
+    left : 310px;
+}
+
+#star7 {
+    top : 330px;
+    left : 380px;
+}
+
+#star8 {
+    top : 80px;
+    right : 80px;
+}
+
+#star9 {
+    top : 60px;
+    right : 150px;
+}
+
+#star10 {
+    top : 140px;
+    right : 230px;
+}
+
+#star11 {
+    top : 230px;
+    right : 210px;
+}
+
+#star12 {
+    top : 250px;
+    right : 130px;
+}
+
+#star13 {
+    top : 350px;
+    right : 110px;
+}
+
+#star14 {
+    top : 290px;
+    right : 360px;
+}
+
+#star15 {
+    top : 410px;
+    right : 310px;
+}
+
+#star16 {
+    top : 440px;
+    right : 450px;
+}
