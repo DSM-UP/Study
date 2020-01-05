@@ -1,0 +1,140 @@
+* {
+    padding : 0;
+    margin : 0;
+}
+
+body {
+    width : 100vw;
+    height: 100vh;
+}
+/* #modal{
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+} */
+#content_wrapper {
+    height: 100%;
+    width: 100%;
+
+    /* position: absolute; */
+    top: 0;left: 0;right: 0;bottom: 0;
+    margin: auto auto;
+    background: linear-gradient(to bottom, #000000, #222A35);
+    display: flex;
+    flex-direction: row;
+}
+
+#content_wrapper > .go_back {
+    position: fixed;
+    top:10px;
+    right: 50px;
+    color: white;
+    font-family : "Copperplate Gothic Light", fantasy;
+    font-weight : bold;
+    font-size: 70px;
+    text-decoration: none;
+}
+
+#content_wrapper > .song_info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+}
+
+#content_wrapper > .song_info >.song_title {
+    background-image: url("./TitleBackground2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 20%;
+    width: 70%;
+    font-size: 8px;
+    margin-top: 10%;
+}
+#content_wrapper >  .song_info > .song_title > .title {
+    margin-top: 5%;
+    margin-left: 15%;
+    font-size: 4.5em;
+}
+#content_wrapper >  .song_info > .song_title > .singer {
+    float: right;
+    margin-right: 17%;
+    font-size: 2.7em;
+}
+
+#content_wrapper >  .song_info > .music_video {
+    margin-top: auto;
+}
+
+#content_wrapper >  .song_info > .lyrics {
+    display: inline-block;
+    margin-top: auto;
+    margin-bottom: 10%;
+    border-radius: 50px;
+
+    background: linear-gradient(to bottom, #171D24, black)
+}
+#content_wrapper >  .song_info > .lyrics > p {
+    margin: 20px;
+    text-align: center;
+    color: gray;
+    font-size: 1.2em;
+}
+#content_wrapper >  .song_info > .lyrics > .target-line {
+    color: white;
+    font-size: 1.4em;
+}
+
+
+#content_wrapper > .science_content_wrapper {
+    margin: 10% auto;
+    border: 2px solid #FAFE5F;
+    background-color: #222A35;
+    height: auto;
+    width: 40%;
+    color: white;
+    font-size: 1em;
+}
+#content_wrapper > .science_content_wrapper > .pin1 {
+    border-radius: 50%;
+   
+    background-color: #000000;
+    height: 50px;
+    width: 50px;
+    margin: -25px auto;
+}
+#content_wrapper > .science_content_wrapper > .pin2 {
+    position: relative;
+    border-radius: 50%;
+   
+    background-color: #FAFE5F;
+    height: 36px;
+    width: 36px;
+    margin-top: -43px;
+    left: 50%; 
+    transform:translateX(-50%);
+}
+#content_wrapper > .science_content_wrapper > .pin3 {
+    position: relative;
+
+    border: 2px solid #FAFE5F;
+    border-radius: 0 0 50px 50px;
+    border-top: none;
+    height: 25px;
+    width: 50px;
+
+    margin-top: -20px;
+
+    left: 50%; 
+    transform:translateX(-50%);
+}
+#content_wrapper > .science_content_wrapper > .science_title {
+    font-size: 2em;
+    font-weight: bold;
+}
+#content_wrapper > .science_content_wrapper > .science_content {
+    font-size: 1.2em;
+}
