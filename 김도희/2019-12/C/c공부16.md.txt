@@ -1,0 +1,126 @@
+도전 1
+10진수를 입력받아 16진수로 출력하는 프로그램을 작성해보자.
+
+ 
+
+#include <stdio.h>
+
+int main()
+{
+	int num1;
+	
+	printf("숫자 입력 : ");
+	scanf("%d", &num1);
+	printf("16진수 : %X", num1); 
+}
+ 
+
+도전 2
+두개의 정수를 입력받아 구구단을 출력하는 프로그램을 작성해보자 ( 3 5 입력시 3,4,5단이 출력 되는 형식 )
+
+ 
+
+#include <stdio.h>
+
+int gugudan(int n1 , int n2)
+{
+	int i , j;
+	
+	if(n1>n2)
+	{
+		for(i=n2;i<=n1;i++)
+		{
+			for(j=1;j<=9;j++)
+			{
+				printf("%d x %d = %d\n", i,j,i*j);
+			}
+			printf("\n\n");
+		}
+	}
+	
+	else
+	{
+		for(i=n1;i<=n2;i++)
+		{
+			for(j=1;j<=9;j++)
+			{
+				printf("%d x %d = %d\n", i,j,i*j);
+			}
+			printf("\n\n");
+		}
+	}
+}
+
+int main()
+{
+	int num1 , num2;
+	
+	printf("숫자 입력 : ");
+	scanf("%d %d", &num1, &num2);
+	
+	gugudan(num1,num2);	
+} 
+ 
+
+도전 3
+두개의 정수를 입력받아 최대 공약수를 출력하는 프로그램을 구하시오
+
+ 
+
+#include <stdio.h>
+
+int main(void)
+{
+ int num1,num2; 
+ int i;
+ int result=0;
+ 
+ printf("두 수 입력 : ");
+ scanf("%d %d",&num1 ,&num2);
+ 
+ for(i=1;i<=num1;i++)    
+ {
+ 	if(num1 % i ==0 && num2 % i ==0)
+ 	{
+	 	result = i;
+	}
+ }
+ 
+printf("최대공약수 : %d", result);
+ 
+return 0;
+}
+ 
+
+도전 4
+ 
+
+현재 3500원이라는 금액을 소유중인데 이 돈으로 크림빵 ( 500원 ) , 새우깡 (700원) , 콜라(400원)을 최소한
+
+1개이상이며 잔돈은 남지 않게 구매하려 한다. 어떠한 선택을 할 수 있을지 제시해라.
+
+ 
+
+#include <stdio.h>
+
+int main()
+{
+ int money , cream = 500 , snack = 700 , coke = 400;
+ int i,j,k;
+ 
+ printf("현재 소유 금액 : ");
+ scanf("%d",&money);
+ 
+ for(i=1; i < money/cream; i++)
+  for(j=1; j < money/snack; j++)
+   for(k=1; k < money*coke; k++)
+   {
+    	if((i*cream+j*snack+k*coke) == money)
+     	{
+		 	printf("\n크림빵 %d개, 새우깡 %d개, 콜 라 %d개\n",i,j,k);
+		}
+   }
+ printf("\n어떻게 구입하시겠습니까?\n");
+ return 0;
+}
+공유하기통계글 요소
