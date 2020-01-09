@@ -1,0 +1,59 @@
+========================================= html
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>somthing</title>
+        <link rel="stylesheet" href = "test.css">
+    </head>
+    <body><h1 id = "title" class="btn">Hello</h1>
+    <script src="test.js"></script>
+    </body>
+</html>
+
+
+=========================================css
+
+body{
+    background-color : burlywood;
+}
+
+h1{
+    color: #34495e;
+    transition : color 0.5s ease-in-out; 
+}
+
+.clicked{
+    color: green;    //clicked요소를 가질시 녹색으로 변환
+} 
+
+.btn{
+   cursor: pointer; 
+}
+
+================================================JS
+
+const title = document.querySelector("#title");
+
+const clicks = "clicked";   // click 안에 clicked 를 넣고
+
+function handle(){
+    const has = title.classList.contains(clicks);  //contain을 사용해 class가 clicks를 가진다면 true , 아니면 else 반환
+
+    // 아래 if else 문과 똑같음 ) title.classList.toggle(clicks);  //toggle은 class가 있으면 add 아니면 remove 해줌
+
+    if(! has)
+    {
+        title.classList.add(clicks);         //만약 클래스가 거짓이라면 clicks 를 추가 
+    }
+    else{
+        title.classList.remove(clicks);  //참이라면 clicks 삭제
+    }
+}
+
+function init()
+{
+    title.addEventListener("click ", handle);
+}
+
+init();

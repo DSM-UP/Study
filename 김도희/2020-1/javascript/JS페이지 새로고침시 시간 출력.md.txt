@@ -1,0 +1,34 @@
+===================================html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>somthing</title>
+        <link rel="stylesheet" href = "test.css">
+    </head>
+    <body>
+        <div class = "jsclock">
+            <h1>00:00</h1>      // 0시로 초기화
+        </div>
+    <script src = "clock.js"></script>
+    </body>
+</html>
+
+=======================================js
+
+const clock = document.querySelector(".jsclock");
+const clocktitle = clock.querySelector("h1");
+
+function gettime()
+{
+    const date = new Date();    //class생성
+    const minutes = date.getMinutes();   //각 변수들에 정보를 얻을 수 있는 함수 담기
+    const hour = date.getHours();
+    const second = date.getSeconds();
+    clocktitle.innerText = `${hour}:${minutes}:${second}`   // 출력
+}
+function init()
+{
+    gettime();   //함수 호출
+}
+
+init();    //f5를 누를때마다 새로운 초가 입력 됨
