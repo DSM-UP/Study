@@ -1,0 +1,104 @@
+==================html 앵커
+
+<ul id = "menu">
+    <li><a href="#content1">메뉴 1</a></li>
+    <li><a href="#content2">메뉴 2</a></li>           <!--    메뉴 클릭시 클릭한 항목으로 이동    -->
+    <li><a href="#content3">메뉴 3</a></li>
+</ul>
+
+<h2 id="content1">내용1</h2>
+<p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Aliquam ligula sapien, rutrum sed vestibulum eget, rhoncus ac erat. 
+        Aliquam erat volutpat. Sed convallis scelerisque enim at fermentum.
+        Aliquam consectetur, est ac auctor iaculis, odio mi bibendum leo, 
+        in congue neque velit vel enim. Nullam vitae justo at mauris sodales feugiat. 
+        Praesent pellentesque ipsum eget tellus imperdiet ultrices. 
+        Sed ultricies nisi nec diam sodales fringilla. Quisque adipiscing cursus porta. 
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Aliquam bibendum scelerisque elit, eu pharetra dui pulvinar eget. 
+        Nam mollis mauris id tellus ultricies at porttitor neque vulputate. 
+        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Aliquam ligula sapien, rutrum sed vestibulum eget, rhoncus ac erat. 
+        Aliquam erat volutpat. Sed convallis scelerisque enim at fermentum.
+        Aliquam consectetur, est ac auctor iaculis, odio mi bibendum leo, 
+        in congue neque velit vel enim. Nullam vitae justo at mauris sodales feugiat. 
+        Praesent pellentesque ipsum eget tellus imperdiet ultrices. 
+        Sed ultricies nisi nec diam sodales fringilla. Quisque adipiscing cursus porta. 
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Aliquam bibendum scelerisque elit, eu pharetra dui pulvinar eget. 
+        Nam mollis mauris id tellus ultricies at porttitor neque vulputate. 
+        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+</p>
+
+<p><a href="#menu">[메뉴로]</a></p>
+
+<h2 id="content2">내용2</h2>
+<p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Aliquam ligula sapien, rutrum sed vestibulum eget, rhoncus ac erat. 
+        Aliquam erat volutpat. Sed convallis scelerisque enim at fermentum.
+        Aliquam consectetur, est ac auctor iaculis, odio mi bibendum leo, 
+        in congue neque velit vel enim. Nullam vitae justo at mauris sodales feugiat. 
+        Praesent pellentesque ipsum eget tellus imperdiet ultrices. 
+        Sed ultricies nisi nec diam sodales fringilla. Quisque adipiscing cursus porta. 
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Aliquam bibendum scelerisque elit, eu pharetra dui pulvinar eget.                      <!-- 아무 내용-->
+        Nam mollis mauris id tellus ultricies at porttitor neque vulputate. 
+        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Aliquam ligula sapien, rutrum sed vestibulum eget, rhoncus ac erat. 
+        Aliquam erat volutpat. Sed convallis scelerisque enim at fermentum.
+</p>
+
+<p><a href="#menu">[메뉴로]</a></p>
+
+
+<table border="1">
+    <caption>colgroup 연습</caption>
+    <colgroup>
+        <col> <!--   col = 여러 열을 묶는 태그(여기선 열 갯수를 맞추기 위해 사용 / 첫번째 열 )    -->
+        <col span="2" style="background-color:blue">  <!--   span = 내가 묶고자 한 열의 수 / +여기선 2,3번째열이 묶임)   -->
+        <col style="background-color: yellow">  <!--   네번째 열이 노란색으로 지정    -->
+    </colgroup>
+    
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+===================================================================colgro
+
+<table border="1">
+    <caption>colgroup 연습</caption>
+    <colgroup>
+        <col> <!--   col = 여러 열을 묶는 태그(여기선 열 갯수를 맞추기 위해 사용 / 첫번째 열 )    -->
+        <col span="2" style="background-color:blue">  <!--   span = 내가 묶고자 한 열의 수 / +여기선 2,3번째열이 묶임)   -->
+        <col style="background-color: yellow">  <!--   네번째 열이 노란색으로 지정    -->
+    </colgroup>
+    
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
