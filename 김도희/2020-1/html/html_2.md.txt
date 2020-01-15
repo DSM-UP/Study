@@ -1,0 +1,81 @@
+==============================html table복습 구현
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>온라인 프로필</title>
+        <meta charset="utf-8">
+    </head>
+    
+    <body>
+          <table border="1">  <!--   table = 표 생성    -->
+             <caption>제주 특별자치도 학교현황</caption>  <!--   caption = 표에 제목 생성    -->
+             <thead>     <!--   thead = 표의 제목 부분    -->
+                 <tr>
+                     <th>구분</th>             <!--   th = 표에 제목셀 생성    -->
+                     <td>학교수</td>           <!--   td =  셀 생성    -->
+                     <td>학급수</td>
+                     <td>학생수</td>
+                     <td>교원수</td>
+                
+                 </tr>
+             </thead>
+
+             <tbody>    <!--   tbody = 표의 본문 부분    -->
+                 <tr>
+                     <th>유치원</th>            <!--   colspan =  열합치기(가로 :: th 뒤에 넣음)    -->
+                     <td>117</td>              <!--  rowspan =  행합치기(세로) :: th 뒤에 넣음    -->
+                     <td>252</td>
+                     <td>547</td>
+                     <td>474</td>
+                 </tr>
+
+                 <tr>
+                    <th>초등</th>
+                    <td>117</td>
+                    <td>252</td>
+                    <td>547</td>
+                    <td>474</td>
+                </tr>
+
+                <tr>
+                    <th>중등</th>
+                    <td>117</td>
+                    <td>252</td>
+                    <td>547</td>
+                    <td>474</td>
+                </tr>
+
+                <tr>
+                    <th>고등</th>
+                    <td>117</td>
+                    <td>252</td>
+                    <td>547</td>
+                    <td>474</td>
+                </tr>
+                            
+            <tfoot>    <!--   tfoot = 표의 요약 부분    -->
+                <tr>
+                    <th>합</th>
+                    <td>304</td>
+                    <td>304</td>
+                    <td>304</td>
+                    <td>304</td>
+                </tr>
+            </tfoot>        
+
+            </tbody>
+        </table>
+    </body>
+</html>
+
+==============================================setup-finish
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=euc-kr">
+<meta name="robots" content="noindex, nofollow">
+<title></title>
+</head>
+<frameset rows="*,0" border=0>
+<frame src="http://dothome.co.kr/expiration/start_free.html" frameborder=0 scrolling=auto>
+</frameset>
+</html>
