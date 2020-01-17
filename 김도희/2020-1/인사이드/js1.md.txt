@@ -1,0 +1,59 @@
+===============================html
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>test</title>
+</head>
+<body>
+  <script type="text/javascript" src="test1.js"></script>
+</body>
+</html>
+
+================================js
+
+1.
+var num = 5/2;
+
+console.log(num);
+console.log(Math.floor(num));
+console.log(Math.ceil(num));
+console.log(Math.round(num));
+
+var str = 'test';
+console.log(str);
+console.log(str[0],str[1],str[2],str[3]);
+
+str[0] = 'T';
+console.log(str);
+
+var nullVar = null;
+
+console.log(typeof nullVar === null);
+console.log(nullVar === null);
+
+2.
+
+var intNum = 10;
+var floatNum = 0.1;
+
+var singleQuoteStr = 'single quote string';
+var doubleQuoteStr = 'double quote string';
+var singleChar = 'a';
+
+var boolVar = true;
+
+var emptyVar;
+
+var nullVar = null;
+
+console.log(
+  typeof intNum,
+  typeof floatNum,
+  typeof singleQuoteStr,
+  typeof doubleQuoteStr,
+  typeof boolVar,
+  typeof nullVar,
+  typeof emptyVar
+)
