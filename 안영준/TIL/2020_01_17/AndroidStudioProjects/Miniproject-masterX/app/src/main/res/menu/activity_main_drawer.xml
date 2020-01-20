@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/user"
+            android:title="내 정보" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/truck"
+            android:title="주문/배송" />
+        <item
+            android:id="@+id/customer"
+            android:icon="@drawable/customer"
+            android:title="리뷰" />
+        <item
+            android:id="@+id/question"
+            android:icon="@drawable/question"
+            android:title="제품문의" />
+        <item
+            android:id="@+id/call"
+            android:icon="@drawable/call_phone"
+            android:title="고객센터" />
+        <item
+            android:id="@+id/lotout"
+            android:icon="@drawable/logout"
+            android:title="로그아웃" />
+        <item
+            android:id="@+id/wheel"
+            android:icon="@drawable/wheel"
+            android:title="설정" />
+    </group>
+
+</menu>
