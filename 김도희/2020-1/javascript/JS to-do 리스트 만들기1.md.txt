@@ -1,0 +1,89 @@
+===============================html
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>somthing</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href = "greeting.css">
+    </head>
+    <body>
+        
+        <div class = "jsclock">
+            <h1>00:00</h1>
+        </div>
+
+      <form class = "js-form form">
+          <input type="text"  placeholder="what is your name?">
+      </form>
+
+      <form class="js-todoform">
+          <input type="text" placeholder="wirte a to do">
+      </form>
+
+      <ul class = "js-todo">
+      </ul>
+
+      <h4 class="js-greetings greetings"></h4>
+    
+      <script src = "clock.js"></script>
+    <script src = "greeting.js"></script>
+    <script src = "todo.js"></script>
+    </body>
+</html>
+
+
+=========================================css
+
+.form,
+.greetings
+{
+    display: none;
+}
+
+.showing
+{
+    display: block;
+}
+
+=========================================js
+
+const todoform = document.querySelector(".js-todoform"),
+    todoinput = todoform.querySelector("input"),
+    todolist = document.querySelector(".js-todo");
+
+    const todos_LS = 'todos';
+
+    function painttodo(text)
+    {
+       const li = document.createElement("li");
+       const del = document.createElement("button");
+       del.innerText = "x";
+       const span = document.createElement("span");
+       span.innerText = text;
+       li.appendChild(span);
+       li.appendChild(del);
+       todolist.appendChild(li);
+    }
+
+    function handlesubmit(event)
+    {
+        event.preventDefault();
+        const currentvalue = todoinput.value;
+        painttodo(currentvalue);
+        todoinput.value = "";
+    }
+
+    function loadtodo(){
+        const todos = localStorage.getItem(todos_LS);
+        if(todos !== null)
+        { }
+    }
+
+    function init()
+    {
+        loadtodo();
+        todoform.addEventListener("submit", handlesubmit)
+    }
+
+    init();
