@@ -39,18 +39,30 @@
 - 아래는 Calendar 클래스의 메소드이다.
   메소드가 매우 많아서 Object 에서 상속 받은 것이나
   상위 클래스에서 오버로딩된 toString() 같은 함수들은 포함하지 않을 것이다.
-  손이 아파서 public은 모두 제외할 예정이었으나 protected 도 있어서 적을 그...다...
+  손이 아파서 public은 모두 제외할 예정이었으나 protected 도 있어서 적을 거...다...
 
   ```java
-  public abstract void add(int field, int amount);
+  public static Calendar getInstance();
+  public static Calendar getInstance(Locale aLocale);
+  public static Calendar getInstance(TimeZone zone);
+  public static Calendar getInstance(TimeZone zone, Locale aLocale);
+  
+  public void set(int field, int value);
+  public void set(int year, int month, int date);
+  public void set(int year, int month, int date, int hourOfDay, int minute);
+  public void set(int year, int month, int date, int hourOfDay, int minute, int second);
+  public int get(int field);
+  
   public boolean after(Object when);
   public boolean before(Object when);
+  
+  public abstract void add(int field, int amount);
   public void clear();
   public void clear(int field);
   protected void complete();
   protected abstract void computeFields();
   protected abstract void computeTime();
-  public int get(int field);
+  
   public int getActualMaximum(int field);
   public int getActualMinimum(int field);
   public static Set<String> getAvailableCalendarTypes();
@@ -60,10 +72,6 @@
   public Map<String, Integer> getDisplayNames(int field, int style, Locale locale);
   public int getFirstDayOfWeek();
   public abstract int getGreatestMinimum(int field);
-  public static Calendar getInstance();
-  public static Calendar getInstance(Locale aLocale);
-  public static Calendar getInstance(TimeZone zone);
-  public static Calendar getInstance(TimeZone zone, Locale aLocale);
   public abstract int getLeeastMaximum(int field);
   public abstract int getMaximum(int field);
   public int getMinimalDaysInFirstWeek();
@@ -79,20 +87,71 @@
   public boolean isWeekDateSupported();
   public abstract void roll(int field, boolean up);
   public void roll(int field, int amount);
-  public void set(int field, int value);
-  public void set(int year, int month, int date);
-  public void set(int year, int month, int date, int hourOfDay, int minute);
-  public void set(int year, int month, int date, int hourOfDay, int minute, int second);
+  
   public void setFirstDayOfWeek(int value);
   public void setLenient(boolean lenient);
   public void setMinimalDaysInFirstWeek(int value);
-  public void setTime(Date date);
+public void setTime(Date date);
   public void setTimeInMillis(long millis);
-  public void setTimeZone(TimeZone value);
+public void setTimeZone(TimeZone value);
   public void setWeekDate(int WeekYear, int weekOfYear, int dayOfWeek);
   ```
-
   
+- 이렇게 많은 메소드들이 Calendar 클래스에 내장되어 있다.
+  그럼 차차 이 메소드들에 대해서 설명하고자 한다.
 
-  
+
+
+##### getInstance()
+
+- getInstance() 함수는 위에서 보았듯이 총 네 가지로 오버로딩되어 있다.
+  애초에 getInstance() 함수 자체가 추상 클래스의 객체를 생성하거나
+  private 생성자를 사용하는 클래스를 위해서 객체를 리턴하도록 만들어진 메소드이기 떄문에
+  많이들 알고 있는 메소드라고 생각된다.
+
+  ###### 1. getInstance()
+
+  - 첫 번째 오버로딩된 getInstance() 메소드는 매개변수가 없어서
+    OS에 기록되어 있는 TimeZone과 Locale을 바탕으로 설정하게 됩니다.
+
+  ###### 2. getInstance(Locale aLocale)
+
+  - 두 번째 오버로딩된 getInstance() 메소드는 Locale만 원하는 대로 하고 싶을 경우 사용합니다.
+    TimeZone은 OS에 저장되어 있는 값으로 자동 설정됩니다.
+
+  ###### 3. getInstance(TimeZone zone)
+
+  - 세 번째 오버로딩된 getInstance() 메소드는 TimeZone만 원하는 대로 하고 싶을 경우 사용합니다.
+    Locale은 OS에 저장되어 있는 값으로 자동 설정됩니다.
+
+  ###### 4. getInstance(TimeZone zone, Locale aLocale)
+
+  - 네 번째 오버로딩된 getInstance() 메소드는
+    TimeZone과 Locale을 자신이 마음대로 설정할 수 있는 메소드입니다.
+    위의 메소드도 포함되지만 TimeZone과 Locale을 설정하면서
+    존재하지 않는 문자열을 넣어도 오류가 발생하지 않는다는 점에서
+    Calendar 클래스의 문제를 제기하고 있습니다.
+
+
+
+- 아래는 getInstance() 메소드를 이용하여 객체를 생성하는 예제이다.
+
+  ```java
+  public class MainClass {
+      public static void main(String[] args) {
+          Calendar calendar1 = Calendar.getInstance();
+          Calendar calendar3 = Calendar.getInstance(Locale.KOREA);
+          Calendar calendar2 = Calendar.getInstance(TimeZone.getTimeZone("Asia/Seoul"));
+          Calendar calendar4 = Calendar.getInstance(
+          					TimeZone.getTimeZone("Asia/Seoul"), Locale.KOREA);
+      }
+  }
+  ```
+
+- calendar4 객체만 설명하자면 Asia/Seoul TimeZone의 시간대를 사용하고
+  Locale은 KOREA로써 한국어를 사용한다.
+
+
+
+##### set()
 
