@@ -1,0 +1,116 @@
+
+.name::placeholder{ color:white; text-decoration: underline; font-size: 20px;}
+.line::placeholder{ color:rgb(143, 142, 142); text-decoration: underline;}
+.do::placeholder{ color: rgb(83, 83, 83); font-size: 27px; font-weight: bolder;}
+
+/* placeholder 색상 하양으로*/
+
+input:focus {outline:none;}
+/* 클릭시 나오는 그림자(파란거) 없애기
+   
+   색 변경을 원할 시에는  
+   //input:focus {outline:2px solid #d50000;}
+   이러한 형태로 사용
+*/
+
+.info
+{
+    position: relative;
+    left: 42.5%;
+    position: absolute;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.name
+{
+    position: relative;
+    left: 44.7%;
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+    box-shadow: none;
+    border: none ;
+    font-size: 17PX;
+    text-decoration: underline;
+}
+
+.do
+{
+    position: relative;
+    left:31.5%;
+    top: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-color: rgba(24, 23, 23, 0);
+    color: rgb(85, 82, 82);
+    box-shadow: none;
+    border: none ;
+    font-size: 25PX;
+}
+
+.line
+{
+    position: relative;
+    left: 5%;
+    top: 20px;
+    background-color: rgba(24, 23, 23, 0);
+    box-shadow: none;
+    border: black;
+    font-size: 15PX;
+    width:88%;
+    text-align: center;
+}
+
+.todobg
+{
+    position: relative;
+    left: 35.5%;
+    top: 10PX;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 30%;
+    height: 470px;
+}
+
+.js-todo
+{
+    color: rgb(70, 69, 69);
+    margin-top: 38px;
+    margin-bottom: 0px;
+}
+
+li
+{
+    font-size: 15px;
+    margin-top: 16px;
+    color: rgb(70, 69, 69);
+    font-weight: bolder;
+}
+
+
+
+.delete
+{
+    margin-left : 10px;
+    color: red;
+}
+
+.reset
+{
+    position: relative;
+    
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+    box-shadow: none;
+    border: 1px solid white ;
+    font-size: 17PX;
+    width:100px;
+    height: 32px;
+    left: 88%;
+}
+
+body
+{
+    margin-top: 18px;
+}
