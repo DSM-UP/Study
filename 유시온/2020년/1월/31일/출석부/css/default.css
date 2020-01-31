@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: white;
+    width: 1200px;
+    height: 1920px;
+}
+
+#whole-wrap {
+    position: relative;
+    width: 1200px;
+    height: 1920px;
+}
+
+#default-footer {
+    width: 100%;
+    background: #1e90ff;
+    position: absolute;
+    bottom: 0;
+    height: 80px;
+}
+
+#default-footer-right, #default-footer-left {
+    display: inline-block;
+    font-weight: bolder;
+    font-size: 45px;
+    color: white;
+    margin-top: 10px;
+}
+
+#default-footer-right {
+    float: right;
+    margin-right: 20px;
+}
+
+#default-footer-left {
+    margin-left: 20px;
+}
