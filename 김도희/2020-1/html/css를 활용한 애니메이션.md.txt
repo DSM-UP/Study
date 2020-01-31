@@ -1,0 +1,92 @@
+========================================html
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            animation
+        </title>
+        <meta charset="UTF-8">
+    </head>
+
+    <body>
+        <link rel="stylesheet" href="animation.css">
+        <div class ="dissapoint" ></div>
+        <div class ="appear" ></div>
+        <div class="Move"></div>
+        <script src="animation.js"></script>
+    </body>
+</html>
+
+========================================css
+
+@keyframes appear
+{
+    from {
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes dissapoint
+{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+@keyframes Move {
+    from{ background-color: blue;}
+to{ background-color: red;} }
+/*
+@keyframes 애니메이션 명 {
+    from {}  //애니메이션 시작 요소(위 같은 경우 opacity(투명도)를 0에서 시작해 
+    to {} // 1(불투명)로 변하도록 해줌
+}
+
+//위랑 다른 방법 
+@keyframes 애니메이션 명 {
+    0% {}
+    n% {}  //n%일때의 모앵
+  100% {}
+}
+
+이러한 애니메이션은 animation : 애니메이션명으로 호출 가능
+*/
+
+.dissapoint{
+    background-color: black;
+    position: absolute;
+    top: 30%;
+    left: 600px;
+    width : 300px;
+    height: 300px; 
+    animation: dissapoint 2s forwards;
+}
+
+.appear {
+    background-color: black;
+    position: absolute;
+    top: 30%;
+    left: 150px;
+    width : 300px;
+    height: 300px; 
+    animation: appear 2s forwards;
+    /*애니메이션명 뒤의 시간은 얼마에 걸처 일어날지
+    지정한 시간이고 linear은 일정한 속도로 진행한느 것을 말한다*/
+}
+
+.Move{
+    position: absolute;
+    top: 30%;
+    left: 1100px;
+    width : 300px;
+    height: 300px; 
+    animation: Move 2s forwards;
+}
+
