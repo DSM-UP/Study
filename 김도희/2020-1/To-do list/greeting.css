@@ -1,0 +1,20 @@
+.form,
+.greetings
+{
+    display: none;
+}
+
+.showing
+{
+    display: block;
+}
+
+.js-greetings
+{
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    text-decoration: underline;
+    margin-bottom: 0px;
+    margin-top: 15px;
+}

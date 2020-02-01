@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>somthing</title>
+        <meta charset="UTF-8"/>
+
+        <link rel="stylesheet" href = "greeting.css">
+        <link rel="stylesheet" href = "bg.css">
+        <link rel="stylesheet" href = "clock.css">
+        <link rel="stylesheet" href="todo.css">
+        <link rel="stylesheet" href="weather.css">
+
+    </head>
+    <body>
+        <button class="reset" onclick="button()">Reset</button>
+        <span class="js-weather"></span>
+        <h4 class="info">리스트는 최대 10개까지 입력 가능</h4>
+
+        <div class="Border">
+            <div class = "jsclock">
+                <h1 class="Clock">00:00</h1>
+            </div>
+
+            <form class = "js-form form">
+            <input class="name" type="text"  placeholder="what's your name?">
+            </form>
+
+            <h4 class="js-greetings greetings"></h4>
+
+            <div class="todobg">
+                <h3 class="do">write a to do</h3>
+                <form class="js-todoform">
+                    <input class="line" type="text" placeholder="write here">
+                </form>
+
+                <ul class = "js-todo"></ul>
+                
+            </div>
+                <script src = "clock.js"></script>
+                <script src = "greeting.js"></script>
+                <script src = "todo.js"></script>
+                <script src="bg.js"></script>
+                <script src="weather.js"></script>
+                <script src="button.js"></script>
+        </div>
+    </body>
+</html>
