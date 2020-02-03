@@ -1,0 +1,70 @@
+@import "reset.css";
+
+body{
+    background-color: #ffa498;
+}
+
+.canvas{
+    position: relative;
+    width: 450px;
+    height: 450px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 12px 13px 31px -4px rgba(191,191,191,0.76);
+    text-align: center;
+    left: 34%;
+    top: 100px;
+}
+
+.control{
+    position: relative;
+    display: flex;
+    flex-direction: column;/*flex 상태를 가로로*/
+    align-items: center;
+    top: 120px;
+}
+
+.control_buttons{
+    position: relative;
+    display: flex;  /*flex 상태로 바꿈 공간을 말하는 container 와 item*/
+    margin-top: 15px; 
+    right: 1.5%;  
+}
+
+#jsrange
+{
+    margin-right: 54px;
+}
+
+button {
+    margin-right: 20px;
+    width: 60px;
+    height: 20px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    /*all: unset  버튼 모양 없애줌;*/
+    box-shadow: 12px 13px 31px -4px rgba(191,191,191,0.76);
+}
+
+ /*activity는 버튼 클릭시를 뜻함*/
+.control_buttons :active{
+    transform: scale(0.8);
+}
+
+.control .control_colors{
+    display: flex;
+}
+
+.control_colors .control_color{
+    position: relative;
+    right:6%;
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 12px 13px 31px -4px rgba(191,191,191,0.76);
+}
+
