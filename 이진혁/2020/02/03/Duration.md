@@ -242,8 +242,225 @@
 
   ```java
   public class MainClass {
-      public static void main(String[] args)
+      public static void main(String[] args) {
+          Duration duration = Duration.ofHours(5);
+          LocalTime localTime = LocalTime.of(10, 10, 10);
+        LocalTime localTime2 = duration.addTo(localTime);
+          
+          System.out.println(localTime);
+          System.out.println(localTime2);
+      }
   }
+  
+  // 10:10:10
+  // 15:10:10
+  ```
+  
+- 이렇게 10시 10분 10초에서 5시간을 더한 15시 10분 10초로 변한 것을 알 수 있다.
+
+
+
+### 8. dividedBy()
+
+- dividedBy() 은 말 그대로 시간을 나누는 역학을 하는 메소드이다.
+  간단하니 예제로 바로 넘어가겠다.
+
+  ```java
+  public class MainClass {
+      public static void main(String[] args) {
+          Duration duration = Duration.ofHours(64);
+          System.out.println(duration.dividedBy(1));
+          System.out.println(duration.dividedBy(2));
+          System.out.println(duration.dividedBy(4));
+          System.out.println(duration.dividedBy(8));
+          System.out.println(duration.dividedBy(16));
+          System.out.println(duration.dividedBy(32));
+          System.out.println(duration.dividedBy(64));
+      }
+  }
+  
+  // PT64H
+  // PT32H
+  // PT16H
+  // PT8H
+  // PT4H
+  // PT2H
+  // PT1H
+  ```
+
+
+
+### 9. get() - getSeconds() - getNanos() - getUnits()
+
+- get(), getSeconds(), getNanos() 메소드는 각각 그 시간 단위의 상위 요소까지 포함하여
+  시간을 리턴하는 메소드이다. (하지만 나노초는 초 전까지의 요소만 관여한다.
+
+- getSeconds() 메소드와 get() 메소드는 long 리턴타입을 가지는 것에 비해서
+  getNanos() 메소드는 int 리턴타입을 가진다.
+
+- getUnits() 메소드는 이 get 메소드의 요소들을 뽑아내는 메소드이다.
+  리턴타입이 List<TemporalUnit> 이지만
+  어떤 Duration 객체를 사용해도 [Seconds, Nanos]의 결과밖에 나오지 않는다.
+
+  ```java
+  public class MainClass {
+      public static void main(String[] args) {
+          Duration duration = Duration.parse("PT10H10M10.000000001S");
+          System.out.println("getSeconds() : " + duration.getSeconds());
+          System.out.println("getNanos() : " + duration.getNanos());
+          System.out.println("get(ChronoUnit.SECONDS) : "
+                             + duration.get(ChronoUnit.SECONDS));
+          System.out.println("get(ChronoUnit.NANOS) : "
+                             + duration.get(ChronoUnit.NANOS));
+         	System.out.println(duration.getUnits());
+      }
+  }
+  
+  // 36610
+  // 1
+  // 36610
+  // 1
+  // [Seconds, Nanos]
+  ```
+
+- 이렇게 우리는 10시간 10분 10초를 초 단위로 계산하면 36610초라는 것을 알 수 있다.
+
+
+
+### 10. isNegative() - isZero()
+
+- isNegative() 메소드는 Duration 객체의 시간이 음수인지 확인하고
+  음수이면 true를 음수가 아니라면 false를 리턴한다.
+
+- isZero() 메소드는 Duration 객체의 시간이 0인지 확인하고
+  0이면 true를 0이 아니면 false를 리턴한다.
+
+- 간단하므로 바로 예제를 보면 좋을 것 같다.
+
+  ```java
+  public class MainClass {
+      public static void main(String[] args) {
+          Duration duration1 = Duration.parse("PT-10H");
+          Duration duration2 = Duration.parse("PT0S");
+          
+          System.out.println(duration1.isNegative());
+          System.out.println(duration1.isZero());
+          System.out.println(duration2.isNegative());
+          System.out.println(duration2.isZero());
+      }
+  }
+  
+  // true
+  // false
+  // false
+  // true
+  ```
+
+  
+
+### 11. minusXXX() - plusXXX()
+
+- minus() 메소드를 포함한 minusXXX() 메소드와
+  plus() 메소드를 포함한 plusXXX() 메소드는 다 같은 기능을 가지고 있다.
+  minusXXX() 메소드들은 각자 요소의 시간을 빼는 역할을 하고 있고
+  minus() 메소드는 그 요소를 직접 정해서 시간을 빼거나 Duration 객체끼리 빼는 방법이 있다.
+  plusXXX() 메소드도 마찬가지로 각자 요소의 시간을 더하는 역할을 하고 있고
+  plus() 메소드는 그 요소를 직접 정해서 시간을 더하거나 Duration 객체끼리 더할 수도 있다.
+  아래는 이 많은 메소드들의 예제이다.
+
+  ```java
+  public class MainClass {
+      public static void main(String[] args) {
+          Duration duration = Duration.parse("PT10H10M10S");
+         	
+          System.out.println(duration.minus(Duration.ofHours(10)));
+          System.out.println(duration.minus(10, ChronoUnit.HOURS));
+          System.out.println(duration.minusDays(1));
+          System.out.println(duration.minusHours(10));
+          System.out.println(duration.minusMinutes(600));
+          System.out.println(duration.minusSeconds(36000));
+          System.out.println(duration.minusMillis(36000000));
+          System.out.println(duration.minusNanos(36000000000000000));
+          System.out.println();
+          System.out.println(duration.plus(Duration.ofHours(10)));
+          System.out.println(duration.plus(10, ChronoUnit.HOURS));
+          System.out.println(duration.plusDays(1));
+          System.out.println(duration.plusHours(10));
+          System.out.println(duration.plusMinutes(600));
+          System.out.println(duration.plusSeconds(36000));
+          System.out.println(duration.plusMillis(36000000));
+          System.out.println(duration.plusNanos(36000000000000000));
+      }
+  }
+  
+  // PT10M10S
+  // PT10M10S
+  // PT-13H-49M-50S
+  // PT10M10S
+  // PT10M10S
+  // PT10M10S
+  // PT10M10S
+  // PT10M10S
+  //
+  // PT20H10M10S
+  // PT20H10M10S
+  // PT34H10M10S
+  // PT20H10M10S
+  // PT20H10M10S
+  // PT20H10M10S
+  // PT20H10M10S
+  // PT20H10M10S
+  ```
+
+  
+
+### 12. withSeconds() - withNanos()
+
+- withSeconds() 메소드와 withNanos() 메소드는 그 요소를 매개변수의 값으로 대체하는 메소드이다.
+  withSeconds() 메소드는 초단위를, withNanos() 메소드는 나노초단위를 바꾼다.
+  아래는 위 두 개의 메소드의 예제이다.
+
+  ```java
+  public class MainClass {
+      public static void main(String[] args) {
+          Duration duration = Duration.parse("PT10H10M10.000000001S");
+          System.out.println(duration.withSeconds(1));
+          System.out.println(duration.withNanos(2));
+      }
+  }
+  
+  // PT10H10M1.000000001S
+  // PT10H10M10.000000002S
+  ```
+
+  
+
+### 13. toXXX()
+
+- toDays(), toHours() - toMinutes() - toMillis() - toNanos() 메소드는 그 단위로
+  Duration 객체의 시간을 알려주는 메소드이다.
+  예를 들어 1시간이 Duration 객체에 존재하는데
+  toMinutes() 메소드로 가져오면 60이 리턴되는 형식이다.
+  아래는 위 5개의 메소드의 예제이다.
+
+  ```java
+  public class MainClass {
+      public static void main(String[] args) {
+          Duration duration = Duration.parse("PT10H10M10.000000001S");
+          
+          System.out.println(duration.toDays());
+          System.out.println(duration.toHours());
+          System.out.println(duration.toMinutes());
+          System.out.println(duration.toMillis());
+          System.out.println(duration.toNanos());
+      }
+  }
+  
+  // 0
+  // 10
+  // 610
+  // 36610000
+  // 36610000000001
   ```
 
   
