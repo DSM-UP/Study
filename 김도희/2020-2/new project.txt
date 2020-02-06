@@ -1,0 +1,60 @@
+=====================================html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <link rel="stylesheet" href="index.css">
+    <img src="C:\Users\user\Desktop\newpro\슬라임.PNG" alt="슬라임" id="plus">
+    <h1 id="hp">0</h1>
+    <h4 id="growth"></h4>
+    <script src="index.js"></script>
+</body>
+</html>
+
+=====================================js
+
+const Hp = document.getElementById('hp');
+const Plus = document.getElementById('plus');
+const growth = document.getElementById('growth');
+let number = 1;
+
+Plus.addEventListener("click", start);
+
+function start(){
+    if(number === 10)
+    {
+        one();
+    }
+
+    if(number === 20)
+    {
+        two();
+    }
+
+    console.log(number);
+    Hp.innerHTML = number;
+    number = number+1;
+}
+
+function reset()
+{
+    growth.innerText = null;
+}
+
+
+function one(){
+   console.log("1차 성장"); 
+    growth.innerHTML = "슬라임 1차 성장 완료!";
+    setTimeout("reset()", 1000);
+}
+
+function two(){
+    console.log("2차 성장"); 
+     growth.innerHTML = "슬라임 2차 성장 완료!";
+     setTimeout("reset()", 1000);
+ }
