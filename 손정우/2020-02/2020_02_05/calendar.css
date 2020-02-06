@@ -1,0 +1,92 @@
+#Calendar_Header{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.Today_Text {
+    font-weight: bold;
+}
+.Today_Text > * {
+    display: inline-block;   
+}
+
+
+
+.Content_Changer > .Toggle_way{
+    display: inline-block;
+    position: relative;
+    border: 2px solid black;
+    border-radius: 15px;
+    width: 30px;
+    height: 15px;
+}
+.Toggle_way > .Toggle_BTN {
+    display: none;
+}
+
+.Toggle_way > .Toggle {
+    display: inline-block;
+    position: absolute;
+    background-color: black;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    top: 50%;
+    left: -1px;
+    transform: translate(0%, -50%);
+}
+.Toggle_way > .Toggle_BTN:active + .Toggle,
+.Toggle_way > .Toggle_BTN:checked + .Toggle {
+    left: 15px;
+}
+
+.Names_Five_Days{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin-left: 1.5px;
+    margin-right: 1.5px;  
+}
+.Names_Five_Days > .Name_Day {
+    background-color: #87CEFA;
+    margin-left: 1.5px;
+    margin-right: 1.5px;
+    text-align: center;
+    color: white;
+    padding: 3px;
+}
+
+
+.Day {
+    width: 20%;
+    border: 3px solid #87CEFA;
+    padding: 5px;
+    font-weight: bold;
+}
+.Day.Today {
+    border: 3px solid #FFD700;
+}
+
+.Day > .Day_Number {
+    text-align: right;
+}
+.Day.Ordinary > .Day_Number{
+    color: #6495ED;
+}
+.Day.Special > .Day_Number{
+    color: red;
+}
+.Day.GrayDay {
+    color: #BFBFBF;
+}
+
+.Calendar_Content{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    border: 3px solid #87CEFA;
+    margin-top: 5px;;
+}
+
+.teachers{
+    display: none;
+}
