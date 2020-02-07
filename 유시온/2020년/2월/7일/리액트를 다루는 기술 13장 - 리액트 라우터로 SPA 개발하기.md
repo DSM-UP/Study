@@ -453,3 +453,277 @@ export default App;
 
 
 ### 13.6 리액트 라우터 부가 기능
+
+#### history
+
+history 객체는 라우트로 사용된 컴포넌트에 match,. location과 함께 전달되는 props 중 하나로 이 객체를 통해 컴포넌트 내에 구현하는 메서드에서 라우터 APU를 호출할 수 있습니다. 예를 들어 특정 버튼을 눌렀을 때 뒤로 가거나, 로그인 후 첫 화면을 전환하거나, 다른 페이지로 이탈하는 것을 방지해야 할 때 history를 활용합니다. 
+
+
+
+`HistorySample.js`
+
+```react
+import React, { Component } from 'react';
+
+class HistorySample extends Component {
+    handleGoBack = () => {
+        this.props.history.goBack();
+    };
+
+	handleGoHome = () => {
+        this.props.history.push('/');
+    }
+    
+    componentDidMount() {
+        this.unblock = this.props.history.block('정말 떠나실 건가요?');
+    }
+
+	componentWillUnmount() {
+        if (this.unblock) {
+            this.unblock();
+        }
+    }
+
+	render (
+    	return (
+    		<div>
+        		<button onclick={this.handleGoBack}>뒤로</button>
+            	<button onclick={this.handleGoHome}>홈으로</button>
+        	</div>
+    	);
+    )
+}
+
+export default HistorySample;
+```
+
+
+
+
+
+#### withRouter
+
+withRouter 함수는 Hoc(Higher-order Component ) 입니다. 라우트로 사용된 컴포넌트가 아니어도 match, location, history 객체를 접근할 수 있게 해 줍니다.
+
+
+
+`withRouterSample.js`
+
+```react
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+const WithRouterSample = ({ location, match, history }) => {
+    return (
+    	<div>
+        	<h4>location</h4>
+            <textarea
+                value={JSON.stringfy(location, null, 2)}
+                row={7}
+                readOnly={true}
+            />
+            <h4>match</h4>
+            <textarea
+                value={JSON.stringfy(location, null, 2)}
+                row={7}
+                readOnly={true}
+            />
+            <button onClick={() => history.push('/')}>홈으로</button>
+        </div>
+    );
+};
+
+export default WithRouter(WithRouterSample);
+```
+
+
+
+`Profiles.js`
+
+```react
+import React from 'react';
+import { Link, Route } from 'react-router-dom';
+import Profile from './Profile';
+import withRouterSample '/withRouterSample';
+
+const Profiles = () => {
+    return (
+    	<div>
+        	<h3>사용자 목록:</h3>
+            <ul>
+            	<li>
+                	<Link to="/profiles/velopert">velopert</Link>
+                </li>
+                <li>
+                	<Link to="/profiles/gildong">gildong</Link>
+                </li>
+            </ul>
+            
+            <Route
+                path="/profiles"
+                exact
+                render={() => <div>사용자를 선택해 주세요.</div>}
+            />
+            <Route path="/profiles/:username" component={Profile}/>
+            <withRouterSample></withRouterSample>
+        </div>
+    );
+};
+
+export default Profiles;
+```
+
+
+
+match 객체를 보면 params가 비어 있습니다. withRouter를 사용하면 현재 자신을 보여 주고 있는 라우트 컴포넌트를 기준으로 match가 전달됩니다. Profiles를 위한 라우트를 설정할 때는 path="/profiles"라고만 입력했으므로 username 파라미터를 읽어 오지 못하는 상태입니다.
+
+
+
+`Profile.js`
+
+```react
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+import withRouterSample from './withRouterSample';
+
+const data = {
+    velopert: {
+        name: '김민준',
+        description: '리액트를 좋아하는 개발자'
+    },
+    gildong: {
+        name: '홍길동',
+        description: '고전 소설 홍길동전의 주인공'
+    }
+};
+
+const Profile = ({ match }) => {
+    const { username } = match.params;
+    const profile = data[username];
+    if (!profile) {
+        return <div>존재하지 않는 사용자입니다.</div>
+    }
+    return (
+    	<div>
+        	<h3>
+            	{username}({profile.name})
+            </h3>
+            <p>{profile.description}</p>
+            <withRouterSample/>
+        </div>
+    );
+};
+
+export default Profile;
+```
+
+
+
+#### Switch
+
+Switch 컴포넌트는 여러 Route를 감싸서 그중 일치하는 단 하나의 라우트만을 렌더링시켜 줍니다. Switch를 사용하면 모든 규칙과 일치하지 않을 때 보여 줄 Not Found 페이지도 구현할 수 있습니다.
+
+
+
+`App.js`
+
+```react
+import React from 'react';
+import { Route, Link, Switch } from 'react-router-dom';
+import About from './About';
+import Home from './Home';
+import Profiles from './Profiles';
+import HistorySample from './HistorySample';
+
+const App = () => {
+    return (
+    	<div>
+        	<ul>
+            	<li>
+                	<Link to="/">홈</Link>
+                </li>
+                <li>
+               		<Link to="/about">소개</Link> 
+                </li>
+                <li>
+                	<Link to="/profiles">프로필</Link>
+                </li>
+                <li>
+                	<Link to="/history">History 예제</Link>
+                </li>
+            </ul>
+            <hr />
+            <Switch>
+                <Route path="/" component={Home} exact={true} />
+                <Route path={['/about', '/info']} component={About} />
+                <Route path="/profiles" component={Profiles} />
+                <Route path="/history" component={HistorySample} />
+                <Route 
+                    render={({ location }) => (
+                    	<div>
+                        	<h2>이 페이지는 존재하지 않습니다:</h2>
+                            <p>{location.pathname}</p>
+                        </div>
+                    )}
+           	</Switch>
+        </div>
+    );
+};
+
+export default App;
+```
+
+
+
+#### NavLink
+
+NavLink는 Link와 비슷합니다. 현재 경로와 Link에서 사용하는 경로가 일치하는 경우 특정 스타일 혹은 CSS 클래스를 적용할 수 있는 컴포넌트입니다.
+
+NavLink에서 링크가 활성화 되었을 때의 스타일을 적요할 때는 activeStyle 값을, CSs 클래스를 적용할 때는 activeClassName 값을 props로 넣어 주면 됩니다.
+
+
+
+`Profiles.js`
+
+```react
+import React from 'react';
+import { NavLink, Route } from 'react-router-dom';
+import Profile from './Profile';
+import withRouterSample from './withRouterSample';
+
+const Profiles = () => {
+    const activeStyle = {
+        background: 'black',
+        color: 'white'
+    };
+    return (
+    	<div>
+        	<h3>사용자 목록:</h3>
+            <ul>
+            	<li>
+                	<NavLink activeStyle={activeStyle} to="/profiles/velopert">
+                        velopert
+                    </NavLink>
+                </li>
+                <li>
+                	<NavLink activeStyle={activestyle} to="/profiles/gildong">
+                        gildong
+                    </NavLink>
+                </li>
+            </ul>
+            
+            <Route
+                path="/profiles"
+                exact
+                render={() => <div>사용자를 선택해 주세요.</div>}
+            />
+            <Route path="/profiles/:username" component={Profile}/>
+            <withRouterSample></withRouterSample>
+        </div>
+    );
+};
+
+export default Profiles;
+```
+
+
+
