@@ -1,0 +1,80 @@
+@keyframes appear
+{
+    0% {opacity: 0;}
+    20%{opacity: 0.25;}
+    40%{opacity: 0.5;}
+    60%{opacity: 0.8;}
+    80%{opacity: 0.5;}
+    100%{opacity: 0.25;}
+}
+
+html{
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    background-color: rgb(249, 255, 194);
+    width: 99%;
+    height: 90%;
+}
+
+#pet{
+    position: relative;
+    width: 320px;
+    height: 320px;
+    left: 36%;
+    top: 170px;
+}
+
+#pet :active
+{
+    transform: scale(0.85);
+}
+
+#exp
+{
+    text-align: center;
+    font-size: 40px;
+    margin-top: 0px;
+    color: rgb(120, 154, 206);
+}
+
+#Expcustom
+{
+    position: relative;
+    width: 60px;
+    height: 75px;
+    left: 52.7%;
+    bottom: 300px;
+}
+
+#expborder{
+    position: relative;
+    border: 5px solid rgb(135, 148, 221);
+    border-radius: 20px;
+    width: 170px;
+    height: 60px;
+    margin-top: 60px;
+    left: 44.5%;
+    background-color: rgb(251, 255, 217);
+
+}
+
+#click
+{
+    margin-top: 150px;
+    text-align: center;
+    animation: appear 2s infinite;
+    color: gray;
+    font-size: 20px;
+}
+
+#growth
+{
+    text-align: center;
+    color: black;
+    font-size: 30px;
+    animation: appear 2s infinite;
+    padding-top: 40px;
+}
