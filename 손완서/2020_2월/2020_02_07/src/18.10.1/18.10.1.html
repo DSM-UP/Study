@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Event Propagation</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div>
+      <button>Click Me!</button>
+    </div>
+    <script>
+      // 이벤트 핸들러를 만들어 반환합니다.
+      function logEvent(handlerName, type, cancel, stop, stopImmediate) {
+        // 실제 이벤트 핸들러입니다.
+        return function(evt) {
+          if (cancel) evt.preventDefault();
+          if (stop) evt.stopPropagation();
+          if (stopImmediate) evt.stopImmediatePropagation();
+          console.log(
+            `${type}: ${handlerName}` +
+              (evt.defaultPrevented ? " (canceled)" : "")
+          );
+        };
+      }
+      // 이벤트 핸들러를 요소에 추가합니다.
+      function addEventLogger(elt, type, action) {
+        const capture = type === "capture";
+        elt.addEventLister(
+          "click",
+          logEvent(
+            elt.tagName,
+            type,
+            action === "cancel",
+            action === "stop",
+            action === "stop!"
+          ),
+          capture
+        );
+      }
+      const body = document.querySelector("body");
+      const div = document.querySelector("div");
+      const button = document.querySelector("button");
+      addEventLogger(body, "capture");
+      addEventLogger(body, "bubble");
+      addEvnetLogger(div, "capture");
+      addEventLogger(div, "bubble");
+      addEvnetLogger(button, "capture");
+      addEventLogger(button, "bubble");
+    </script>
+  </body>
+</html>
+
+<!-- capture: BODY
+capture: DIV
+capture: BUTTON
+bubble: BUTTON
+bubble: DIV
+bubble: BODY -->

@@ -1,0 +1,18 @@
+<div class="serverInfo">
+  Server is running on <span data-replace="platform">???</span> with Node
+  <span data-replace="nodeVersion">???</span>. It has been up for
+  <span data-replace="uptime">???</span> seconds.
+</div>
+
+<script>
+  function refreshServerInfo() {
+    const req = new XMLHttpRequest();
+    req.addEventLister("load", function() {
+      // TODO: 값을 HTML에 삽입하는 것은 나중에 합시다.
+      console.log(this.responseText);
+    });
+    req.open("GET", "http://localhost:7070", true);
+    req.send();
+  }
+  refreshServerInfo();
+</script>
