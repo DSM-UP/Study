@@ -823,7 +823,146 @@ const num2: number = 0.1;
 
 문자열을 타나내는 타입이다. ES6 리터럴 역시 `string` 타입의 값이다.
 
+```typescript
+const name: string = 'cutyapple';
+```
 
 
 
+### null / undefined
+
+`null` 타입과 `undefined` 타입은 각각 `null` 과 `undefined` 라는 하나의 값만을 갖는다. 이 두 값을 자기 자신의 타입, 그리고 `void` 타입 외에 할당하려 하면 타입에러가 발생한다.
+
+```typescript
+const nullValue: null = null;
+const undefinedValue: undefined = undefined;
+const num: null; // TS2322: Type 'null' is not assignable to type 'number'
+```
+
+TS에서 기본적으로 `null`과 `undefined`는 모든 타입의 서브 타입이다. 그러나 위의 해당하는 경우는 `--strict` 플래그가 켜져있는 환경에서의 동작이다.
+
+
+
+### 특별한 타입
+
+JS에서는 없지만 TS에서의 특수 타입이 있다.
+
+
+
+#### any
+
+`any` 타입은 모든 타입과 호환 가능하다. 즉, 모든 값의 타입을 `any`로 지정할 수 있고, `any` 타입의 변수는 모든 값을 할당할 수 있다.
+
+```typescript
+let anyValue: any = true;
+anyValue = 1;
+anyValue = 'a';
+anyValue = {};
+```
+
+
+
+또한 `any` 타입 값의 메소드를 호출할 시에도 타입 검사가 수행되지 않는다. 이 때 해당 실제로 존재하지 않는다면 타입 검사는 통과하되 에러가 발생할 것이다.
+
+`any` 타입은 TS 타입 시스템의 비상 탈출구이다. `any`는 타입 정의를 제공하지 않는 라이브러리, 알수 없는 값 표기 등에 유용하다. 하지만 `any`를 남용하면 타입 안정성에 구멍이 뚫린 코드가 되어 TS의 의의가 사라지게 된다.
+
+
+
+#### void
+
+`void`는 `null`과 `undefined` 만을 가질 수 있는 타입이다. 아무런 값도 반환하지 않는 함수의 반환 타입을 표시할 때 사용한다.
+
+```typescript
+function func(): void { }
+```
+
+
+
+#### never
+
+`never`는 아무런 값도 가질 수 없는 타입이다.
+
+```typescript
+function alwaysThrow(): never {
+    throw new Error('just error!');
+}
+```
+
+
+
+## 배열과 튜플
+
+### 배열
+
+배열 타입은 JS `Array` 값의 타입을 나타내는데 쓰인다. 원소 타입 뒤에 대괄호 (`[]`)를 붙여 표현한다.
+
+```typescript
+const nums: number[] = [1, 2, 3];
+const strs: string[] = ['a', 'b', 'c'];
+
+const nums: Array<number> = [1, 2, 3];
+const strs: Array<string> = ['a', 'b', 'c'];
+```
+
+위의 두 문법은 같은 의미를 가진다.
+
+
+
+### 튜플
+
+튜플 타입을 이용해 원소의 수와 각 원소의 타입이 정확히 지정된 배열의 타입을 정의할 수 있다.
+
+```typescript
+const tuples: [string, number] = ['a', 1]
+```
+
+**튜플 타입 변수는 정확히 명시된 개수 만큼의 원소만을 가질 수 있다.** 만약 타입 정의와 다른 수의 원소를 갖는 배열을 할당하면 에러를 낸다.
+
+다만 튜플 타입의 값을 `Array` 프로토타입의 메소드를 통해 조작하는 것은 금지되지 않는다.
+
+```typescript
+const tuples: [string, number] = ['a', 1]
+tuples.push(2);
+```
+
+
+
+## 객체
+
+### 객체 타입
+
+JS 오브젝트 리터럴을 정의하듯 중괄호 (`{}`)를 이용해 객체 타입을 표현한다.
+
+```typescript
+const obj: { name: string; age: number; } = { name: 'cutyapple'; age: 18 };
+```
+
+이 때 객체 타입 정의는 오브젝트 리터럴과 다음과 같은 차이점을 갖는다.
+
+* 콜론(`:`)의 우변에는 값 대신 해당 속성의 타입이 들어간다.
+* 구분자로 콤마(`,`) 뿐만 아니라 세미콜론(`;`)을 사용할 수 있다.
+
+
+
+### 선택 속성
+
+함수의 선택 매개변수와 비슷하게 속성명 뒤에 물음표(`?`)를 붙여 해당 속성이 존재하지 않을 수도 잇음을 표현할 수 있다.
+
+```typescript
+const obj: { name: string; age?: number; } { name: 'cutyapple' };
+```
+
+
+
+### 읽기 전용 속성
+
+속성명 앞에 `readonly` 키워드를 붙여 속성의 재할당을 막을 수 있다. `const` 키워드를 이용한 변수의 정의와 비슷하게 동작한다.
+
+```typescript
+const user: {
+    readonly name: string;
+    age: number;
+} = { name: 'cutyapple'; age: 18 };
+user.name = 'cutycarrot'; // error TS2540: Cannot assing to 'name' because it iis a constant or a read-only property.
+```
 
