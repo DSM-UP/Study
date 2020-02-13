@@ -760,3 +760,70 @@ fetch('http://example.com').then(response => {
 })
 ```
 
+만약 네트워크 요청을 보내는 과정에서 오류가 발생했을 경우, 이 프로미스는 내부적으로 던져진 에러를 인자로 `reject()`를 호출한다. 이 응답은 `catch()` 핸들러에서 접근이 가능하다.
+
+
+
+#### 프로미스 체인
+
+`then`과 `catch`는 호출된 경우 또다시 프로미스를 반환한다. 때문에 프로미스는 연쇄될 수 있다. 이 때, 프로미스 체인의 다음 프로미스는 이번 프로미스가 반환한 값으로 `resolve`를 호출한다.
+
+
+
+### Async / Await	
+
+프로미스는 콜백을 이용한 사용 패턴의 문제 중 상당 부분을 해소했지만, 완벽한 해결책은 아니었다. 
+
+`Async` / `Await`을 지원하는 환경에서는 함수 선언 앞에 `async`키워드를 덧붙여 비동기 함수를 정의할 수 있다. 
+
+
+
+## TS 기초 문법
+
+### 타입 표기 (Type Annotation)
+
+TS 코드에서 어떤 변수 또는 값의 타입을 표기하기 위해 **타입 표기**를 사용한다. 타입 표기는 식별자 또는 값 뒤에 콜론(`:`)을 붙여 `value: type`의 형태로 표기한다.
+
+```typescript
+const bool: boolean = true;
+const num: number = 1;
+const str: string = 'a';
+const obj: Object = {
+    a: true
+};
+```
+
+
+
+## 기본 타입
+
+### 불리언
+
+JS의 `boolean`에 대응하는, 참 또는 거짓을 나타내는 타입이다.
+
+```typescript
+const yes: boolean = true;
+const no: boolean = false;
+```
+
+
+
+### 숫자
+
+숫자를 나타내는 타입이다. JS에서는 정수, 부동 소수점 등의 구분이 없고 모든 수가 IEEE754 표준을 따르는 부동소수점이고, TS의 `number`타입도 마찬가지다.
+
+```typescript
+const num: number = 100;
+const num2: number = 0.1;
+```
+
+
+
+### 문자열
+
+문자열을 타나내는 타입이다. ES6 리터럴 역시 `string` 타입의 값이다.
+
+
+
+
+

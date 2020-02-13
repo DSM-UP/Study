@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DMI</title>
+    <link rel="stylesheet" href="../css/default.css">
+    <link rel="stylesheet" href="../css/stats.css">
+</head>
+<body>
+    <div id="whole-wrap">
+        <header id="default-header">
+            <div id="default-header-menu-button"></div>
+            <div id="default-header-text">통계 보기</div>
+            <div id="default-header-message-button"></div>
+        </header>
+        <section>
+            <div id="section-wrap">
+                <div id="section-select">
+                    <div id="section-select-info">
+                        <div id="student-info" class="select-info">  
+                            <p id="student-info-text">학생 인적사항</p>
+                            <select name="" id="">
+                                <option value="">1학년</option>
+                                <option value="">2학년</option>
+                                <option value="">3학년</option>
+                            </select>
+                            <select name="" id="">
+                                <option value="">1반</option>
+                                <option value="">2반</option>
+                                <option value="">3반</option>
+                                <option value="">4반</option>
+                            </select>
+                        </div> 
+                        <div id="date-info" class="hide select-info">
+                            <p id="start-date-text">날짜</p>
+                            <input type="date" name="" id="" min="2020-02-02" max="2021-02-28">
+                            <select name="" id="">
+                                <option value="">1교시</option>
+                                <option value="">2교시</option>
+                                <option value="">3교시</option>
+                                <option value="">4교시</option>
+                                <option value="">5교시</option>
+                                <option value="">6교시</option>
+                                <option value="">7교시</option>
+                                <option value="">8교시</option>
+                                <option value="">9교시</option>
+                                <option value="">10교시</option>
+                            </select>
+                        </div>
+                        <input type="button" value="날짜별로 보기" id="section-select-button">
+                    </div>
+                </div>
+                <div id="section-student-space">
+                    <input type="button" value="공영길" class="std1-1 select">
+                    <input type="button" value="김대웅" class="std1-1">
+                    <input type="button" value="김도희" class="std1-1">
+                    <input type="button" value="김선민" class="std1-1">
+                    <input type="button" value="민준혁" class="std1-1">
+                    <input type="button" value="배길준" class="std1-1">
+                    <input type="button" value="백서영" class="std1-1">
+                    <input type="button" value="서민준" class="std1-1">
+                    <input type="button" value="서재훈" class="std1-1">
+                    <input type="button" value="손완서" class="std1-1">
+                    <input type="button" value="손정우" class="std1-1">
+                    <input type="button" value="심준호" class="std1-1">
+                    <input type="button" value="안영준" class="std1-1">
+                    <input type="button" value="유시온" class="std1-1">
+                    <input type="button" value="이가영" class="std1-1">
+                    <input type="button" value="이진혁" class="std1-1">
+                    <input type="button" value="이찬명" class="std1-1">
+                    <input type="button" value="허우민" class="std1-1">
+                    <input type="button" value="황민구" class="std1-1">
+                    <input type="button" value="황현빈" class="std1-1">
+                </div>
+            </div>
+            <div id="date-informations">
+                <p class="informations-text" id="field-trip-text">현체</p>
+                <p class="informations-value" id="field-trip">4</p>
+
+                <p class="informations-side-text">|</p>
+
+                <p class="informations-text" id="going-out-text">외출</p>
+                <p class="informations-value" id="going-out">0</p>
+
+                <p class="informations-side-text">|</p>
+
+                <p class="informations-text" id="being-late-text">지각</p>
+                <p class="informations-value" id="being-late">3</p>
+
+                <p class="informations-side-text">|</p>
+
+                <p class="informations-text" id="admission-absent-text">공결</p>
+                <p class="informations-value" id="admission-absent">2</p>
+                
+                <p class="informations-side-text">|</p>
+
+                <p class="informations-text" id="awol-text">무단</p>
+                <p class="informations-value" id="awol">6</p>
+
+                <p class="informations-side-text">|</p>
+
+                <p class="informations-text" id="total-text">총합</p>
+                <p class="informations-value" id="total">15</p>
+            </div>
+            <ul id="information-chart-student" class="information-chart">
+                <li>
+                    <p class="information-date">날짜</p>
+                    <p class="information-attendance">출석</p>
+                    <p class="information-reason">사유</p>
+                </li>
+                <li>
+                    <p class="information-date">2020년 01월 01일 09교시</p>
+                    <p class="information-attendance awol">무단</p>
+                    <p class="information-reason">배고파서</p>
+                </li>
+                <li>
+                    <p class="information-date">2020년 01월 01일 10교시</p>
+                    <p class="information-attendance field-trip">현체</p>
+                    <p class="information-reason">SW융합해커톤</p>
+                </li>
+                <li>
+                    <p class="information-date">2020년 01월 01일 09교시</p>
+                    <p class="information-attendance awol">무단</p>
+                    <p class="information-reason">배고파서</p>
+                </li>
+                <li>
+                    <p class="information-date">2020년 01월 01일 10교시</p>
+                    <p class="information-attendance field-trip">현체</p>
+                    <p class="information-reason">SW융합해커톤</p>
+                </li>
+                <li>
+                    <p class="information-date">2020년 01월 01일 09교시</p>
+                    <p class="information-attendance awol">무단</p>
+                    <p class="information-reason">배고파서</p>
+                </li>
+                <li>
+                    <p class="information-date">2020년 01월 01일 10교시</p>
+                    <p class="information-attendance field-trip">현체</p>
+                    <p class="information-reason">SW융합해커톤</p>
+                </li>
+                <li>
+                    <p class="information-date">2020년 01월 01일 09교시</p>
+                    <p class="information-attendance awol">무단</p>
+                    <p class="information-reason">배고파서</p>
+                </li>
+                <li>
+                    <p class="information-date">2020년 01월 01일 10교시</p>
+                    <p class="information-attendance field-trip">현체</p>
+                    <p class="information-reason">SW융합해커톤</p>
+                </li>
+                <li>
+                    <p class="information-date">2020년 01월 01일 09교시</p>
+                    <p class="information-attendance awol">무단</p>
+                    <p class="information-reason">배고파서</p>
+                </li>
+                <li>
+                    <p class="information-date">2020년 01월 01일 10교시</p>
+                    <p class="information-attendance field-trip">현체</p>
+                    <p class="information-reason">SW융합해커톤</p>
+                </li>
+                <li>
+                    <p class="information-date">2020년 01월 01일 09교시</p>
+                    <p class="information-attendance awol">무단</p>
+                    <p class="information-reason">배고파서</p>
+                </li>
+                <li>
+                    <p class="information-date">2020년 01월 01일 10교시</p>
+                    <p class="information-attendance field-trip">현체</p>
+                    <p class="information-reason">SW융합해커톤</p>
+                </li>
+                <li>
+                    <p class="information-date">2020년 01월 01일 09교시</p>
+                    <p class="information-attendance awol">무단</p>
+                    <p class="information-reason">배고파서</p>
+                </li>
+                <li>
+                    <p class="information-date">2020년 01월 01일 10교시</p>
+                    <p class="information-attendance field-trip">현체</p>
+                    <p class="information-reason">SW융합해커톤</p>
+                </li>
+                <li>
+                    <p class="information-date">2020년 01월 01일 09교시</p>
+                    <p class="information-attendance awol">무단</p>
+                    <p class="information-reason">배고파서</p>
+                </li>
+            </ul>
+            <div id="student-informations" class="hide">
+                <p class="informations-text" id="field-trip-text">현체</p>
+                <p class="informations-value" id="field-trip">3</p>
+
+                <p class="informations-side-text">|</p>
+
+                <p class="informations-text" id="going-out-text">외출</p>
+                <p class="informations-value" id="going-out">0</p>
+
+                <p class="informations-side-text">|</p>
+
+                <p class="informations-text" id="being-late-text">지각</p>
+                <p class="informations-value" id="being-late">2</p>
+
+                <p class="informations-side-text">|</p>
+
+                <p class="informations-text" id="admission-absent-text">공결</p>
+                <p class="informations-value" id="admission-absent">1</p>
+                
+                <p class="informations-side-text">|</p>
+
+                <p class="informations-text" id="awol-text">무단</p>
+                <p class="informations-value" id="awol">4</p>
+
+                <p class="informations-side-text">|</p>
+
+                <p class="informations-text" id="total-text">총합</p>
+                <p class="informations-value" id="total">10</p>
+            </div>
+            <ul id="information-chart-date" class="hide information-chart">
+                <li>
+                    <p class="information-date">학생 정보</p>
+                    <p class="information-attendance">출석</p>
+                    <p class="information-reason">사유</p>
+                </li>
+                <li>
+                    <p class="information-date">1101 공영길</p>
+                    <p class="information-attendance awol">무단</p>
+                    <p class="information-reason">배고파서</p>
+                </li>
+                <li>
+                    <p class="information-date">1102 김대웅</p>
+                    <p class="information-attendance field-trip">현체</p>
+                    <p class="information-reason">SW융합해커톤</p>
+                </li>
+                <li>
+                    <p class="information-date">1103 김도희</p>
+                    <p class="information-attendance awol">무단</p>
+                    <p class="information-reason">배고파서</p>
+                </li>
+                <li>
+                    <p class="information-date">1107 백서영</p>
+                    <p class="information-attendance field-trip">현체</p>
+                    <p class="information-reason">SW융합해커톤</p>
+                </li>
+                <li>
+                    <p class="information-date">1108 서민준</p>
+                    <p class="information-attendance awol">무단</p>
+                    <p class="information-reason">배고파서</p>
+                </li>
+                <li>
+                    <p class="information-date">1110 손완서</p>
+                    <p class="information-attendance field-trip">현체</p>
+                    <p class="information-reason">SW융합해커톤</p>
+                </li>
+                <li>
+                    <p class="information-date">1111 손정우</p>
+                    <p class="information-attendance awol">무단</p>
+                    <p class="information-reason">배고파서</p>
+                </li>
+                <li>
+                    <p class="information-date">1113 안영준</p>
+                    <p class="information-attendance field-trip">현체</p>
+                    <p class="information-reason">SW융합해커톤</p>
+                </li>
+                <li>
+                    <p class="information-date">1114 유시온</p>
+                    <p class="information-attendance awol">무단</p>
+                    <p class="information-reason">배고파서</p>
+                </li>
+                <li>
+                    <p class="information-date">1116 이진혁</p>
+                    <p class="information-attendance field-trip">현체</p>
+                    <p class="information-reason">SW융합해커톤</p>
+                </li>
+            </ul>
+            <input type="button" id="information-up">
+            <input type="button" id="information-down" class="info-down-button-able">
+        </section>
+        <footer id="default-footer">
+            <div id="default-footer-left">대덕소프트웨어마이스터고등학교</div>
+            <div id="default-footer-right">DMI</div>
+        </footer>
+        <div class="default-menu-modal">
+            <div id="default-menu-modal-header">
+                <p class="teacherName">김정은 선생님</p> 
+                <!-- 선생님 성함 들어가는 곳  -->
+
+                <div id="close-modal-button"></div>
+            </div>
+            
+            <div id="default-menu-modal-section">
+                <ul>
+                    <li><a href="">메인 페이지<div class="btn"></div></a></li>
+                    <li><a href="">일정&선생님 교체<div class="btn"></div></a></li>
+                    <li><a href="">사전 결석 신고<div class="btn"></div></a></li>
+                    <li><a href="">통계 보기<div class="btn now"></div></a></li>
+                    <li><a href="">출석 페이지<div class="btn"></div></a></li>
+                    
+                    <li><a href="">선생님 재선택<div class="btn"></div></a></li>
+                    <li><a href="">로그아웃<div class="btn"></div></a></li>
+                </ul>
+            </div>
+            <div id="default-menu-modal-footer">
+                2020.01.15 (수)
+                <!-- 날짜 삭제 요망 -->
+            </div>
+        </div>
+        <div class="default-modal-overlay"></div>
+        <div class="default-message-modal default-message-close">
+            <div id="default-message-modal-header">
+                채팅
+            </div>
+            <div id="default-message-modal-section">
+                
+            </div>
+            <form action="" id="default-message-modal-footer">
+                <textarea id="" cols="106" rows="3"></textarea>
+                <input type="submit" value="확인">
+            </form>
+        </div>
+        <div id="message-close-button" class="default-message-close"></div>
+        <div class="default-message-modal-overlay default-message-close"></div>
+    </div>
+</body>
+<script src="../js/stats.js"></script>
+<script src="../js/default.js"></script>
+</html>

@@ -1,0 +1,325 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: white;
+    width: 1200px;
+    height: 1920px;
+}
+
+ul, ol, li { 
+    list-style: none; 
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#whole-wrap {
+    position: relative;
+    width: 1200px;
+    height: 1920px;
+}
+
+#default-header {
+    width: 100%;
+    background: #1e90ff;
+    top: 0;
+    height: 120px;
+}
+
+#default-header > div {
+    display: inline-block;
+}
+
+#default-header-menu-button {
+    width: 100px;
+    height: 100px;
+    background: url('../image/menu-icon.png') no-repeat;
+    background-size: 80px 80px;
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    cursor: pointer;
+}
+
+#default-header-text {
+    color: white;
+    font-size: 48px;
+    font-weight: bolder;
+    position: absolute;
+    top: 20px;
+    margin-left: 160px;
+}
+
+#default-header-message-button {
+    width: 100px;
+    height: 100px;
+    background: url('../image/message-icon.png') no-repeat;
+    background-size: 90px 80px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+}
+
+#default-footer {
+    width: 100%;
+    background: #1e90ff;
+    position: absolute;
+    bottom: 0;
+    height: 80px;
+}
+
+#default-footer-right, #default-footer-left {
+    display: inline-block;
+    font-weight: bolder;
+    font-size: 45px;
+    color: white;
+    margin-top: 10px;
+}
+
+#default-footer-right {
+    float: right;
+    margin-right: 20px;
+}
+
+#default-footer-left {
+    margin-left: 20px;
+}
+
+.default-menu-modal {
+    width: 550px;
+    height: 100%;
+    background: skyblue;
+    position: absolute;
+    z-index: 2;
+    left: -550px;
+    top: 0;
+}
+
+.default-modal-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.59);
+    position: absolute;
+    z-index: 1;
+    display: none;
+    top: 0;
+}
+
+.default-menu-modal-show {
+    display: inline-block;
+    animation-name: modal-on;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+    position: absolute;
+}
+
+.default-menu-modal-hide {
+    display: inline-block;
+    animation-name: modal-off;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+    position: absolute;
+}
+
+.default-menu-overlay-hide {
+    display: none;
+}
+
+.default-menu-overlay-show {
+    display: block;
+}
+
+@-webkit-keyframes modal-on {
+    0% {
+        left: -550px;
+    }
+    100% {
+        left: 0px;
+    }
+}
+
+@-webkit-keyframes modal-off {
+    0% {
+        left: 0px;
+    }
+    100% {
+        left: -550px;
+    }
+}
+
+#default-menu-modal-header {
+    background: white;
+    width: 550px;
+    height: 130px;
+}
+
+.teacherName {
+    color: #87cefa;
+    padding-top: 30px;
+    padding-left: 60px;
+    font-size: 48px;
+    font-weight: 700;
+    width: 350px;
+    display: inline-block;
+}
+
+#close-modal-button {
+    width: 0px;
+    height: 0px;
+    border-right: 50px solid #87cefa;
+    border-bottom: 30px solid transparent;
+    border-top: 30px solid  transparent;
+    position: absolute;
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+#default-menu-modal-section > ul {
+    width: 100%;
+    margin-top: 100px;
+}
+
+#default-menu-modal-section > ul > li {
+    width: 445px;
+    height: 116px;
+    padding-left: 30px;
+    position: relative;
+}
+
+#default-menu-modal-section > ul > li > a {
+    color: white;
+    font-size: 42px;
+    width: 445px;
+    height: 116px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.btn {
+    border: 12px solid white;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    right: -20px;
+    margin-top: 15px;
+}
+
+.now {
+    border: 12px solid yellow;
+}
+
+#default-menu-modal-section > ul > li:nth-child(6) {
+    position: absolute;
+    top: 1400px;
+}
+
+#default-menu-modal-section > ul > li:nth-child(7) {
+    position: absolute;
+    top: 1516px;
+}
+
+#default-menu-modal-footer {
+    color: white;
+    font-weight: bold;
+    font-size: 42px;
+    position: absolute;
+    left: 120px;
+    bottom: 50px;
+}
+
+.default-message-modal {
+    width: 80%;
+    margin: 15% 10%;
+    height: 80%;
+    background: #87cefa;
+    position: fixed;
+    top: 0;
+    border: 2px solid gray;
+    z-index: 2;
+}
+
+#default-message-modal-header {
+    width: 100%;
+    height: 7%;
+    color: white;
+    font-size: 64px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 30px;
+}
+
+#default-message-modal-section {
+    width: 96%;
+    height: 80%;
+    margin: 0 2%;
+    background: white;
+}
+
+#default-message-modal-footer {
+    width: 100%;
+    height: 8%;
+    margin: 20px 0 0 0;
+    position: relative;
+}
+
+#default-message-modal-footer > textarea {
+    width: 80%;
+    height: 100%;
+    margin: 0 10px 0 2%;
+    border-radius: 20px;
+    background: white;
+    font-size: 32px;
+    padding: 0 5px 0 5px;
+}
+
+#default-message-modal-footer > input[type="submit"] {
+    width: 13%;
+    height: 100%;
+    border: none;
+    border-radius: 20px;
+    background: white;
+    font-size: 32px;
+    color: #87cefa;
+    display: inline-block;
+    top: 0px;
+    position: absolute;
+}
+
+.default-message-modal-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.59);
+    position: absolute;
+    z-index: 1;
+    top: 0;
+}
+
+#message-close-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 120px;
+    height: 120px;
+    background: url('../image/close-icon.png') no-repeat;
+    background-size: 120px 120px;
+    z-index: 2;
+}
+
+.default-message-close {
+    display: none !important;
+}
+
+.hide {
+    display: none !important;
+}
