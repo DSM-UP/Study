@@ -1,0 +1,13 @@
+#checkbutton {
+    width: 40%;
+    height: 200px;
+    border-radius: 20px;
+    border: none;
+    background: #87cefa;
+    color: white;
+    font-size: 54px;
+    font-weight: bold;
+    position: absolute;
+    left: 30%;
+    bottom: 10%;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DMI</title>
+    <link rel="stylesheet" href="../css/default.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/calendar.css">
+</head>
+<body>
+    <div id="whole-wrap">
+        <header id="default-header">
+            <div id="default-header-menu-button"></div>
+            <div id="default-header-text">메인 페이지</div>
+            <div id="default-header-message-button"></div>
+        </header>
+        <section>
+            <div class = "calendar"></div>
+            <input type="button" value="출석체크" id="checkbutton">
+        </section>
+        <footer id="default-footer">
+            <div id="default-footer-left">대덕소프트웨어마이스터고등학교</div>
+            <div id="default-footer-right">DMI</div>
+        </footer>
+        <div class="default-menu-modal">
+            <div id="default-menu-modal-header">
+                <p class="teacherName">김정은 선생님</p> 
+                <!-- 선생님 성함 들어가는 곳  -->
+
+                <div id="close-modal-button"></div>
+            </div>
+            
+            <div id="default-menu-modal-section">
+                <ul>
+                    <li><a href="">메인 페이지<div class="btn now"></div></a></li>
+                    <li><a href="">일정&선생님 교체<div class="btn"></div></a></li>
+                    <li><a href="">사전 결석 신고<div class="btn"></div></a></li>
+                    <li><a href="">통계 보기<div class="btn"></div></a></li>
+                    <li><a href="">출석 페이지<div class="btn"></div></a></li>
+
+                    <li><a href="">선생님 재선택<div class="btn"></div></a></li>
+                    <li><a href="">로그아웃<div class="btn"></div></a></li>
+                </ul>
+            </div>
+            <div id="default-menu-modal-footer">
+                2020.01.15 (수)
+                <!-- 날짜 삭제 요망 -->
+            </div>
+        </div>
+        <div class="default-modal-overlay"></div>
+        <div class="default-message-modal default-message-close">
+            <div id="default-message-modal-header">
+                채팅
+            </div>
+            <div id="default-message-modal-section">
+                
+            </div>
+            <form action="" id="default-message-modal-footer">
+                <textarea id="" cols="106" rows="3"></textarea>
+                <input type="submit" value="확인">
+            </form>
+        </div>
+        <div id="message-close-button" class="default-message-close"></div>
+        <div class="default-message-modal-overlay default-message-close"></div>
+    </div>
+</body>
+<script src="../js/default.js"></script>
+<script src="../js/calendar.js"></script>
+<!-- <script>
+    makeCalendar(document.querySelector(".calendar"));
+</script> -->
+</html>

@@ -1,0 +1,50 @@
+
+section {
+    width: 80%;
+    margin-top: 30%;
+    margin-left: 18%;
+}
+
+section > div {
+    display: inline-block;
+    width: 360px;
+    height: 450px;
+    background: #87cefa;
+    margin-left: 1%;
+    margin-right: 2%;
+    border-radius: 55px;
+    margin-bottom: 3%;
+    position: absolute;
+}
+
+section > div > p {
+    font-size: 60px;
+    font-weight: bolder;
+    color: white;
+    text-align: center;
+    margin-top: 30%;
+}
+
+section > div:nth-child(1) {
+    top: 500px;
+    left: 200px;
+}
+
+section > div:nth-child(1) > p {
+    margin-top: 50%;
+}
+
+section > div:nth-child(2) {
+    top: 500px;
+    left: 600px;
+}
+
+section > div:nth-child(3) {
+    top: 1000px;
+    left: 200px;
+}
+
+section > div:nth-child(4) {
+    top: 1000px;
+    left: 600px;
+}

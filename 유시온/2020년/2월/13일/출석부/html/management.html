@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>DMI</title>
+        <link rel="stylesheet" href="../css/default.css">
+        <link rel="stylesheet" href="../css/management.css">
+    </head>
+    <body>
+        <div id="whole-wrap">
+            <header id="default-header">
+                <div id="default-header-menu-button"></div>
+                <div id="default-header-text">일정&선생님 교체</div>
+                <div id="default-header-message-button"></div>
+            </header>
+            <section>
+                <div id="schedule">
+                    <div id="schedule-header">일정</div>
+                    <hr id="schedule-hr">
+                    <input type="button" value="교체모드" id="schedule-change-mode" class="manage-change-button">
+                    <div id="schedule-box">
+                        <p id="schedule-text">날짜</p>
+                        <input type="date" id="schedule-date" min="2020-01-01" max="2021-02-28" value="2020-02-02">
+                        <p id="schedule-event">자습</p>
+                    </div>
+                    <div id="schedule-box-2" class="hide">
+                        <p id="schedule-text-2">날짜</p>
+                        <input type="date" id="schedule-date-2" min="2020-01-01" max="2021-02-28" value="2020-02-02">
+                        <p id="schedule-event-2">자습</p>
+                    </div>
+                    <input type="button" value="월요일 방과후" class="date-button" id="date-button-mon">
+                    <input type="button" value="화요일 방과후" class="date-button" id="date-button-tue">
+                    <input type="button" value="자습(기타)" class="date-button" id="date-button-etc">
+                    <input type="button" value="수정" id="schedule-modify-button" class="manage-modify-button">
+                </div>
+                <div id="teacher">
+                    <div id="teacher-header">선생님</div>
+                    <hr id="teacher-hr">
+                    <input type="button" value="교체모드" id="teacher-change-mode" class="manage-change-button">
+                    <div id="teacher-box">
+                        <p id="teacher-text">날짜</p>
+                        <input type="date" id="teacher-date" min="2020-01-01" max="2021-02-28" value="2020-02-02">
+                    </div>
+                    <div id="teacher-select">
+                        <label for="second-floor-teacher" id="second-floor-teacher-label" class="teacher-select-label">2층</label>
+                        <select name="second-floor-teacher" id="second-floor-teacher" class="teacher-select">
+                            <option value="김정은 선생님">김정은 쌤</option>
+                            <option value="김정은 선생님">김일성 쌤</option>
+                            <option value="김정은 선생님">김정일 쌤</option>
+                        </select>
+                        <label for="third-floor-teacher" id="third-floor-teacher-label" class="teacher-select-label">3층</label>
+                        <select name="third-floor-teacher" id="third-floor-teacher" class="teacher-select">
+                            <option value="김정은 선생님">김정은 쌤</option>
+                            <option value="김정은 선생님">김일성 쌤</option>
+                            <option value="김정은 선생님">김정일 쌤</option>
+                        </select>
+                        <label for="forth-floor-teacher" id="forth-floor-teacher-label" class="teacher-select-label">4층</label>
+                        <select name="forth-floor-teacher" id="forth-floor-teacher" class="teacher-select"> 
+                            <option value="김정은 선생님">김정은 쌤</option>
+                            <option value="김정은 선생님">김일성 쌤</option>
+                            <option value="김정은 선생님">김정일 쌤</option>
+                        </select> 
+                    </div>
+                    <div id="teacher-select-2" class="hide">
+                        <p id="teacher-text-2">날짜</p>
+                        <input type="date" name="" id="teacher-date-2" min="2020-01-01" max="2021-02-28" value="2020-02-02">
+                        <div id="teacher-select-2-div">
+                            <label for="teacher-select-2-div-second" id="teacher-select-2-div-second-label">2층</label>
+                            <input type="button" value="김정은 선생님" id="teacher-select-2-div-second"> <br>
+                            <label for="teacher-select-2-div-third" id="teacher-select-2-div-third-label">3층</label>
+                            <input type="button" value="안희명 선생님" id="teacher-select-2-div-third"> <br>
+                            <label for="teacher-select-2-div-forth" id="teacher-select-2-div-forth-label">4층</label>
+                            <input type="button" value="조규석 선생님" id="teacher-select-2-div-forth">
+                        </div>
+                    </div>
+                    <div id="teacher-select-3" class="hide">
+                        <p id="teacher-text-3">날짜</p>
+                        <input type="date" name="" id="teacher-date-3" min="2020-01-01" max="2021-02-28" value="2020-02-02">
+                        <div id="teacher-select-3-div">
+                            <label for="teacher-select-3-div-second" id="teacher-select-3-div-second-label">2층</label>
+                            <input type="button" value="김정은 선생님" id="teacher-select-3-div-second"> <br>
+                            <label for="teacher-select-3-div-third" id="teacher-select-3-div-third-label">3층</label>
+                            <input type="button" value="안희명 선생님" id="teacher-select-3-div-third"> <br>
+                            <label for="teacher-select-3-div-forth" id="teacher-select-3-div-forth-label">4층</label>
+                            <input type="button" value="조규석 선생님" id="teacher-select-3-div-forth">
+                        </div>
+                    </div>
+                    <input type="button" value="수정" id="teacher-modify-button" class="manage-modify-button">
+                </div>
+            </section>
+            <footer id="default-footer">
+                <div id="default-footer-left">대덕소프트웨어마이스터고등학교</div>
+                <div id="default-footer-right">DMI</div>
+            </footer>
+            <div class="default-menu-modal">
+                <div id="default-menu-modal-header">
+                    <p class="teacherName">김정은 선생님</p> 
+                    <!-- 선생님 성함 들어가는 곳  -->
+                    <div id="close-modal-button"></div>
+                </div>
+                
+                <div id="default-menu-modal-section">
+                    <ul>
+                        <li><a href="">메인 페이지<div class="btn"></div></a></li>
+                        <li><a href="">일정&선생님 교체<div class="btn now"></div></a></li>
+                        <li><a href="">사전 결석 신고<div class="btn"></div></a></li>
+                        <li><a href="">통계 보기<div class="btn"></div></a></li>
+                        <li><a href="">출석 페이지<div class="btn"></div></a></li>
+                        
+                        <li><a href="">선생님 재선택<div class="btn"></div></a></li>
+                        <li><a href="">로그아웃<div class="btn"></div></a></li>
+                    </ul>
+                </div>
+                <div id="default-menu-modal-footer">
+                    2020.01.15 (수)
+                    <!-- 날짜 삭제 요망 -->
+                </div>
+            </div>
+            <div class="default-modal-overlay"></div>
+            <div class="default-message-modal default-message-close">
+                <div id="default-message-modal-header">
+                    채팅
+                </div>
+                <div id="default-message-modal-section">
+                    
+                </div>
+                <form action="" id="default-message-modal-footer">
+                    <textarea id="" cols="106" rows="3"></textarea>
+                    <input type="submit" value="확인">
+                </form>
+            </div>
+            <div id="message-close-button" class="default-message-close"></div>
+            <div class="default-message-modal-overlay default-message-close"></div>
+        </div>
+    </body>
+    <script src="../js/default.js"></script>
+    <script src="../js/management.js"></script>
+</html>
