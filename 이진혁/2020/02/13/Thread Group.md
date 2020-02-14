@@ -126,8 +126,9 @@
   // 스레드 이름 : main
   // 스레드 종류 : 주 스레드
   // 스레드 그룹 : main
-  ```
-
+  // ----------------------------------
+```
+  
 - 참고로 getAllStackTraces() 메소드는 지금 실행되고 있는 스레드 그룹의 종류들을
   Map<Thread, StackTraceElement[]> 타입의 스레드 그룹 정보를 리턴하는 메소드입니다.
   그것을 Map 클래스의 메소드인 keySet()는 Map 클래스의 키-값 정보들을
@@ -153,11 +154,61 @@
   아래는 main이 끝난 뒤 스레드의 정보를 확인하여 자동 생성되는 스레드가 존재하는지 확인하는 예제이다.
 
   ```java
-  public class MainClass {
-      public static void main(String[] args) {
+  class TestThread extends Thread {
+      public void run() {
           
+          try {
+              Thread.sleep(3000);
+          } catch(Exception e) {
+            e.printStackTrace();
+          }
+          
+          System.out.println("스레드 정보 확인");
+          
+          Set<Thread> threads = Thread.getAllStackTraces().keySet();
+  		
+  		for(Thread thread : threads) {
+  			System.out.println("스레드 이름 : " + thread.getName());
+  			System.out.println("스레드 종류 : "
+                                 + (thread.isDaemon() ? "데몬 스레드" : "주 스레드"));
+  			System.out.println("스레드 그룹 : " + thread.getThreadGroup().getName());
+  			System.out.println("----------------------------------");
+  		}
       }
   }
-  ```
-
   
+  public class MainClass {
+      public static void main(String[] args) {
+          TestThread tt = new TestThread();
+          tt.setName("TestThread");
+          tt.start();
+          System.out.println("메인 스레드 종료");
+      }
+  }
+  
+  // 스레드 이름 : TestThread
+  // 스레드 종류 : 주 스레드
+  // 스레드 그룹 : main
+  // ----------------------------------
+  // 스레드 이름 : Finalizer
+  // 스레드 종류 : 데몬 스레드
+  // 스레드 그룹 : system
+  // ----------------------------------
+  // 스레드 이름 : Reference Handler
+  // 스레드 종류 : 데몬 스레드
+  // 스레드 그룹 : system
+  // ----------------------------------
+  // 스레드 이름 : Signal Dispatcher
+  // 스레드 종류 : 데몬 스레드
+  // 스레드 그룹 : system
+  // ----------------------------------
+  // 스레드 이름 : Attach Listener
+  // 스레드 종류 : 데몬 스레드
+  // 스레드 그룹 : system
+  // ----------------------------------
+  ```
+  
+- 이렇게 예상대로 main 스레드는 정보에서 사라지고
+  새로만든 스레드인 TestThread 스레드는 존재하는 것을 알 수 있다.
+  그리고 Finalizer 스레드를 포함한 4개의 스레드가 존재하는 것으로 봤을때
+  system 스레드 그룹의 주 스레드가 JVM이라는 것을 추측할 수 있다.
