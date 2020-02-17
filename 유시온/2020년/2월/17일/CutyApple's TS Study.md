@@ -1013,3 +1013,67 @@ type MyArray<T> = T[];
 ### 제네릭의 사용처
 
 타입 변수와 제네릭의 핵심은 **여러 타입에 대해 동작하는 요소를 정의하되, 해당 요소를 사용할 때가 되어야 알 수 있는 타입 정보를 정의에 사용하는 것**이다.
+
+
+
+## 유니온 타입
+
+```typescript
+function func(value: number, returnStr: boolean = false): ??? {
+    const a = value * value;
+    if (returnStr) {
+        return a.toString();
+    }
+	return a;
+}
+```
+
+함수 `func`는 숫자 타입 인자를 하나 받고, 불리언 타입을 받아 그에 따라 타입을 변환해 반환한다. 이 함수의 반환 타입은 어떻게 표현할까? 이 경우 반환 타입이 **인자의 타입이 아닌 값에 의존한다.** 따라서 제네릭으로는 표현하기 까다롭다.
+
+오버로딩을 이용하여 `???`자리에 `number`과 `string`을 넣어줄 수 있겠지만, 비효율적이다.
+
+**어떤 타입이 가질 수 있는 경우의 수를 나열**할 때 사용하는 **유니온 타입**으로 이 함수의 반환 타입을 표현할 수 있다.
+
+
+
+### 문법
+
+유니온 타입은 가능한 모든 타입을 파이프(`|`) 기호로 이어서 표현한다. ''`A`또는 `B` 타입일 수 있는 타입"을 `A|B`로 쓰는 식이다.  꼭 두개가 아닌 몇 개든 이어가며 정의할 수 있다.
+
+```typescript
+function func(value: number, returnStr: boolean = false): string | number {
+    const a = value * value;
+    if (returnStr) {
+        return a.toString();
+    }
+	return a;
+}
+```
+
+타입 별칭 분법을 통해 유니온 타입에 이름을 붙일 수 있다. 
+
+```typescript
+type Types = string | number;
+function func(value: number, returnStr: boolean = false): Types {
+    const a = value * value;
+    if (returnStr) {
+        return a.toString();
+    }
+	return a;
+}
+```
+
+
+
+### 여러 줄에 걸친 유니온 타입
+
+여러 줄에 걸쳐 유니온 타입을 적을 때에 정렬을 맞춘다.
+
+```typescript
+type Types
+	= string
+	| number
+	| boolean
+```
+
+추가로 유니온 타입의 맨 앞에도 파이프를 쓰는 것이 허용된다.
