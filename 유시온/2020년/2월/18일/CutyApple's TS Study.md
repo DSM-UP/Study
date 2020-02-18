@@ -1112,3 +1112,126 @@ type AdultProgrammer = Adult & Programmer;
 
 ## 열거형
 
+### 숫자 열거형
+
+숫자 열거형 `number` 타입 값에 기반한 열거형이다. 만약 열거형을 정의하며 멤버의 값을 초기화 하지 않을 경우, 해당 멤버의 값은 `0` 부터 순차적으로 증가하는 숫자 값을 갖는다.  다음 두 식은 동일하게 동작한다.
+
+```typescript
+enum Direction {
+    East,
+    West,
+    South,
+    North
+}
+enum Directions {
+    East = 0,
+    West = 1,
+    South = 2,
+    North = 3
+}
+```
+
+이렇게 정의한 열거형의 멤버에는 객체의 속성에 접근하는 것과 동일한 방식으로 접근할 수 있다. 어떤 열거형 `Enum`의 모든 멤버는 ` Enum` 타입을 갖는다.
+
+```typescript
+const south: Direction = Direction.South;
+console.log(south); // 2
+```
+
+
+
+### 멤버 값 초기화
+
+`0` 부터 시작되는 자동 초기화에 의존하는 대신, 각 멤버의 값을 직접 초기화 할 수 있다.
+
+```typescript
+enum Directions {
+    East = 2,
+    West = 3,
+    South = 4,
+    North = 5
+}
+```
+
+만약 초기화 되지 않은 멤버가 있다면, 그 멤버의 값은 이전에 초기화된 멤버의 값으로부터 순차적으로 증가해서 결정된다.
+
+```typescript
+enum Directions {
+    East = 1,
+    West , /* 2 */
+    South = 5,
+    North /* 6 */
+}
+```
+
+
+
+### 문자열 열거형
+
+`number` 타입 값 대신 `string` 타입 값을 사용해서 멤버 값을 초기화하는 것도 가능하다.
+
+```typescript
+enum Directions {
+    East = 'e',
+    West = 'w',
+    South = 's',
+    North = 'n'
+}
+```
+
+문자열 열거형은 숫자 열거형과 다음 부분을 제외하고 많은 부분 동일하다.
+
+* 문자열을 '자동 증가'시킨다는 개념은 성립하지 않는다. 따라서 문자열 멤버 이후로 정의된 모든 멤버는 명시적으로 초기화되어야 한다.
+* 숫자 열거형과 달리, 문자열 열거형이 컴파일된 JS 코드에는 값 -> 키의 역방향 매핑이 존재하지 않는다.
+
+
+
+### 상수 멤버와 계산된 멤버
+
+지금까지 다룬 열거형의 멤버는 모두 명시적이든, 암시적이든 컴파일 타임에 알 수 있는 상수값으로 초기화 되었다. 이러한 멤버를 상수 멤버라 부른다.
+
+한 편, 런타임에 결정되는 값을 열거형의 멤버 값으로 사용할 수도 있다. 이런 멤버를 계산된 멤버라고 부른다. 계산된 멤버의 값은 실제로 코드를 실행시켜야봐야만 알 수 있으므로 계산된 멤버 뒤에 오는 멤버는 반드시 초기화되어야 한다.
+
+```typescript
+function func() {
+    return 1;
+}
+enum Nums {
+    a = func(),
+    b // error TS1061: Enum member must have initalize.
+}
+```
+
+
+
+### 런타임에서의 열거형
+
+기본적으로 아래와 같은 TS 열거형 정의 및 접근은 
+
+```typescript
+enum Directions {
+    East,
+    West,
+    South,
+    North
+}
+const east: Direction = Direction.East
+```
+
+아래와 같은 JS로 컴파일 된다.
+
+```javascript
+var Direction;
+(function (Direction) {
+    Direction[Direction["East"] = 0] = "East";
+    Direction[Direction["West"] = 1] = "West";
+    Direction[Direction["South"] = 2] = "South";
+    Direction[Direction["North"] = 3] = "North";
+})(Direction || (Direction = {}));
+var east = Direction.East;
+```
+
+* 식별자에 키 -> 값으로의 매핑이 정의된다.
+* 식별자에 값 -> 키로의 역방향 매핑의 정의된다.
+
+컴파일된 코드로부터 열거형 멤버에 접근 할 때 
