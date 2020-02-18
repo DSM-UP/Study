@@ -1234,4 +1234,228 @@ var east = Direction.East;
 * 식별자에 키 -> 값으로의 매핑이 정의된다.
 * 식별자에 값 -> 키로의 역방향 매핑의 정의된다.
 
-컴파일된 코드로부터 열거형 멤버에 접근 할 때 
+컴파일된 코드로부터 열거형 멤버에 접근 할 때 실제로 코드가 실행될 때에도 객체 속성 접근이 발생함을 알 수 있다. 성능 향상을 위해서라면 `const` 열거형을 사용할 수 있다.
+
+모든 멤버가 컴파일 시간에 알려진 상수값인 열거형의 경우 `enum` 키워드 대신 `const eunm` 키워드를 이용해 정의할 수 있다. 이렇게 정의한 열거형의 구조는 컴파일 과정에서 완전히 사라지고, 멤버값은 상수값으로 대체된다. 
+
+```typescript
+const enum ConstEnum {
+    A,
+    B = 2,
+    C = B * 2,
+    D = -C,
+}
+console.log(ConstEnum.A);
+```
+
+위 코드는 아래 JS 코드로 컴파일된다.
+
+```javascript
+console.log(0 /* A */);
+```
+
+
+
+### 유니온 열거형
+
+열거형의 모든 멤버가 아래 경우 중 하나에 해당하는 열거형을 유니온 열거형이라 부른다.
+
+* 암시적으로 초기화 된 값
+* 문자열 리터럴
+* 숫자 리터럴
+
+```typescript
+enum Shape {
+    Circle,
+    Triangle = 3,
+    Square
+}
+```
+
+유니온 열거형의 멤버는 값인 동시에 타입이 된다. 
+
+```typescript
+type Circle = {
+    kind: Shape.Circle;
+    radius: number;
+}
+type Triangle = {
+    kind: Shape.Triangle;
+    maxAngle: number;
+}
+type Square = {
+    kind: Shape.Square;
+    maxLength: number;
+}
+type Shape = Circle | Triangle | Square;
+```
+
+또한 컴파일러는 유니온 열거형의 특징으로부터 컴파일 타임에 추가적인 검사를 시행할 수 있다.
+
+
+
+### 유니온 타입을 이용한 열거형 표현
+
+TS는 숫자, 문자열 그리고 불리언 값을 타입으로 사용하는 리터럴 타입을 지원한다. 리터럴 타입을 이용해 단 하나의 값만을 갖는 타입을 정의할 수 있다.
+
+```typescript
+const a: 1 = 1;
+const b: 1 = 2; // error TS2322: Type '24' is not assignable to type '42'.
+```
+
+
+
+## 인터페이스 기초
+
+`interface` 키워드를 사용해 값이 특정한 형태를 갖도록 제약할 수 있다. 
+
+```typescript
+interface User {
+    name: string;
+    age: number;
+}
+```
+
+또한 객체 타입에서와 비슷하게 인터페이스의 속성을 읽기 전용 속성 또는 선택 속성으로 정의할 수 있다.
+
+```typescript
+interface User {
+    readonly name: string;
+    age?: number;
+}
+```
+
+
+
+### 함수 인터페이스
+
+인터페이스를 이용해 함수 타입을 표현할 수 있다. 함수 타입의 표현을 위해선 호출 시그니쳐를 제공해야 하는데, 함수 타입 정의와 유사한 아래 문법을 사용한다.
+
+```typescript
+(매개변수1 이름: 매개변수1 타입, 매개변수2 이름: 매개변수2 타입, ...): 반환 타입
+```
+
+```typescript
+interface GetUserName {
+    (user: User): string;
+}
+const getUserName: GetUserName = function (user) {
+    return user.name;
+}
+```
+
+이 때 실제 함수 정의와 인터페이스에서의 매개변수 이름은 같을 필요 없다. 위의 매개변수명 `user`을 다르게 바꾸어도 매개변수의 순서만 맞는다면 에러는 발생하지 않는다.
+
+
+
+### 하이브리드 타입
+
+JS에서는 jQuery의 `$`과 같이 호출 가능한 동시에 추가적으로 여러 속성을 갖는 객체가 존재할 수 있다. 이럴 객체의 타입을 표현하기 위해서 시그니쳐와 속성 타입 정의를 동시에 적을 수 있다.
+
+```typescript
+interface Counter {
+    (start: number): string;
+	interval: number;
+	reset(): void;
+}
+function getCounter(): Counter {
+    let counter = <Counter>function (start: number) { };
+    counter.interval = 123;
+    counter.reset = function () { };
+    return counter;
+}
+let c = getCounter();
+c(10);
+c.reset();
+c.interval = 5.0;
+```
+
+위의 `Counter` 타입의 값은 함수로서 호출할 수 있고, 따라서 호출 시그니쳐를 갖는다. 한편, 이 인터페이스는 추가적으로 `interval`과 `reset`이라는 속성을 가진다. 다라서 인터페이스는 해당 속성의 타입 정보 또한 포함한다.
+
+이렇게 호출 시그니쳐와 속성 타입을 동시에 갖는 인터페이스를 하이브리드 타입이라고 부른다.
+
+
+
+### 제네릭 인터페이스
+
+인터페이스 이름 뒤에 타입 변수 정의를 붙여 제네릭 인터페이스를 정의할 수 있다. 
+
+```typescript
+interface MyResponse<Data> {
+    data: Data;
+    status: number;
+    ok: boolean;
+}
+```
+
+함수 인터페이스의 정의에도 제네릭을 사용할 수 있다. 이 경우 타입 변수는 매개변수의 앞에 적는다. 
+
+
+
+### 타입 별칭과의 차이
+
+타입에 새로운 이름을 붙이는 수단이라는 점에서 인터페이스와 앞서 살펴본 타입 별칭은 비슷한 점이 많다. 하지만 두 개념 사이엔 다음과 같은 차이가 있다.
+
+* 타입 별칭을 이용해 기본 타입, 배열과 튜플, 유니온 타입 등에 새로운 이름을 붙일 수 있다. (`type Name = string`). 인터페이스로는 해당 타입을 표현하는 것이 불가능하다.
+* 타입 별칭은 실제로는 새 타입을 생성하지 않는다. 따라서 `type User = { name: string ;}` 타입과 관련된 타입 에러가 발생했을 시 `{ name: string; }` 를 보여준다. 하년 인터페이스는 실제로 새 타입을 생성하고 에러 메시지에 `User` 가 등장한다.
+* 인터페이스는 extends를 이용해 확장할 수 있다.
+
+이런 차이 때문에 TS 공식 문서에서는 타입 별칭보다 인터페이스 사용을 권장한다. 기본적으로 인터페이스로 표현할 수 있는 모든 타입은 인터페이스로 표현하고, 기본 타입에 새로운 이름을 붙이고 싶거나 유니온 타입을 명명하고 싶은 경우 등 인터페이스의 능력 밖인 부분에서만 타입 별칭을 사용해야 한다.
+
+
+
+## 색인 가능 타입
+
+코드의 실행 시점에서만 알 수 있는 이름의 동적 속성을 갖는 타입은 어떻게 표시해야 할까?
+
+```typescript
+const users: = [
+    { name: 'apple', age: 18, lang: 'TS' },
+    { name: 'carrot', age: 20 };
+];
+interface NameAgeMap {
+    //
+}
+const nameAgeMap: NameAgeMap = {};
+users.map(user => {
+    nameUserMap[user.name] = user.age;
+});
+console.log(userNameMap) // { 'apple': 18, 'carrot': 20 }
+```
+
+위 코드의 `nameAgeMap`은 임의의 유저 목록을 받아 유저의 이름을 키로, 유저의 나이를 값으로 갖는 매핑이다. 이 객체의 키들은 임의의 유저 이름이므로 코드를 작성하는 시점에서는 키를 나열하는 것이 불가능하다.
+
+```typescript
+interface NameAgeMap {
+    apple: number;
+    carrot: number;
+}
+```
+
+이 경우 이후 `users` 값에 새로운 유저가 추가되는 경우에는 제대로 처리하지 못 할 것이다. 이럴 때 필요한 것이 **색인 가능 타입**이다.
+
+
+
+### 색인 시그니쳐
+
+색인 가능 타입을 이용해 색인 가능한 객체의 타입을 정의할 수 있다. 색인 가능 타입을 정의하기 위해서는 색인에 접근할 때 사용하는 기호인 대괄호(`[]`)를 이용해 객체의 색인 시그니쳐를 적어줘야 한다.
+
+```typescript
+interface NameAgeMap {
+    [userName: string]: number | undefined;
+}
+```
+
+위 정의는 다음과 같다.
+
+* `NameAgeaMap` 타입의 값을 임의의 `string` 타입 값 `userName` 으로 색인한 값 (`[userName: string]` -> 인덱스 시그니쳐) 즉, `nameAgeMap[userName]` 은 `number` 또는 `undefined` 타입의 값이다. (`: number | undefined`)
+
+위 예제에선 색인된 값이 `number` 가 아닌 `number | undefined` 타입을 가지는 것에 유의 해야 한다. `nameAgeMap`이 모든 문자열을 키로 갖고 있다는 보장이 없으므로 `nameAgeMap['없는 유저']` 따위의 값은 `undefined`일 수 있기 때문이다.
+
+이 경우 색인된 값을 `number` 타입의 값으로 사용하고 싶다면 먼저 `undefined`인지 여부를 체크해줘야 한다.
+
+
+
+### 색인과 타입
+
+색인의 타입으로는 문자열 또는 숫자만이 사용 가능하다. 이 때 주의해야 할 점은 만약 문자열 색인과 숫자 색인이 모두 존재하는 경우, 숫자로 색인 된 값의 타입은 문자열로 색인 된 값 타입의 서브타입이어야 한다는 것이다.
