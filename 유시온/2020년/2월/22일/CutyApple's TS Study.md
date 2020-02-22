@@ -2045,3 +2045,40 @@ type Multiply = (mulFirst: number, mulSecond: number) => number;
 
 * 모든 매개변수 타입은 `number`로, 서로 할당 가능하다.
 * `Multiply`의 반환 타입인 `number`는 `Sum` 의 반환 타입인`number`에 할당 가능하다.  
+
+따라서 `Sum`은 `Multiply`에 할당 가능하다.
+
+```typescript
+const sum: Sum (sumFirst: number, sumSecond: number) => {
+    return sumFirst + sumSecond;
+};
+const multiply: Multiply = sum;
+```
+
+
+
+#### 할당 불가능한 경우
+
+할당 불가능한 예제를 살펴보자.
+
+```typescript
+interface Animal { animalProp: string };
+interface Dog extends Animal { dogProp: number };
+
+let f = (animal: Animal) => animal.animalProp;
+let g = (dog: Dog) => { doSomething(dog.dogProp) };
+```
+
+* 할당받는 함수의 매개변수 타입 `Animal`은 할당하는 함수의 매개변수 타입`Dog`에 할당 불가능하다.
+
+
+
+### 매개변수 수가 다른 경우
+
+이번엔 매개변수의 수가 다른 경우엔 상황이 어떻게 달라지는지를 다음 두 함수 타입을 통해 살펴보자.
+
+```typescript
+type Login = (id: string) => Response<Data>;
+type LoginWithToken = (id: string, token: string) => Response<Data>;
+```
+
