@@ -2167,3 +2167,18 @@ error TS2322
 
 ## 제네릭의 호환성
 
+제네릭의 호환성은 기본적으로 객체의 호환성과 비슷하게 동작한다. 이 때 크게 두 가지 경우의 수가 있는데, 모든 타입 변수가 어떤 타입인지 알려진 경우와 그렇지 않은 경우이다. 
+
+
+
+### 모든 타입 변수가 어떤 타입인지 알려진 경우
+
+```typescript
+interface NotEmpty<T> {
+    data: T;
+}
+
+let x: NotEmpty<number>;
+let y: NotEmpty<string>;
+```
+
