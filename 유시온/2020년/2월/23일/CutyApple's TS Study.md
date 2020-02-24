@@ -2045,3 +2045,140 @@ type Multiply = (mulFirst: number, mulSecond: number) => number;
 
 * 모든 매개변수 타입은 `number`로, 서로 할당 가능하다.
 * `Multiply`의 반환 타입인 `number`는 `Sum` 의 반환 타입인`number`에 할당 가능하다.  
+
+따라서 `Sum`은 `Multiply`에 할당 가능하다.
+
+```typescript
+const sum: Sum (sumFirst: number, sumSecond: number) => {
+    return sumFirst + sumSecond;
+};
+const multiply: Multiply = sum;
+```
+
+
+
+#### 할당 불가능한 경우
+
+할당 불가능한 예제를 살펴보자.
+
+```typescript
+interface Animal { animalProp: string };
+interface Dog extends Animal { dogProp: number };
+
+let f = (animal: Animal) => animal.animalProp;
+let g = (dog: Dog) => { doSomething(dog.dogProp) };
+```
+
+* 할당받는 함수의 매개변수 타입 `Animal`은 할당하는 함수의 매개변수 타입`Dog`에 할당 불가능하다.
+
+
+
+### 매개변수 수가 다른 경우
+
+이번엔 매개변수의 수가 다른 경우엔 상황이 어떻게 달라지는지를 다음 두 함수 타입을 통해 살펴보자.
+
+```typescript
+type Login = (id: string) => Response<Data>;
+type LoginWithToken = (id: string, token: string) => Response<Data>;
+```
+
+
+
+#### 할당하는 함수의 매개변수 수가 더 많은 경우
+
+아래 코드에서 할당하는 함수인 `loginWithTogen`은 할당받는 함수 `login`에 비해 `token: string` 이라는 매개변수를 추가적으로 갖고 있다.
+
+```typescript
+const loginWithToken: LoginWithToken = (id: string, token: string) => {}
+const login: Login = loginWithToken;
+```
+
+이런 경우는 할당이 불가능하다. 만약 이 할당을 허용한다고 가장하자. 그렇다면 함수를 다음과 같은 식으로 호출할 것이다.
+
+```typescript
+login('Id');
+```
+
+이는 `loginWithToken` 함수를 `token` 인자 없이 호출하는 셈이다. `loginWithToken` 함수 내에서 `token`을 `string` 타입이라 생각하고 사용했다면, `string`이 필요한 자리에 `undefined` 값이 넘어와서 런타임 에러가 발생할 것이다. 따라서 이런 할당은 허용되지 않는다.
+
+
+
+#### 할당받는 함수의 매개변수 수가 더 많은 경우
+
+아래 코드에서 할당하는 함수인 `login`은 할당받는 함수인 `loginWithToken`에 비해 매개변수 수가 하나 모자라다.
+
+```typescript
+const login: Login = (id: string) => {};
+const loginWithToken: LoginWithToken = login;
+```
+
+이런 경우, 초과 매개변수는 무시된다. 그리고 매개변수 수가 같을 때와 동일한 알고리즘으로 호환성을 판단한다. 위의 경우, 초과 매개변수인 `token: string`을 제외하고 첫 번째 매개변수는 동일한 타입을 가지므로 할당은 문제 없이 진행된다.
+
+
+
+## 클래스의 호환성
+
+클래스의 호환성 비교는 기본적으로 객체 호환성 비교와 비슷하게 진행된다. 이 때 스태틱 멤버 및 생성자는 호환성 비교에 영향을 주지 않는다는 점에 주의해야 한다. 예를 들어, 다음 코드에서 이루어지는 두 할당은 두 클래스의 생성자 타입 시그니처가 다름에도 문제 없이 진행된다.
+
+```typescript
+class Animal {
+    feet: number;
+    constructor(name: string, numFeet: number) { }
+}
+
+class Size {
+    feet: number;
+    constructor(numFeet: number) { }
+}
+
+let a: Animal;
+let s: Size;
+a = s;
+s = a;
+```
+
+
+
+### private 및 protected 멤버
+
+`public` 멤버를 비교할 때에는 객체 속성을 비교할 때와 마찬가지로 이름이 같은지, 타입이 호환 되는지만 따진다. 하지만 `private`멤버와 `protected` 멤버는 조금 특별하게 처리된다. `private` 및`protected` 속성은 이름이 같다고 해도 다른 클래스로부터 정의된 멤버라면 호환이 불가능하다.
+
+```typescript
+class UserA {
+    constructor (id: string, private password: string) {}
+}
+
+class UserB {
+    constructor (id: string, private password: string) {}
+}
+
+let userB: UserB;
+let userA: UserA;
+userB = userA;
+```
+
+`UserB` 타입과 `UserA` 타입은 모두 `private password: string` 멤버를 갖는다. 비록 이름은 같지만 이 두 속성은 서로 다른 클래스에서 정의된 `private` 멤버이다. 따라서 위와 같은 할당을 시도한다면 다음 타입 에러가 발생한다.
+
+```typescript
+error TS2322
+```
+
+
+
+## 제네릭의 호환성
+
+제네릭의 호환성은 기본적으로 객체의 호환성과 비슷하게 동작한다. 이 때 크게 두 가지 경우의 수가 있는데, 모든 타입 변수가 어떤 타입인지 알려진 경우와 그렇지 않은 경우이다. 
+
+
+
+### 모든 타입 변수가 어떤 타입인지 알려진 경우
+
+```typescript
+interface NotEmpty<T> {
+    data: T;
+}
+
+let x: NotEmpty<number>;
+let y: NotEmpty<string>;
+```
+
