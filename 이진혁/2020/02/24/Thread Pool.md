@@ -61,4 +61,28 @@
   첫 번째 생성자를 많이 사용한다.
 
 - 첫 번째 생성자는
-  첫 번째 매개변수 : 
+  첫 번째 매개변수 : 코어 스레드 개수
+  두 번째 매개변수 : 최대 스레드 개수
+  세 번째 매개변수 : 아무 행동을 하지 않을 때 interrupt 시키는 시간
+  네 번째 매개변수 : 세 번째 매개변수의 시간 단위
+  다섯 번째 매개변수 : 작업 큐
+  
+- 아래는 ThreadPoolExecutor 클래스의 첫 번째 생성자를 이용한 예제이다.
+  
+   ```java
+  public class MainClass {
+      public static void main(String[] args) {
+          ExecutorService es = new ThreadPoolExecutor(
+          	1,
+              10,
+              60L,
+              TimeUnit.SECONDS,
+              new SynchronousQueue<Runnable>()
+          );
+      }
+  }
+   ```
+  
+  
+  
+  
