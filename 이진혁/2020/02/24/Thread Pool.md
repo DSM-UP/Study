@@ -81,8 +81,31 @@
           );
       }
   }
+  ```
+  
+  
+  
+- Thread Pool을 종료시키는 메소드는 다음과 같다.
+
+   ```java
+   public void shutdown();
+   public List<Runnable> shutdownNow();
+   public boolean awaitTermination(long timeout, TimeUnit unit);
    ```
-  
-  
-  
-  
+
+- shutdown : 현재 처리 중인 작업뿐만 아니라 작업 큐에
+   대기하고 있는 모든 작업을 처리한 뒤에 스레드풀을 종료시킨다.
+
+- shutdownNow : 현재 작업 처리 중인 스레드를 interrupt해서
+   작업 중지를 시도하고 스레드풀을 종료시킨다.
+   리턴값은 작업 큐에 있는 미처리된 작업의 목록이다.
+
+- awaitTermination : shutdown() 메소드 호출 이후, 모든 작업 처리를
+   timeout 시간 내에 완료하면 true를 리턴하고 완료하지 못하면 작업 처리 중인 스레드를
+   interrupt하고 false를 리턴한다.
+
+- 이것으로 보아 shutdown() 메소드는 단순히 작업 큐의 작업을 종료시키는 메소드이고
+  shutdownNow() 메소드는 shutdown() 메소드에서 업그레이드 되어 현재 작업 중인 스레드를
+  급히 종료시키고 아직 처리되지 않은 목록까지 보여주는 메소드이며
+  awaitTermination() 메소드는 작업 큐의 작업이 끝날때 까지 기다리는데 시간을 정하여
+  그 시간안에 작업이 모두 종료가 되는지까지 확인하는 메소드이다.
