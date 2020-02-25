@@ -1,0 +1,97 @@
+#whole-wrap > section {
+    width: 1200px;
+}
+
+#team {
+    margin-top: 50px;
+    width: 100%;
+    height: 400px;
+    background: #87cefa;
+    position: relative;
+}
+
+#team > p {
+    display: inline-block;
+    color: white;
+    position: absolute;
+}
+
+#team > p:nth-child(2) {
+    font-size: 64px;
+    font-weight: bold;
+    top: 80px;
+    margin-left: 50px;
+}
+
+#team > p:nth-child(3) {
+    font-size: 42px;
+    top: 160px;
+    margin-left: 50px;
+    width: 700px;
+}
+
+#team-logo {
+    background-image: url('../image/DMI-Logo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+    margin: 30px 0 0 100px;
+}
+
+#developer-wrapper {
+    margin-left: 5%;
+    margin-top: 100px;
+}
+#developer-wrapper > .developer-div {
+    width: 300px;
+    height: 500px;
+    display: inline-block;
+    background: #87cefa;
+    border-radius: 40px;
+    margin: 20px 30px;
+}
+
+#developer-wrapper > .developer-div > .developer-image {
+    width: 200px;
+    height: 250px;
+    margin-top: 50px;
+    margin-left: 50px;
+    background-size: 200px 250px;
+    background-repeat: no-repeat;
+    border-radius: 40px;
+}
+
+#developer-wrapper > .developer-div > .developer-name, #developer-wrapper > .developer-div > .developer-major  {
+    font-size: 42px;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#developer-wrapper > .developer-div:nth-child(1) > .developer-image {
+    background-image: url('../image/developer/공영길.PNG');
+}
+
+#developer-wrapper > .developer-div:nth-child(2) > .developer-image {
+    background-image: url('../image/developer/김대웅.jpg');
+}
+
+#developer-wrapper > .developer-div:nth-child(3) > .developer-image {
+    background-image: url('../image/developer/손정우.jpg');
+}
+
+#developer-wrapper > .developer-div:nth-child(4) > .developer-image {
+    background-image: url('../image/developer/안영준.PNG');
+}
+
+#developer-wrapper > .developer-div:nth-child(5) > .developer-image {
+    background-image: url('../image/developer/유시온.jpg');
+}
+
+#developer-wrapper > .developer-div:nth-child(6) > .developer-image {
+    background-image: url('../image/developer/이진혁.jpg');
+}

@@ -1,0 +1,211 @@
+#schedule {
+    height: 50%;
+    width: 100%;
+}
+
+#schedule-header, #teacher-header {
+    color: #87cefa;
+    font-size: 48px;
+    font-weight: bold;
+    padding: 70px 0 10px 100px;
+}
+
+hr {
+    border: 2px solid #87cefa;
+}
+
+.manage-change-button {
+    border: 4px solid #87cefa;
+    border-radius: 10px;
+    width: 150px;
+    height: 50px;
+    background: white;
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    float: right;
+    margin: 30px 80px 0 0;
+    position: relative;
+}
+
+#schedule-box, #teacher-select-2, #teacher-select-3 {
+    width: 78%;
+    height: 88px;
+    margin: 10% 10% 0 10%;
+    position: relative;
+    border: 4px solid #87cefa;
+    padding: 10px 1% 30px 1%;
+}
+
+#teacher-select-2, #teacher-select-3 {
+    height: 120px;
+}
+
+#schedule-box-2 {
+    width: 78%;
+    height: 88px;
+    margin: 20px 10% 65px 10%;
+    position: relative;
+    border: 4px solid #87cefa;
+    padding: 10px 1% 30px 1%;
+}
+
+#schedule-text, #teacher-text, #schedule-text-2, #teacher-text-2, #teacher-text-3 {
+    font-weight: bold;
+    font-size: 48px;
+    text-align: center;
+    display: inline-block;
+    margin: 20px 20px 0 50px;
+}
+
+#teacher-text-2, #teacher-text-3 {
+    margin: 35px 20px 0 50px;
+}
+
+#teacher-select-2 {
+    margin-top: 100px;
+}
+
+#teacher-select-3 {
+    margin-top: 20px;
+}
+
+#schedule-date, #teacher-date, #schedule-date-2, #teacher-date-2, #teacher-date-3 {
+    width: 400px;
+    height: 50px;
+    font-size: 36px;
+    margin: 20px 30px 0 30px;
+    padding: 5px 0 0 10px;
+    border: 4px solid #87cefa;
+    font-weight: bold;
+    background: white;
+}
+
+#teacher-select-2-div, #teacher-select-3-div {
+    height: 75%;
+    width: 30%;
+    position: absolute;
+    margin: -10px 0 0 0;
+    display: inline-block;
+    padding: 5px 0;
+}
+
+#teacher-select-2-div > label, #teacher-select-2-div > input, #teacher-select-3-div > label, #teacher-select-3-div > input {
+    display: inline-block;
+}
+
+#teacher-select-2-div > label, #teacher-select-3-div > label {
+    height: 30%;
+    width: 25%;
+    font-size: 24px;
+    border: 4px solid #87cefa;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#teacher-select-2-div > input, #teacher-select-3-div > input {
+    height: 35%;
+    width: 70%;
+    font-size: 24px;
+    border: 4px solid #87cefa;
+    border-radius: 5px;
+    background: white;
+
+}
+
+#schedule-event, #schedule-event-2 {
+    font-weight: bold;
+    font-size: 48px;
+    text-align: center;
+    display: inline-block;
+    margin: 20px 0 0 30px;
+}
+
+.date-button {
+    color: black;
+    background: white;
+    height: 50px;
+    width: 200px;
+    border-radius: 10px;
+    font-size: 26px;
+    font-weight: bold;
+    border: 4px solid #87cefa;
+    margin-top: 20px;
+    margin-right: 5px;
+}
+
+#date-button-mon {
+    margin-left: 10%;
+}
+
+.select {
+    border: 4px solid #ffd700 !important;
+}
+
+.manage-modify-button {
+    display: block;
+    width: 30%;
+    height: 120px;
+    background: #87cefa;
+    border-radius: 20px;
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+    margin: 150px 0 0 35%;
+    border: none;
+}
+
+#teacher-box {
+    width: 60%;
+    height: 120px;
+    background: white;
+    border: 4px solid #87cefa;
+    margin: 10% 0 0 20%;
+}
+
+.teacher-select-label {
+    width: 90px;
+    height: 40px;
+    border: 4px solid #87cefa;
+    border-radius: 10px;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 2px;
+}
+
+.teacher-select {
+    width: 200px;
+    height: 50px;
+    border: 4px solid #87cefa;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-right: 20px;
+    background: white;
+}
+
+#teacher-select {
+    margin: 20px 0 0 130px;
+}
+
+#teacher-select > select > option {
+    width: 100px;
+}
+    
+.hide {
+    display: none;
+}
+
+.showSecondBox {
+    margin: 20px 0 0 35%;
+}
+
+.modify-button-mode {
+    margin-top: 13px;
+}
