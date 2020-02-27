@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DMI</title>
+    <link rel="stylesheet" href="../css/pc-management.css">
+    <link rel="stylesheet" href="../css/pc-default.css">
+    <link rel="stylesheet" href="../css/pc-calendar.css">
+</head>
+<body>
+    <div id="whole-wrap">
+        <header id="pc-default-header">
+            <p>메인페이지</p>
+            <p>메인으로</p>
+        </header>
+        <section id="pc-management-section">
+            <div id="pc-schedule-change-wrapper">
+                <div id="one-day-schedule-wrapper">
+                    <p class="pc-management-title">일일 일정 교체</p>
+                    <div id="ond-day-schedule-box" class="pc-management-date-box">
+                        <p class="pc-management-weather">날짜</p>
+                        <input type="date" id="schedule-date" min="2020-01-01" max="2021-02-28" value="2020-02-02">
+                        <p id="one-day-schedule-text">월요일 방과후</p>
+                    </div>
+                    <input type="button" value="월요일 방과후" class="pc-date-button" id="pc-date-button-mon">
+                    <input type="button" value="화요일 방과후" class="pc-date-button" id="pc-date-button-tue">
+                    <input type="button" value="전공동아리" class="pc-date-button" id="pc-date-button-club">
+                    <input type="button" value="자습(기타)" class="pc-date-button" id="pc-date-button-etc">
+                </div> 
+                <div id="day-day-schedule-wrapper">
+                    <p class="pc-management-title">일대일 일정 교체</p>
+                    <div id="day-day-schedule-box-1" class="pc-management-date-box">
+                        <p class="pc-management-weather">날짜</p>
+                        <input type="date" id="day-day-schedule-date-1" min="2020-01-01" max="2021-02-28" value="2020-02-02">
+                        <p id="day-day-schedule-text-1">월요일 방과후</p>
+                    </div>
+                    <div id="day-day-schedule-box-2" class="pc-management-date-box">
+                        <p class="pc-management-weather">날짜</p>
+                        <input type="date" id="day-day-schedule-date-2" min="2020-01-01" max="2021-02-28" value="2020-02-02">
+                        <p id="day-day-schedule-text-2">화요일 방과후</p>
+                    </div>
+                </div>   
+            </div>
+
+            <div id="pc-management-hr"></div>
+
+            <div id="pc-teacher-change-wrapper">
+                <div id="one-day-teacher-wrapper">
+                    <p class="pc-management-title">일일 선생님 교체</p>
+                    <div id="one-day-teacher-box" class="pc-management-date-box">
+                        <p class="pc-management-weather">날짜</p>
+                        <input type="date" id="one-day-teacher-date" min="2020-01-01" max="2021-02-28" value="2020-02-02">
+                    </div>
+                    <div id="one-day-teacher-select" class="pc-management-teacher-wrapper">
+                        <label for="second-floor-teacher" id="one-day-second-floor-teacher-label" class="pc-management-floor-label">2층</label>
+                        <select name="second-floor-teacher" id="one-day-second-floor-teacher" class="pc-management-teacher-select">
+                            <option value="김정은 선생님">김정은 쌤</option>
+                            <option value="김정은 선생님">김일성 쌤</option>
+                            <option value="김정은 선생님">김정일 쌤</option>
+                        </select>
+                        <label for="third-floor-teacher" id="one-day-third-floor-teacher-label" class="pc-management-floor-label">3층</label>
+                        <select name="third-floor-teacher" id="one-day-third-floor-teacher" class="pc-management-teacher-select">
+                            <option value="김정은 선생님">김정은 쌤</option>
+                            <option value="김정은 선생님">김일성 쌤</option>
+                            <option value="김정은 선생님">김정일 쌤</option>
+                        </select>
+                        <label for="forth-floor-teacher" id="one-day-forth-floor-teacher-label" class="pc-management-floor-label">4층</label>
+                        <select name="forth-floor-teacher" id="one-day-forth-floor-teacher" class="pc-management-teacher-select"> 
+                            <option value="김정은 선생님">김정은 선생님</option>
+                            <option value="김정은 선생님">김일성 쌤</option>
+                            <option value="김정은 선생님">김정일 쌤</option>
+                        </select> 
+                    </div>
+                </div>
+                
+                <div id="day-day-teacher-wrapper">
+                    <p class="pc-management-title">일대일 선생님 교체</p>
+                    <div id="day-day-teacher-box-wrapper-1">
+                        <div id="day-day-teacher-box-1" class="pc-management-date-box">
+                            <p class="pc-management-weather">날짜</p>
+                            <input type="date" id="day-day-teacher-date-1" min="2020-01-01" max="2021-02-28" value="2020-02-02">
+                        </div>
+                        <div id="day-day-teacher-select-1" class="pc-management-teacher-wrapper">
+                            <label for="second-floor-teacher" id="day-day-second-floor-teacher-label-1" class="pc-management-floor-label">2층</label>
+                            <select name="second-floor-teacher" id="day-day-second-floor-teacher-1" class="pc-management-teacher-select">
+                                <option value="김정은 선생님">김정은 쌤</option>
+                                <option value="김정은 선생님">김일성 쌤</option>
+                                <option value="김정은 선생님">김정일 쌤</option>
+                            </select>
+                            <label for="third-floor-teacher" id="day-day-third-floor-teacher-label-1" class="pc-management-floor-label">3층</label>
+                            <select name="third-floor-teacher" id="day-day-third-floor-teacher-1" class="pc-management-teacher-select">
+                                <option value="김정은 선생님">김정은 쌤</option>
+                                <option value="김정은 선생님">김일성 쌤</option>
+                                <option value="김정은 선생님">김정일 쌤</option>
+                            </select>
+                            <label for="forth-floor-teacher" id="day-day-forth-floor-teacher-label-1" class="pc-management-floor-label">4층</label>
+                            <select name="forth-floor-teacher" id="day-day-forth-floor-teacher-1" class="pc-management-teacher-select"> 
+                                <option value="김정은 선생님">김정은 쌤</option>
+                                <option value="김정은 선생님">김일성 쌤</option>
+                                <option value="김정은 선생님">김정일 쌤</option>
+                            </select> 
+                        </div>
+                    </div>
+                    <div id="day-day-teacher-box-wrapper-2" class="pc-management-teacher-wrapper">
+                        <div id="day-day-teacher-box-2" class="pc-management-date-box">
+                            <p class="pc-management-weather">날짜</p>
+                            <input type="date" id="day-day-teacher-date-2" min="2020-01-01" max="2021-02-28" value="2020-02-02">
+                        </div>
+                        <div id="day-day-teacher-select-2">
+                            <label for="second-floor-teacher" id="day-day-second-floor-teacher-label-2" class="pc-management-floor-label">2층</label>
+                            <select name="second-floor-teacher" id="day-day-second-floor-teacher-2" class="pc-management-teacher-select">
+                                <option value="김정은 선생님">김정은 쌤</option>
+                                <option value="김정은 선생님">김일성 쌤</option>
+                                <option value="김정은 선생님">김정일 쌤</option>
+                            </select>
+                            <label for="third-floor-teacher" id="day-day-third-floor-teacher-label-2" class="pc-management-floor-label">3층</label>
+                            <select name="third-floor-teacher" id="day-day-third-floor-teacher-2" class="pc-management-teacher-select">
+                                <option value="김정은 선생님">김정은 쌤</option>
+                                <option value="김정은 선생님">김일성 쌤</option>
+                                <option value="김정은 선생님">김정일 쌤</option>
+                            </select>
+                            <label for="forth-floor-teacher" id="day-day-forth-floor-teacher-label-2" class="pc-management-floor-label">4층</label>
+                            <select name="forth-floor-teacher" id="day-day-forth-floor-teacher-2" class="pc-management-teacher-select"> 
+                                <option value="김정은 선생님">김정은 쌤</option>
+                                <option value="김정은 선생님">김일성 쌤</option>
+                                <option value="김정은 선생님">김정일 쌤</option>
+                            </select> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="button" value="교체" id="pc-teacher-change-button">
+        </section>
+        <footer id="pc-default-footer">
+            <p>대덕소프트웨어마이스터고등학교</p>
+            <p>DMI</p>
+        </footer>
+    </div>
+</body>
+</html>

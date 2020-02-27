@@ -1,0 +1,17 @@
+#pc-absent-section {
+    width: 50%;
+    margin: 3% 25%;
+}
+
+#pc-absent-start-date-box {
+    width: 100%;
+    height: 60px;
+    border: 4px solid #87cefa;
+}
+
+#pc-absent-start-date-box > p {
+    display: inline-block;
+    font-size: 32px;
+    font-weight: bold;
+    padding: 14px;
+}

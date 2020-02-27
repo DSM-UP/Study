@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DMI</title>
+    <link rel="stylesheet" href="../css/pc-absent.css">
+    <link rel="stylesheet" href="../css/pc-default.css">
+</head>
+<body>
+    <div id="whole-wrap">
+        <header id="pc-default-header">
+            <p>사전 결석 신고</p>
+            <p>메인으로</p>
+        </header>
+        <section id="pc-absent-section">
+            <div id="pc-absent-start-date-box">
+                <p>시작 날짜</p>
+                <input type="date" id="pc-absent-start-date" min="2020-02-02" max="2021-02-28">
+                <select id="pc-absent-start-class">
+                    <option value="">1교시</option>
+                    <option value="">2교시</option>
+                    <option value="">3교시</option>
+                    <option value="">4교시</option>
+                    <option value="">5교시</option>
+                    <option value="">6교시</option>
+                    <option value="">7교시</option>
+                    <option value="">8교시</option>
+                    <option value="">9교시</option>
+                    <option value="">10교시</option>
+                </select>
+            </div>
+            <div id="pc-absent-end-date-box">
+                <p>도착 날짜</p>
+                <input type="date" id="pc-absent-end-date" min="2020-02-02" max="2021-02-28">
+                <select id="pc-absent-end-class">
+                    <option value="">1교시</option>
+                    <option value="">2교시</option>
+                    <option value="">3교시</option>
+                    <option value="">4교시</option>
+                    <option value="">5교시</option>
+                    <option value="">6교시</option>
+                    <option value="">7교시</option>
+                    <option value="">8교시</option>
+                    <option value="">9교시</option>
+                    <option value="">10교시</option>
+                </select>
+            </div>
+            <div id="pc-absent-student-info-box">
+                <p>학생 인적사항</p>
+                <select id="pc-student-grade">
+                    <option value="">1학년</option>
+                    <option value="">2학년</option>
+                    <option value="">3학년</option>
+                </select>
+                <select id="pc-student-class">
+                    <option value="">1반</option>
+                    <option value="">2반</option>
+                    <option value="">3반</option>
+                    <option value="">4반</option>
+                </select>
+                <select id="pc-student-name">
+                    <option value="">공영길</option>
+                    <option value="">김대웅</option>
+                </select>
+            </div>
+                <div id="pc-absent-form-box">
+                    <p>목적</p>
+                    <input id="pc-experience-button" type="button" value="현체">
+                    <input id="pc-outing-button" type="button" value="외출">
+                    <input id="pc-absent-button" type="button" value="공결">
+                    <label for="absent-form-purpose-reason" id="absent-form-reason-label">비고(사유)</label>
+                    <input type="text" id="absent-form-purpose-reason" placeholder="없음">
+                </div>
+            <input type="button" value="신고" id="pc-absent-submit">
+        </section>
+        <footer id="pc-default-footer">
+            <p>대덕소프트웨어마이스터고등학교</p>
+            <p>DMI</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+#whole-wrap {
+    min-width: 1400px;
+}
+
+#pc-management-section {
+    width: 100%;
+    margin-top: 2%;
+}
+
+#pc-management-section > div {
+    display: inline-block;
+    position: absolute;
+}
+
+#pc-management-section > div:nth-of-type(2n+1) {
+    width: 40%;
+}
+
+#pc-schedule-change-wrapper {
+    left: 5%;
+}
+
+#pc-management-hr {
+    left: 50%;
+    width: 1px;
+    height: 560px;
+    border: 1px solid #87cefa;
+    background: #87cefa;
+}
+
+#pc-teacher-change-wrapper {
+    width: 45% !important;
+    right: 0%;
+}
+
+#pc-teacher-change-wrapper > div {
+    width: 100%;
+}
+
+.pc-management-title {
+    width: 100%;
+    font-size: 32px;
+    font-weight: bold;
+    color: #87cefa;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.pc-management-weather {
+    font-size: 28px;
+    font-weight: bold;
+    color: black;
+}
+
+.pc-management-date-box {
+    border: 3px solid #87cefa;
+    height: 40px;
+    padding: 15px 20px;
+    margin: 10px 0px;
+}
+
+.pc-management-date-box > p:nth-child(3) {
+    color: #87cefa;
+    font-size: 24px;
+    font-weight: bold;
+    right: 30px;
+    position: absolute;
+    margin-top: 5px;
+}
+
+.pc-management-date-box > input {
+    width: 40%;
+    position: absolute;
+    padding: 0px 10px;
+    font-size: 24px;
+    font-weight: bold;
+    border: 2px solid #87cefa;
+    margin-left: 20px;
+}
+
+.pc-management-date-box > p, .pc-management-date-box > input {
+    display: inline-block;
+}
+
+#pc-teacher-change-wrapper > div > .pc-management-date-box, #pc-teacher-change-wrapper > div > div > .pc-management-date-box {
+    width: 60% !important;
+    margin-left: 15%;
+}
+
+.pc-date-button {
+    width: 23%;
+    height: 32px;
+    font-size: 18px;
+    background: white;
+    color: #87cefa;
+    border: 3px solid #87cefa;
+    margin-bottom: 50px;
+    transition: background-color, color, border 0.3s;
+}
+
+.pc-date-button:hover {
+    background: #bbe5ff;
+    color: #4f2fff;
+    border: 3px solid #4f2fff;
+    transition: background-color, color, border 0.3s;
+}
+
+#pc-date-button-mon {
+    margin-left: 2%;
+}
+
+.pc-management-floor-label {
+    color: #87cefa;
+    border: 2px solid #87cefa;
+    width: 45px;
+    padding-top: 3px;
+    height: 25px;
+    font-size: 16px;
+    text-align: center;
+    display: inline-block;
+}
+
+.pc-management-teacher-select {
+    width: 150px;
+    height: 31px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid #87cefa;
+}
+
+.pc-management-teacher-wrapper {
+    margin-bottom: 30px;
+}
+
+#pc-teacher-change-button {
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    width: 100px;
+    height: 50px;
+    background: #87cefa;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    transform: translateX(-50%);
+    transition: background-color, color 0.3s;
+}
+
+#pc-teacher-change-button:hover {
+    background: #bbe5ff;
+    color: #4f2fff;
+}
