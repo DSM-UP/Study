@@ -1,0 +1,185 @@
+#section-wrap {
+    width: 90%;
+    height: 400px;
+}
+
+#section-select {
+    width: 90%;
+    height: 150px;
+    margin: 50px 0 0 5%;
+}
+
+.select-info {
+    width: 75%;
+    height: 130px;
+    border: 4px solid #87cefa;
+    display: inline-block;
+}
+
+#section-select-button {
+    width: 18%;
+    height: 56px;
+    background: white;
+    border: 4px solid #87cefa;
+    border-radius: 10px;
+    font-size: 26px;
+    font-weight: bold;
+    display: inline-block;
+    position: absolute;
+    margin: 40px 0 0 50px
+}
+
+.select-info > p {
+    font-size: 40px;
+    font-weight: bold;
+    padding: 40px 0 0 30px;
+    display: inline-block;
+}
+
+#date-info > input[type="date"] {
+    width: 300px;
+    height: 48px;
+    border: 4px solid #87cefa;
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 40px;
+}
+
+.select-info > select {
+    font-size: 32px;
+    height: 56px;
+    width: 120px;
+    border: 4px solid #87cefa;
+    font-weight: bold;
+    margin-left: 40px;
+}
+
+#section-student-space {
+    width: 1090px;
+    height: 200px;
+    margin-left: 5%;
+}
+
+#section-student-space > input[type="button"] {
+    width: 120px;
+    height: 50px;
+    margin: 0 10px 5px 0;
+    font-size: 28px;
+    font-weight: bold;
+    background: white;
+    border: 4px solid #87cefa;
+    border-radius: 10px;
+}
+
+.hide {
+    display: none;
+}
+
+.select {
+    border: 4px solid #ffd700 !important;
+}
+
+#date-informations, #student-informations  {
+    width: 100%;
+    height: 60px;
+    margin-left: 33%;
+}
+
+#date-informations > p, #student-informations > p {
+    display: inline-block;
+    font-size: 32px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.information-chart {
+    width: 90%;
+    height: 1000px;
+    margin: 0 0 0 5%;
+}
+
+.information-chart > li {
+    width: 100%;
+    height: 60px;
+    font-size: 0px;
+}
+
+.information-chart > li > p {
+    display: inline-block;
+    font-size: 32px;
+    border: 4px solid #c75252 !important;
+    text-align: center;
+    font-weight: bold;
+    margin-right: 40px;
+    position: relative;
+}
+
+.information-chart > li:nth-child(1) > p {
+    background: #c75252;
+    color: white;
+}
+
+.information-chart > li > p:nth-child(3) {
+    margin: 0;
+}
+
+.information-chart > li > p:nth-child(1)::after, #information-chart > li > p:nth-child(2)::after {
+    content: '';
+    width: 40px;
+    height: 4px;
+    display: inline-block;
+    background: #c75252;
+    position: absolute;
+    right: -44px;
+    top: 20px;
+    border: none;
+}
+
+.information-date {
+    width: 40%;
+}
+
+.information-attendance {
+    color: #0000FF;
+    width: 20%;
+}
+
+.information-reason {
+    width: 30%;
+}
+
+.information-chart > li > p.awol {
+    color: #ff0000;
+}
+
+#information-up {
+    border-right: 30px solid transparent;
+    border-left: 30px solid transparent;
+    border-bottom: 50px solid #d9d9d9;
+    border-top: none;
+    background: none;
+    border-radius: 10px;
+    position: absolute;
+    height: 50px;
+    left: 45%;
+}
+
+#information-down {
+    border-right: 30px solid transparent;
+    border-left: 30px solid transparent;
+    border-top: 50px solid #d9d9d9;
+    border-bottom: none;
+    background: none;
+    border-radius: 10px;
+    position: absolute;
+    height: 50px;
+    left: 55%;
+}
+
+.info-down-button-able {
+    border-top: 50px solid #c75252 !important;
+}
+
+.info-up-button-able {
+    border-bottom: 50px solid #c75252 !important;
+}

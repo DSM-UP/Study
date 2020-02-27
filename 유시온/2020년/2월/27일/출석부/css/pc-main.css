@@ -1,0 +1,43 @@
+section#pc-main-section {
+    width: 100%;
+    height: 80%;
+}
+
+#pc-main-calendar-wrapper {
+    display: inline-block;
+}
+
+#pc-main-menu-wrapper {
+    width: 540px;
+    height: 620px;
+    display: inline-block;
+    margin: 30px 0 0 100px;
+    border: 15px solid #87cefa;
+    border-radius: 40px;
+    position: absolute;
+    right: 50px;
+}
+
+#pc-main-menu-wrapper > p {
+    font-size: 32px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    margin: 20px;
+}
+
+#pc-main-menu-wrapper > input {
+    width: 400px;
+    height: 70px;
+    background: #87cefa;
+    color: white;
+    font-size: 24px;
+    border: none;
+    margin: 30px 0 0 70px;
+    font-weight: bold;
+}
+
+.pc-main-undefined-button {
+    background: #bfbfbf !important;
+}
+

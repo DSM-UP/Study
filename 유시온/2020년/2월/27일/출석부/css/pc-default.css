@@ -1,0 +1,55 @@
+* {
+    margin : 0;
+    padding: 0;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+#whole-wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+header#pc-default-header {
+    width: 100%;
+    height: 50px;
+    background: #87cefa;
+}
+
+header#pc-default-header > p {
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+footer#pc-default-footer {
+    width: 100%;
+    height: 40px;
+    background: #87cefa;
+    bottom: 0;
+    position: absolute;
+}
+
+footer#pc-default-footer > p:nth-child(1) {
+    font-size: 28px; 
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    position: absolute;
+    left: 20px;
+}
+
+footer#pc-default-footer > p:nth-child(2) {
+    font-size: 28px; 
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+}
