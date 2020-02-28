@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DMI</title>
+    <link rel="stylesheet" href="../css/pc-stats.css">
+    <link rel="stylesheet" href="../css/pc-default.css">
+</head>
+<body>
+    <div id="whole-wrap">
+        <header id="pc-default-header">
+            <p>통계</p>
+            <p>메인으로</p>
+        </header>
+        <section id="pc-stats-section">
+            <div id="pc-stats-student-wrapper">
+                <p class="pc-stats-header-text">학생별 통계</p>
+                <div id="pc-stats-student-info" class="pc-stats-info-box">  
+                    <p>학생 인적사항</p>
+                    <select id="pc-stats-student-grade">
+                        <option value="">1학년</option>
+                        <option value="">2학년</option>
+                        <option value="">3학년</option>
+                    </select>
+                    <select id="pc-stats-student-class">
+                        <option value="">1반</option>
+                        <option value="">2반</option>
+                        <option value="">3반</option>
+                        <option value="">4반</option>
+                    </select>
+                    <select id="pc-stats-student-name">
+                        <option value="">공영길</option>
+                        <option value="">바보</option>
+                        <option value="">김도희</option>
+                        <option value="">김선민</option>
+                    </select>
+                </div> 
+
+                <div id="pc-stats-students-informations" class="pc-stats-stats">
+                    <p>현체</p>
+                    <p id="pc-stats-field-trip">4</p>
+
+                    <p>|</p>
+
+                    <p>외출</p>
+                    <p id="pc-stats-going-out">0</p>
+
+                    <p>|</p>
+
+                    <p>지각</p>
+                    <p id="pc-stats-being-late">3</p>
+
+                    <p>|</p>
+
+                    <p>공결</p>
+                    <p id="pc-stats-admission-absent">2</p>
+                    
+                    <p>|</p>
+
+                    <p>무단</p>
+                    <p id="pc-stats-awol">6</p>
+
+                    <p>|</p>
+
+                    <p>총합</p>
+                    <p id="pc-stats-total">15</p>
+                </div>
+
+                <ul id="information-chart-student" class="pc-stats-information-chart">
+                    <li>
+                        <p class="pc-stats-information-date">날짜</p>
+                        <p class="pc-stats-information-attendance">출석</p>
+                        <p class="pc-stats-information-reason">사유</p>
+                    </li>
+                    <li>
+                        <p class="pc-stats-information-date">2020년 01월 01일 09교시</p>
+                        <p class="pc-stats-information-attendance pc-stats-awol">무단</p>
+                        <p class="pc-stats-information-reason">배고파서</p>
+                    </li>
+                    <li>
+                        <p class="pc-stats-information-date">2020년 01월 01일 10교시</p>
+                        <p class="pc-stats-information-attendance pc-stats-field-trip">현체</p>
+                        <p class="pc-stats-information-reason">SW융합해커톤</p>
+                    </li>
+                    <li>
+                        <p class="pc-stats-information-date">2020년 01월 01일 09교시</p>
+                        <p class="pc-stats-information-attendance pc-stats-awol">무단</p>
+                        <p class="pc-stats-information-reason">배고파서</p>
+                    </li>
+                    <li>
+                        <p class="pc-stats-information-date">2020년 01월 01일 10교시</p>
+                        <p class="pc-stats-information-attendance pc-stats-field-trip">현체</p>
+                        <p class="pc-stats-information-reason">SW융합해커톤</p>
+                    </li>
+                    <li>
+                        <p class="pc-stats-information-date">2020년 01월 01일 09교시</p>
+                        <p class="pc-stats-information-attendance pc-stats-awol">무단</p>
+                        <p class="pc-stats-information-reason">배고파서</p>
+                    </li>
+                    <li>
+                        <p class="pc-stats-information-date">2020년 01월 01일 10교시</p>
+                        <p class="pc-stats-information-attendance pc-stats-field-trip">현체</p>
+                        <p class="pc-stats-information-reason">SW융합해커톤</p>
+                    </li>
+                    <li>
+                        <p class="pc-stats-information-date">2020년 01월 01일 09교시</p>
+                        <p class="pc-stats-information-attendance pc-stats-awol">무단</p>
+                        <p class="pc-stats-information-reason">배고파서</p>
+                    </li>
+                    <li>
+                        <p class="pc-stats-information-date">2020년 01월 01일 10교시</p>
+                        <p class="pc-stats-information-attendance pc-stats-field-trip">현체</p>
+                        <p class="pc-stats-information-reason">SW융합해커톤</p>
+                    </li>
+                    <li>
+                        <p class="pc-stats-information-date">2020년 01월 01일 09교시</p>
+                        <p class="pc-stats-information-attendance pc-stats-awol">무단</p>
+                        <p class="pc-stats-information-reason">배고파서</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="pc-stats-hr"></div>
+
+            <div id="pc-stats-date-wrapper">
+                <p class="pc-stats-header-text">날짜별 통계</p>
+                <div id="pc-stats-date-info" class="pc-stats-info-box">
+                    <p>날짜</p>
+                    <input type="date" id="pc-stats-date" min="2020-02-02" max="2021-02-28">
+                    <select id="">
+                        <option value="">01교시</option>
+                        <option value="">02교시</option>
+                        <option value="">03교시</option>
+                        <option value="">04교시</option>
+                        <option value="">05교시</option>
+                        <option value="">06교시</option>
+                        <option value="">07교시</option>
+                        <option value="">08교시</option>
+                        <option value="">09교시</option>
+                        <option value="">10교시</option>
+                    </select>
+                </div>
+
+                <div id="pc-stats-date-informations" class="pc-stats-stats">
+                    <p class="informations-text" id="field-trip-text">현체</p>
+                    <p class="informations-value" id="field-trip">3</p>
+
+                    <p class="informations-side-text">|</p>
+
+                    <p class="informations-text" id="going-out-text">외출</p>
+                    <p class="informations-value" id="going-out">0</p>
+
+                    <p class="informations-side-text">|</p>
+
+                    <p class="informations-text" id="being-late-text">지각</p>
+                    <p class="informations-value" id="being-late">2</p>
+
+                    <p class="informations-side-text">|</p>
+
+                    <p class="informations-text" id="admission-absent-text">공결</p>
+                    <p class="informations-value" id="admission-absent">1</p>
+                    
+                    <p class="informations-side-text">|</p>
+
+                    <p class="informations-text" id="awol-text">무단</p>
+                    <p class="informations-value" id="awol">4</p>
+
+                    <p class="informations-side-text">|</p>
+
+                    <p class="informations-text" id="total-text">총합</p>
+                    <p class="informations-value" id="total">10</p>
+                </div>
+                <ul id="information-chart-date" class="pc-stats-information-chart">
+                    <li>
+                        <p class="information-date">학생 정보</p>
+                        <p class="information-attendance">출석</p>
+                        <p class="information-reason">사유</p>
+                    </li>
+                    <li>
+                        <p class="information-date">1101 공영길</p>
+                        <p class="information-attendance awol">무단</p>
+                        <p class="information-reason">배고파서</p>
+                    </li>
+                    <li>
+                        <p class="information-date">1102 김대웅</p>
+                        <p class="information-attendance field-trip">현체</p>
+                        <p class="information-reason">SW융합해커톤</p>
+                    </li>
+                    <li>
+                        <p class="information-date">1103 김도희</p>
+                        <p class="information-attendance awol">무단</p>
+                        <p class="information-reason">배고파서</p>
+                    </li>
+                    <li>
+                        <p class="information-date">1107 백서영</p>
+                        <p class="information-attendance field-trip">현체</p>
+                        <p class="information-reason">SW융합해커톤</p>
+                    </li>
+                    <li>
+                        <p class="information-date">1108 서민준</p>
+                        <p class="information-attendance awol">무단</p>
+                        <p class="information-reason">배고파서</p>
+                    </li>
+                    <li>
+                        <p class="information-date">1110 손완서</p>
+                        <p class="information-attendance field-trip">현체</p>
+                        <p class="information-reason">SW융합해커톤</p>
+                    </li>
+                    <li>
+                        <p class="information-date">1111 손정우</p>
+                        <p class="information-attendance awol">무단</p>
+                        <p class="information-reason">배고파서</p>
+                    </li>
+                    <li>
+                        <p class="information-date">1113 안영준</p>
+                        <p class="information-attendance field-trip">현체</p>
+                        <p class="information-reason">SW융합해커톤</p>
+                    </li>
+                    <li>
+                        <p class="information-date">1114 유시온</p>
+                        <p class="information-attendance awol">무단</p>
+                        <p class="information-reason">배고파서</p>
+                    </li>
+                </ul>
+            </div>
+
+            <input type="button" id="information-up">
+            <input type="button" id="information-down" class="info-down-button-able">
+        </section>
+        <footer id="pc-default-footer">
+            <p>대덕소프트웨어마이스터고등학교</p>
+            <p>DMI</p>
+        </footer>
+    </div>
+</body>
+</html>
