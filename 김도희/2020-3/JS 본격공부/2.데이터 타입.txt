@@ -1,0 +1,38 @@
+JS 본격 공부
+
+- 사이트 : https://learnjs.vlpt.us/basics/02-variables.html 참고
+
+
+1. 데이터 타입
+
+변수나 상수 선언 시 숫자 외에도 다른 형태의 값들을 선언할 수 있다. ( 숫자 , 문자열 , 참/거짓 , null , undifined )
+
+1) 숫자 / number
+- 숫자를 대입 시 그냥 바로 대입하면 된다.
+예 ) let num = 1;
+
+
+2) 문자열 / string
+- 문자열(텍스트 형태)을 대입 시 작은 따옴표나 큰 따옴표로 감싼 뒤 선언한다. (작은 따옴표와 큰 따옴표에는 큰 차이가 없다.)
+예 ) let text = 'Helloword';
+      let name = "홍길동";
+
+
+3) 참 거짓  /  Boolean
+- boolean은 참과 거짓 두가지의 값만 나타낼 수 있다. 이때 참은 true , 거짓은 false 다.
+예 ) let age = true;
+      let name = false;
+
+
+4) null 
+- "없음"을 나타내는 데이터 타입이다. null은 주로 이 값이 없다라고 선언을 할 때 사용된다.
+예 ) const girlfriend = null;
+
+
+5) undifined
+- null과 같이 "없음"을 나타내는 데이터 타입이지만 아직 값이 설정되지 않았음을 의미한다.
+예 ) let friend;
+     console.log(friend);   -> 값이 설정되지 않았으므로 undifined가 뜨게 된다.
+
+
+한마디로 null은 우리가 고의적으로 "없다"라는 의미를 부여한 값이고 undifined는 값 자체를 설정하지 않았다라는 소리이다.
