@@ -1,0 +1,60 @@
+<strong> : 중요 텍스트
+<b> : 굵은 텍스트
+<i> : 기울임 꼴 텍스트
+<em> : 강조된 텍스트
+<mark> : 표시된 텍스트
+<small> : 작은 텍스트
+<del> : 삭제 된 텍스트
+<ins> : 삽입 된 텍스트
+<sub> : 첨자 텍스트
+<sup> : 위첨자 텍스트
+<u> : 밑줄
+<!DOCTYPE html> : 이 문서를 HTML5로 정의
+<html> : HTML 페이지의 루트 요소
+<head> : 문서에 대한 메타 정보 포함
+<title> : 문서의 제목 명시
+<body> : 눈에 보이는 페이지 내용
+<h1> : 큰 제목(가장 중요한)
+<h6> : 작은 제목(가장 중요하지 않은)
+<p> : 문단
+<a> : 링크 정의
+href : 링크 대상이 지정되는 속성
+<img> : 이미지
+src : 소스파일
+alt : 대체 텍스트
+width : 넓이
+height : 높이
+<button> : 버튼
+<ul> : 순서가 없는, 정렬되지 않은
+<ol> : 순서가 있는, 정렬 된
+<br> : 개행
+lang : 언어
+<hr> : 수평선
+<pre> : 서식이 미리 지정된 텍스트 정의
+<q> : 짧은 인용문
+<blockquote> : 다른 소스에서 인용 된 섹션 정의
+              (브라우저는 일반적으로 <blockquote)요소를 들여 쓰기 합니다>
+<abbr> : 약어 또는 머리 글자
+<address> : 문서 또는 기사의 연락처 정보를 정의
+<cite> : 저작(작품)의 제목을 정의 (이탤릭체)
+<bdo> : 양방향 재 지정 정의(거꾸로)
+<!-- ... --> : 주석
+border : HTML 요소 주위의 테두리 정의
+padding : 텍스트와 테두리 사이의 여백을 정의
+margin : 경계 외부의 여백 정의
+
+style 속성
+      1. color 텍스트 색상 ex) <p style="color:red;">I am red</p>
+      2. font-family 글꼴 ex) <p style="font-family:courier;">This is a paragraph.</p>
+      3. font-size 텍스트 크기 ex) <p style="font-size:50px;">I am big</p>
+      4. text-align 텍스트 정렬 ex) <p style="text-align:center;">Centered paragraph.</  p>
+      5. background-color 배경 색 ex) <body style="background-color:powderblue;">
+      6. border color 테두리 색 ex) <h1 style="border:2px solid Tomato;">Hello World</h1>
+                               ex2) <h1 style="background-color:rgb(255, 99, 71);">...</h1>
+      7. target 링크 된 문서를 열 위치 지정
+      target 속성
+             1. _blank : 링크 된 문서를 새 창이나 탭에서 연다
+             2. _self : 클릭 한 것과 동일한 창 / 탭에서 링크 된 문서를 연다(기본 값)
+             3. _parent : 링크 된 문서를 부모 프레임에 연다
+             4. _top : 링크 된 문서를 창 전체에서 연다
+             5. framename : 명명 된 프레임에 링크 된 문서를 연다
