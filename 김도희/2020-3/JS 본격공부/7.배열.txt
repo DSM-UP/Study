@@ -1,0 +1,44 @@
+JS 본격 공부
+
+- 사이트 : https://learnjs.vlpt.us/basics/02-variables.html 참고
+
+
+7. 배열
+
+- 여러 개의 항목들이 들어있는 리스트이다. 선언할때는 [ ] 안에 값을 넣어주면 된다.
+예 ) const arr = [1, 2 , 3 , 4 , 5 ];
+
+
+1 ] 객체 배열 만들기
+예 ) const obj = [ {name : 'kim' } , { name : 'Lee' } ];
+
+
+
+
+2 ] 배열을 선언한 뒤 n번째 항목을 조회하고 싶으면 object[ n ];  이렇게 선언하면 됨
+예 ) const obj = [ {name : 'kim' } , { name : 'Lee' } ];
+      console.log(obj);       // 0 : object name : 'kim'       1 : object name : 'Lee'  가 출력 
+      console.log(obj[0]);   // object { name : 'kim' }  이 출력
+      console.log(obj[1]);   // object { name : 'Lee' }  이 출력
+
+- 단 배열에서 첫번째 항목은 object[ 0 ] 부터 시작한다. ( 즉 object[ 1 ]이 두번째라는 소리 )
+
+
+
+
+3 ] 배열에 새 항목 추가하기
+- 배열에 새 항목을 추가할 때는 내장 함수인 push 함수를 이용한다.
+예 ) const obj = [ {name : 'kim' } , { name : 'Lee' } ];
+    
+      obj.push( {name : 'park' } );
+      console.log(obj);    // 0 : object name : 'kim'       1 : object name : 'Lee'     2 : object name : 'park' 가 출력 
+
+
+
+4 ] 배열의 크기 알아내기
+- 배열의 크기를 알아내기 위해서는 length를 사용한다.
+예 ) const obj = [ {name : 'kim' } , { name : 'Lee' } ];
+      console.log(obj.length);          // 2가 출력됨
+
+      obj.push( {name : 'park' } );
+      console.log(obj.length);         // 3이 출력됨
