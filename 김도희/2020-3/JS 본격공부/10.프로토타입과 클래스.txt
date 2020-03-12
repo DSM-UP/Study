@@ -1,0 +1,142 @@
+JS 본격 공부
+
+- 사이트 : https://learnjs.vlpt.us/basics/02-variables.html 참고
+
+
+10. 프로토 타입과 클래스
+
+
+객체 생성자란?
+- 함수를 통해 새로운 객체를 만들고 그 안에 넣고 싶은 값 또는 함수들을 구현 할 수 있도록 해준다.
+
+예 ) 
+function Animal(type, name, age) {
+   this.type = type;
+   this.name = name;
+   this.sound = sound;
+   this.say = function( ) {
+      console.log(this.sound);
+  };
+}
+
+const dog = new Animal('개' , '또또' , '왈왈');
+const cat = new Animal('고양이' , '까까' , '냐아옹');
+
+dog.say( );  //왈왈 이 출력됨
+cat.say( );    //냐아옹 이 출력됨
+
+
+- 객체 생성자를 사용할때 보통 함수 이름을 대문자로 시작하고. 새로운 객체를 만들때에는 new 키워드를 앞에 붙여준다.
+
+- 위에서도 알 수 있듯 객체가 새로 만들어질때마다 함수도 새로 만들어져 this.say로 설정되고 있다.(같은 형태의 객체를 사용 중)
+- 만약 같은 객체 생성자 함수를 사용하는 경우, 특정 함수 또는 값을 재사용 할 수 있는데 바로 프로토타입이다.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1] 프로토 타입
+- 프로토 타입은 객체 생성자 함수 아래에 .prototype.[원하는 키] = 코드를 입력하면 된다.
+예 ) 
+function Animal(type, name, age) {
+   this.type = type;
+   this.name = name;
+   this.sound = sound;
+}
+
+Animal.prototype.say = function( ) {
+  console.log(this.sound);
+};
+
+Animal.prototype.shareValue = 1;
+
+const dog = new Animal('개' , '또또' , '왈왈');
+const cat = new Animal('고양이' , '까까' , '냐아옹');
+
+dog.say( );  //왈왈 이 출력됨
+cat.say( );    //냐아옹 이 출력됨
+console.log(dog.sharedValue);  // 1이 출력됨(dog와 cat이 같은 객체를 사용한다는 것을 알 수 있다.)
+console.log(cat.sharedValue);    // 1이 출력됨
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2 ] 객체 생성자 상속 받기
+
+예 ) 
+function Animal(type, name, age) {
+   this.type = type;
+   this.name = name;
+   this.sound = sound;
+}
+
+Animal.prototype.say = function( ) {
+  console.log(this.sound);
+};
+
+Animal.prototype.shareValue = 1;
+
+function Dog(name, sound) {
+   Animal.call(this, '개' name, sound);     // 여기의 첫번째 인자에는 this를 그후엔 Animal 객체 생성자 함수에서 필요로 하는 매개변수를 넣어야 함
+}
+Dog.prototype = Animal.prototype;   // prototype을 공유하므로 상속 받은 객체 생성자 함수를 만든 뒤 ,prototype값을 Animal.prototype으로 설정함 
+
+function Cat(name, sound) {
+   Animal.call(this, '고양이' name, sound);
+}
+
+Cat.prototype = Animal.prototype;
+
+const dog = new Dog( '또또' , '왈왈');
+const cat = new Cat( '까까' , '냐아옹');
+
+dog.say( );  //왈왈 이 출력됨
+cat.say( );    //냐아옹 이 출력됨
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3 ] 클래스
+class Animal {
+  constructor(type, name, sound) {
+    this.type = type;
+    this.name = name;
+    this.sound = sound;
+  }
+  say() {                          // class 내부의 함수를 '메서드'라고 부름(이렇게 메서드를 만들시 자동으로 prototype으로 등록됨)
+    console.log(this.sound);
+  }
+}
+
+const dog = new Animal('개', '멍멍이', '멍멍');
+const cat = new Animal('고양이', '야옹이', '야옹');
+
+dog.say();   //멍멍  이 출력
+cat.say();     //  야옹   이 출력
+
+
+다른 class 상속 하기============================
+
+class Animal {
+  constructor(type, name, sound) {
+    this.type = type;
+    this.name = name;
+    this.sound = sound;
+  }
+  say() {
+    console.log(this.sound);
+  }
+}
+
+class Dog extends Animal {                 //상속을 하기 위해서는 extends 키워드를 가르킨다.
+  constructor(name, sound) {
+    super('개', name, sound);             //super를 사용하여 부모 생성자에 매개변수를 넘겨준다.(super( ) 함수가 상속받은 클래스의 생성자를 가르킴)
+  }
+}
+
+class Cat extends Animal {
+  constructor(name, sound) {
+    super('고양이', name, sound);
+  }
+}
+
+const dog = new Dog('멍멍이', '멍멍');
+const cat = new Cat('야옹이', '야옹');
+
+dog.say();       //멍멍    이 출력됨
+cat.say();     //야옹    이 출력됨
