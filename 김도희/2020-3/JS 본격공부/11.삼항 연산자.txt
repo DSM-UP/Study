@@ -1,0 +1,47 @@
+JS 본격 공부
+
+- 사이트 : https://learnjs.vlpt.us/basics/02-variables.html 참고
+
+
+11. 삼항 연산자
+
+- 특정 조건에 따라 text 값이 달라지는 상황
+
+기본 예 )
+const arr = [ ];
+let text = ' ';
+if(arr.length === 0) {
+   text = '배열이 비어있음';
+} 
+else {
+   text = '배열이 비어있지 않음';
+}
+
+console.log(text);  // 배열이 비어있음
+
+
+삼항 사용 예 )
+const arr = [ ];
+let text = arr.length === 0 ? '배열이 비어있음' : '배열이 비어있지 않음' ;   // arr.legth === 0 (조건)  ?  ( true일때 실행 ) : ( false일때 실행 )
+
+console.log(text);     // 배열이 비어있음     이 출력됨
+
+
+삼항 사용 예2 )
+const arr = [ ];
+let text = arr.length === 0
+? '배열이 비어있음'
+: '배열이 비어있지 않음' ;
+
+console.log(text);    //위와 결과가 같음
+
+
+
+====================================
+- 삼항 연산자 중첩 예 ) 
+const happy = false;
+const angry = false;
+
+const mood = happy ? '기분 좋음' : angry ? '화남' : '별로임' ;
+
+console.log(mood);  //별로임 이 출력됨
