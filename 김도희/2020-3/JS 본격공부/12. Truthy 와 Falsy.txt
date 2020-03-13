@@ -1,0 +1,122 @@
+JS 본격 공부
+
+- 사이트 : https://learnjs.vlpt.us/basics/02-variables.html 참고
+
+
+12. Truthy and Falsy
+
+- 자바스크립트 문법은 아니지만 알아둬야 하는 개념이다.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+예 )
+function print(person) {
+  console.log(person.name);
+}
+
+const person = {
+    name : 'Hana'
+};
+
+print(person);      // Hana 가 출력됨
+
+
+-만약 위에 같은 상황에서 print() 함수 안에 person이 주어지지 않았다면, 콘솔에 에러를 발생시킴( TypeError: Cannot read property 'name' of undefined )
+
+
+===================================================================================================
+print 함수에 object(여기선 person)이 주어지지 않았을 때 문제가 발생한다고 출력하는 예 )
+
+function print(person) {
+  if( person === undifined) {   //만약 person이 비어있다면 그냥 반환함(문제가 있다는 것을 알림)
+       return;
+  }
+  console.log(person.name);
+}
+
+const person = {
+    name : 'Hana'
+};
+
+print( );      // print함수 안에가 비어있어서 제대로 실행되지 않음(만약 null 값을 전달하면 오류 발생)
+
+
+==================================================================================================
+print 함수에 null 값 전달이 오류뜨지 않게 하는 예 )
+
+function print(person) {
+  if( person === undifined || person === null ) {   //만약 person이 비어있거나 null 값이라면 그냥 반환함(문제가 있다는 것을 알림)
+       reurn;
+  }
+  console.log(person.name);
+}
+
+const person = {
+    name : 'Hana'
+};
+
+print( null );      // print함수 안에가 null 값이라 제대로 실행되지 않음
+
+
+===================================================================================================
+undifined 와 null 값 대비하기 예 )
+
+function print(person) {
+  if( person === undifined) {   //만약 person이 비어있다면 그냥 반환함(문제가 있다는 것을 알림)
+       return;
+  }
+  console.log(person.name);
+}
+
+const person = {
+    name : 'Hana'
+};
+
+print( );      // print함수 안에가 비어있어서 제대로 실행되지 않음(만약 null 값을 전달하면 오류 발생)
+
+
+==================================================================================================
+print 함수에 null 값 전달이 오류뜨지 않게 하는 예 )
+
+function print(person) {
+  if( !person ) {   //만약 person이 비어있거나 null 값이라면 그냥 반환함(문제가 있다는 것을 알림)
+       reurn;
+  }
+  console.log(person.name);
+}
+
+const person = {
+    name : 'Hana'
+};
+
+print( null );      // print함수 안에가 null 값이라 제대로 실행되지 않음
+
+
+
+- 위에 코드가 작동하는 이유는 null 과 undifined 가 Falsy 한 값이기 때문이다. Falsy 값에 느낌표를 붙여주면 true로 전환된다.
+Falsy 변환 예 ) !undifined  ,  !null  ,  !0   ,  !'  '  ,  !NaN ( NaN이란 Not Number라는 의미를 가짐 )   // 전부 true로 변경
+
+- Falsy(위에 5가지)를 제외한 나머지는 Truthy이다.
+Truthy 변환 예 ) !3 , !'hello'  , !['hi']  ,  ![ ]  ,  !{ val : 1} ...      //전부 false로 변경
+
+
+------------------------------------------------------------------------------추가 정보--------------------------------------------------------------------------------
+
+NaN 변환 예 )
+const num = parseInt('5' , 10);   // 10진수 5를 숫자로 변환하겠다는 의미이다.(parseInt는 문자열을 숫자로 변환하는 자바스크립트 기본 함수이다.)
+console.log(num);    //  5  가 출력됨
+cosnt NotNum = parseInt('헤' , 10);          // 이번엔 숫자가 아닌 문자를 변환함
+console.log(NotNum);    //  NaN  이 출력됨    
+ 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Truthy 와 Falsy를 활용한 if문 예 )
+const val = { a : 1 };
+if(val) {
+   console.log('value가 truthy 함');       // val 은 Truthy 한 값이기 때문에 메세지가 출력됨(만약 null과 같은 Falsy면 메세지가 출력되지 않음)
+}
+
+
+삼항 연산자 예 )
+const val = { a : 1 };
+const truthy = val ? true : false;   // val은 참이므로 true 가 truthy에 담기게 된다. ( const truthy = !!val )을 대신 써주어도 된다.
+
+- const truthy = !!val  에서  !val은 false가 되고 이 false의 부정(!false)이니 !!val 은 참(true) 가 된다.
