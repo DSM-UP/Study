@@ -63,9 +63,24 @@
   
   public class MainClass {
       public static void main(String[] args) {
+          List<Student> list = new ArrayList<>();
+          list.add(new Student("Lee", 1));
+          list.add(new Student("Kim", 2));
+          list.add(new Student("Park", 3));
+        
+          Function<Student, String> f = t -> {
+              return t.getName();
+          }
           
+          for(int i = 0 ; i < list.size ; i++) {
+              System.out.println(f.apply(list.get(i));
+          }
       }
   }
+  
+  // Lee
+  // Kim
+  // Park
   ```
-
+  
   
