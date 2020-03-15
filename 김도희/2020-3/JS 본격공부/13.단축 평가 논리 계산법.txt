@@ -1,0 +1,99 @@
+JS 본격 공부
+
+- 사이트 : https://learnjs.vlpt.us/basics/02-variables.html 참고
+
+
+13. 단축 평가 논리 계산법
+
+- 논리 연산자를 조금 더 유용하게 사용하는 방법
+
+예 )
+const cat = {
+    name : '고양'
+};
+
+function getName(animal) {
+   return animal.name;
+}
+
+const name = getName(cat);  // 만약 getName 의 매개변수에 값이 없다면 오류 발생(animal 객체가 undifined 이기 때문)
+console.log(name);      //고양 이 출력됨
+
+
+=================================================================================
+animal 값이 주어지면 name을 조회하고 그렇지 않으면 undifined 반환하게 하기 예 )
+const cat = {
+    name : '고양'
+};
+
+function getName(animal) {
+   if(animal) {
+        return animal.name;
+   }
+   return undefined;
+}
+
+const name = getName( );  // getName에 아무것도 주워지지 않아도 에러가 발생하지는 않는다.(undefined를 반환함)
+console.log(name);      //undefined 를 출력
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1 ] && 연산자로 코드 단축하기
+
+예)
+const cat = {
+    name : '고양'
+};
+
+function getName(animal) {
+   return animal && animal.name;      // A && B 연산자를 사용할땐 A가 truthy라면 B를 , falsy라면 A를 결과로 된다.(여기선 truthy(cat)아므로 B를 반환)
+}
+
+const name = getName(cat);  //cat 이라는 truthy 값을 넘김
+console.log(name);      //고양 을 출력(animal.name(여기서 animal은 cat)을 반환받았으므로 고양을 출력한다.)
+
+
+추가 예 )
+true && 'hi'   // hi
+false && 'hi'      // false
+'hi' && 'bye'        // bye
+null && 'bye'    // null
+0 && 'hi'        // 0
+1 && 'bye'     // bye
+1 && 1      //   1
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2 ] || 연산자로 코드 단축하기
+
+예 )
+const namelessCat = {
+   name = ' '
+};
+
+function getName(animal) {
+   const name = animal && animal.name;
+   if(!name) {
+      return '이름없는 동물';
+   }
+   return name;
+}
+
+const name - getName(namelessCat);
+console.log(name);       // 이름 없는 동물     이 출력됨
+
+
+-위의 코드를 || 로 단축하기 예 )
+const namelessCat = {
+   name = ' '
+};
+
+function getName(animal) {
+   const name = animal && animal.name;
+   return name || '이름이 없는 동물';
+}
+
+const name = getName(namelessCat);
+console.log(name);       // 이름 없는 동물     이 출력됨
+
+
+- A || B 는 A가 Truthy할경우 결과값이 A가 되고 Falsy라면 결과값이 B가 된다.
