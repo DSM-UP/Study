@@ -1,0 +1,54 @@
+JS 본격 공부
+
+- 사이트 : https://learnjs.vlpt.us/basics/02-variables.html 참고
+
+
+14. 함수의 기본 파라미터
+
+- 함수의 기본 파라미터를 설정하는 방법에 대해 알아보자
+
+- 원의 넓이를 구하는 함수
+예 )
+function CircleArea(r) {
+    return Math.PI * r * r;     // Math.PI는 원주율(ㅠ) 값을 말한다.
+}
+
+const area = CircleArea(3); //만약 CircleArea에 매개변수를 주지 않으면 NaN이 나온다.(undefined * undefined 의 곱셈을 하게 되므로)
+console.log(area);      // 3*3*3.14....  의 계산 결과 값이 나옴
+
+
+
+- 만약 r 값을 주지 않는다면 기본값 1을 사용하도록 하자 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+기본값 1이 있는 원의 넓이를 구하는 함수 )
+
+function CircleArea(r) {
+    const radius = r || 1;     //r이 true라면 r 이 값으로 , false라면 1을 값으로 설정한다.
+    return Math.PI * radius * radius;     // Math.PI는 원주율(ㅠ) 값을 말한다.
+}
+
+const area = CircleArea( ); //만약 CircleArea에 매개변수를 주지 않아서 기본값 1로 계산한 결과가 나온다.
+console.log(area);      // 3.14159265358979.... 가 나옴
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ES6 에서 실행 가능한 함수 ) 
+
+
+function CircleArea(r = 1) {    // 만약 r값이 주어지지 않는다면 1을 기본값으로 설정함(기본 파라미터(매개법) 설정)
+    return Math.PI * r * r;     // Math.PI는 원주율(ㅠ) 값을 말한다.
+}
+
+const area = CircleArea( ); //CircleArea에 매개변수를 주지 않아서 기본값 1로 계산한 결과가 나온다.
+console.log(area);      // 3.14159265358979.... 가 나옴
+
+
+
+
+화살표 함수 )
+const CircleArea = (r = 1) => Math.PI * r * r;
+
+const area = CircleArea( ); // CircleArea에 매개변수를 주지 않아서 기본값 1로 계산한 결과가 나온다.
+console.log(area);      // 3.14159265358979.... 가 나옴
+
