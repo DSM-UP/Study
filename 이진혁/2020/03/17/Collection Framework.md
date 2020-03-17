@@ -337,6 +337,8 @@
 
 ##### 2-1-1 LinkedHashSet
 
+- LinkedHashSet은 HashSet을 상속받은 클래스이다.
+
 - LinkedHashSet은 기존의 순서가 존재하지 않는 Set의 특성에서 벗어나,
   중복되는 요소를 취급하지 않지만 순서는 존재하는 Set을 만들 수 있다.
 
@@ -344,3 +346,57 @@
 
 #### 2-2 TreeSet
 
+- HashSet은 해싱을 통해 객체를 비교하고 객체를 저장한다는 특징이 있었다.
+  TreeSet은 내부적으로 레드-블랙 트리를 사용한다는 특징이 있다.
+  그래서 그 안의 객체들을 비교하기에 수월하는 점을 가지고 있다.
+  그리고 Set의 특징상 순서가 없는데
+  레드-블랙 트리를 사용하기 때문에 정렬은 되어 있다는 것을 알 수 있다.
+  따라서 TreeSet은 주요 메소드가 세 가지 존재한다.
+  주요 메소드는 다음과 같다.
+
+  ```java
+  SortedSet<E> haedSet(E toElement);
+  NavigableSet<E> headSet(E toElement, boolean inclusive);
+  
+  SortedSet<E> subSet(E fromElement, E toElement);
+  NavigableSet<E> subSet(E fromElement, boolean fromInclusive,
+                        E toElement, boolean toInclusive);
+  
+  SortedSet<E> tailSet(E fromElement);
+  NavigableSet<E> tailSet(E fromElement, boolean inclusive);
+  ```
+
+- headSet() 메소드는 toElement보다 작은 값들로만 이루어진 Set을 리턴한다.
+  두 번째 headSet() 메소드는 inclusive가 true일 경우에 toElement보다 작은 값과 동일한 값으로만 이루어진
+  Set을 리턴한다.
+
+- subSet() 메소드는 fromElement보다는 크지만 toElement보다는 작은 값들로만 이루어진 Set을 리턴하고
+  두 번째 subSet() 메소드는 fromElement와 toElement의 값을 포함할 것인지 아닌지를 정한다.
+
+- tailSet() 메소드는 fromElement보다 큰 값들로만 이루어진 Set을 리턴한다.
+  두 번째 tailSet() 메소드의 inclusive는 마찬가지로 fromElement 값을 포함할 것인지를 정한다.
+
+- headSet(), subSet(), tailSet() 메소드의 리턴값을 보면 그냥 Set이 아닌 SortSet과 NavigableSet으로
+  이루어져 있다는 것을 알 수 있다.
+  SortSet과 NavigableSet은 TreeSet이 구현한 인터페이스이기 때문에 TreeSet과 같게 사용하면 된다.
+  솔직히 향상된 for문을 사용하게 되면 쉽게 사용할 수 있다는 것을 알고 있기에 딱히 알 필욘 없다.
+
+- 다음은 TreeSet의 예제이다.
+
+  ```java
+  public class MainClass {
+      public static void main(String[] args) {
+          Set<Integer> treeSet = new TreeSet<>();
+          treeSet.add(1);
+          treeSet.add(3);
+          treeSet.add(5);
+          treeSet.add(7);
+          treeSet.add(9);
+          
+          SortedSet<Integer> headSet = treeSet.headSet(6);
+          headSet.
+      }
+  }
+  ```
+
+  
