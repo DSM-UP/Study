@@ -54,7 +54,7 @@
 
 
 
-#### 1-1 ArrayList
+#### 1-1. ArrayList
 
 - ArrayList는 이름 그대로 배열을 기반으로한 List를 생성한다.
   하지만 배열이라는 것 자체가 불변성을 가지고 있기 때문에 사용하기 힘들 것이라고 생각할 수 있지만
@@ -107,7 +107,7 @@
 
   
 
-#### 1-2 Vector
+#### 1-2. Vector
 
 - Vector 클래스는 ArrayList와 같은 기능을 가지고 있지만 사용되는 메소드들이
   동기화 (synchronized)되어 있다는 것이 차이점이다.
@@ -117,7 +117,7 @@
 
 
 
-#### 1-3 LinkedList
+#### 1-3. LinkedList
 
 - LinkedList는 ArrayList와 사용방법이 거의 같다.
   하지만 전에 말했듯이 ArrayList는 요소를 빈번하게 삭제하는 경우에
@@ -235,7 +235,7 @@
 
 
 
-#### 2-1 HashSet
+#### 2-1. HashSet
 
 - HashSet은 해쉬코드를 이용해서 '이미 존재하는 객체'를 판별한다.
   객체를 저장할때 이미 저장되어 있는 모든 요소의 hashCode() 메소드를 실행하여
@@ -335,7 +335,7 @@
 
 
 
-##### 2-1-1 LinkedHashSet
+##### 2-1-1. LinkedHashSet
 
 - LinkedHashSet은 HashSet을 상속받은 클래스이다.
 
@@ -344,7 +344,7 @@
 
 
 
-#### 2-2 TreeSet
+#### 2-2. TreeSet
 
 - HashSet은 해싱을 통해 객체를 비교하고 객체를 저장한다는 특징이 있었다.
   TreeSet은 내부적으로 레드-블랙 트리를 사용한다는 특징이 있다.
@@ -370,12 +370,13 @@
   두 번째 headSet() 메소드는 inclusive가 true일 경우에 toElement보다 작은 값과 동일한 값으로만 이루어진
   Set을 리턴한다.
 
-- subSet() 메소드는 fromElement보다는 크지만 toElement보다는 작은 값들로만 이루어진 Set을 리턴하고
-  두 번째 subSet() 메소드는 fromElement와 toElement의 값을 포함할 것인지 아닌지를 정한다.
+- subSet() 메소드는 fromElement과 같거나 크고 toElement보다는 작은 값들로만 이루어진 Set을 리턴한다.
+  두 번째 subSet() 메소드는 inclusive에 따른 포함, 미포함을 결정한다.
 
-- tailSet() 메소드는 fromElement보다 큰 값들로만 이루어진 Set을 리턴한다.
-  두 번째 tailSet() 메소드의 inclusive는 마찬가지로 fromElement 값을 포함할 것인지를 정한다.
-
+- tailSet() 메소드는 fromElement과 같거나 큰 값들로만 이루어진 Set을 리턴한다.
+  두 번쨰 tailSet() 메소드는 inclusive가 false일 경우에 fromElement보다 큰 값으로만
+이루어진 Set을 리턴한다.
+  
 - headSet(), subSet(), tailSet() 메소드의 리턴값을 보면 그냥 Set이 아닌 SortSet과 NavigableSet으로
   이루어져 있다는 것을 알 수 있다.
   SortSet과 NavigableSet은 TreeSet이 구현한 인터페이스이기 때문에 TreeSet과 같게 사용하면 된다.
@@ -386,17 +387,342 @@
   ```java
   public class MainClass {
       public static void main(String[] args) {
-          Set<Integer> treeSet = new TreeSet<>();
-          treeSet.add(1);
-          treeSet.add(3);
-          treeSet.add(5);
-          treeSet.add(7);
-          treeSet.add(9);
-          
-          SortedSet<Integer> headSet = treeSet.headSet(6);
-          headSet.
+          		TreeSet<Integer> treeSet = new TreeSet<>();
+  		treeSet.add(1);
+  		treeSet.add(3);
+  		treeSet.add(5);
+  		treeSet.add(7);
+  		treeSet.add(9);
+  		
+  		SortedSet<Integer> headSet1 = treeSet.headSet(5);
+  		NavigableSet<Integer> headSet2 = treeSet.headSet(5, true);
+  		
+  		SortedSet<Integer> subSet1 = treeSet.subSet(3, 7);
+  		NavigableSet<Integer> subSet2 = treeSet.subSet(3, false, 7, true);
+		
+  		SortedSet<Integer> tailSet1 = treeSet.tailSet(5);
+  		NavigableSet<Integer> tailSet2 = treeSet.tailSet(5, false);
+  		
+  		System.out.print("headSet(5) : ");
+  		for(Integer i : headSet1)
+  			System.out.print(i + " ");
+  		System.out.println();
+  		
+  		System.out.print("headSet(5, true) : ");
+  		for(Integer i : headSet2)
+  			System.out.print(i + " ");
+  		System.out.println();
+  		
+  		System.out.print("subSet(3, 7) : ");
+  		for(Integer i : subSet1)
+  			System.out.print(i + " ");
+  		System.out.println();
+  		
+  		System.out.print("subSet(3, false, 7, true) : ");
+  		for(Integer i : subSet2)
+  			System.out.print(i + " ");
+  		System.out.println();
+  		
+  		System.out.print("tailSet(5) : ");
+  		for(Integer i : tailSet1)
+  			System.out.print(i + " ");
+  		System.out.println();
+  
+  		System.out.print("tailSet(5, false) : ");
+  		for(Integer i : tailSet2)
+  			System.out.print(i + " ");
+  		System.out.println();
       }
   }
+  
+  // headSet(5) : 1 3 
+  // headSet(5, true) : 1 3 5 
+  // subSet(3, 7) : 3 5 
+  // subSet(3, false, 7, true) : 5 7 
+  // tailSet(5) : 5 7 9 
+  // tailSet(5, false) : 7 9 
+  ```
+  
+- 이렇게 TreeSet 클래스와 그의 메소드인 headSet(), subSet(), tailSet() 메소드에 대한 예제를 볼 수 있다.
+  위에서 TreeSet 객체를 생성할때 호환성을 위한 Set<Integer> treeSet = new TreeSet<>()이 아닌
+  TreeSet... new TreeSet 과 같이 생성하였다.
+  왜 그런가에 대해서 혹시나 궁금할까봐 적어놓는다.
+  Set 인터페이스에는 추상메소드로 headSet() 을 지원하지 않기 때문이다.
+
+
+
+
+
+### 3. Map
+
+- Map은 이전의 List와 Set과는 다르게 Collection 인터페이스를 구현하는 인터페이스가 아니다.
+  Key와 Value를 이용하여 객체를 저장하는 방식의 새로운 콜렉션 프레임워크이다.
+  여기서 Key는 중복이 될 수 없지만 Value는 중복이 될 수 있다.
+  그리고 Map 인터페이스 안에는 Entry라는 내부 정적 인터페이스가 존재하는데
+  Map에서 객체의 정보를 저장하는 것은 Map의 Entry 인터페이스가 담당한다.
+  다음은 Map의 주요 메소드들이다.
+
+  ```java
+  V put(K key, V value);
+  boolean containsKey(Object key);
+  boolean containsValue(Object value);
+  Set<Map.Entry<K,V>> entrySet();
+  V get(Object key);
+  boolean isEmpty();
+  Set<K> keySet();
+  int size();
+  Collection<V> values();
+  void clear();
+  V remove(Object key);
   ```
 
+- 이제부터 이 메소드들에 대해서 소개해볼 예정이다.
+
+- 첫 번째로 put() 메소드이다.
+  put() 메소드의 매개변수로는 제네릭 타입의 Key인 key와 Value인 value가 있다.
+  여기서 key와 value의 쌍으로 데이터를 저장하게 되는데
+  저장할 뿐만 아니라 비교하면서 같은 Key를 가지고 있는 데이터가 있다면
+  그 데이터 대신에 현재 매개변수인 새 데이터를 넣고
+  기존의 데이터의 Value를 리턴한다.
+
+- 두 번째로 containsKey() 메소드이다.
+  매개변수로 Object 타입의 key를 받는데
+  이 key가 Key인 데이터가 존재하는지 확인하고 존재하면, true를 존재하지 않으면 false를 리턴한다.
+
+- 세 번째로 containsValue() 메소드이다.
+  containsKey() 메소드와 마찬가지로 매개변수로 Object 타입의 value를 받는데
+  이 value가 Value인 데이터가 존재하는지 확인하고
+  존재하면 true를, 존재하지 않으면 false를 리턴한다.
+
+- 네 번째로 entrySet() 메소드이다.
+  entrySet() 메소드는 리턴값이 조금 난해해보일 수도 있는데
+  이해해보면 은근히 간단하다는 것을 알 수 있다.
+  Map은 원래 K와 V의 제네릭 타입을 가지는데
+  이러한 Map의 내부 인터페이스인 Entry를 하나의 요소로하는 Set을 리턴하는 것이다.
+  근데 그 리턴하는 Set의 내용이 Map에 담긴 모든 내용이라는 것이다.
+- 다섯 번째로 get() 메소드이다.
+  get() 메소드는 이름 그대로 매개변수로 넘겨주는 Key에 맞는 Value를 리턴하는 메소드이다.
+- 여섯 번째로 isEmpty() 메소드이다.
+  isEmpty() 메소드는 다른 콜렉션 프레임워크에도 있었던 것처럼
+  현재 Map이 비어있으면 true, 비어있지 않으면 false를 리턴한다.
+- 일곱 번째로 keySet() 메소드이다.
+  keySet() 메소드는 Map의 Key들을 Set에 저장하여 리턴하는 메소드이다.
+- 여덟 번째로 size() 메소드이다.
+  이 또한 isEmpty() 메소드와 마찬가지로 다른 콜렉션 프레임워크에도 공통적으로 있는 메소드이며
+  Map에 존재하는 데이터의 갯수를 리턴한다.
+- 아홉 번째로 values() 메소드이다.
+  keySet() 과는 반대되게 Value들을 Collection 인터페이스에 담아서 리턴한다.
+- 열 번째로 clear() 메소드이다.
+  이 또한 isEmpty()와 size() 메소드와 마찬가지로 다른 콜렉션 프레임워크에도 존재하는 메소드이며
+  Map의 모든 내용을 삭제하는 메소드이다.
+- 열한 번째로 remove() 메소드이다.
+  매개변수로 Object 타입의 key를 받는데 이는 Key로써
+  같은 Key를 가진 데이터를 삭제하고 그의 Value를 리턴한다.
+
+
+
+#### 3-1. HashMap
+
+- HashMap은 대표적인 Map의 구현 클래스이다.
+  HashSet에서 살펴봤듯이 Hash는 해싱을 통해 객체의 중복을 검사한다.
+  따라서 중복이 되면 안 되는 것은 Key이므로 Key에 대한 중복 검사가 이루어지는데
+  이를 확인하는 방법은 전에 말했듯이 내부의 hashCode() 메소드를 사용하거 비교하여
+  다르면 저장, 다르지 않으면 equals() 메소드를 이용하여 비교하여
+  다르면 저장, 다르지 않으면 같은 것으로 간주하여 기존의 것을 삭제하고 새로운 것을 저장한다.
+  다음은 HashMap을 이용한 예제이다.
+
+  ```java
+  class School {
+      private String name;
+      private String area;
+      
+      public School(String name, String area) {
+          this.name = name;
+          this.area = area;
+      }
+      
+      public String getName() {
+          return name;
+      }
+      
+      public void setName(String name) {
+          this.name = name;
+      }
+      
+      public String getArea() {
+          return area;
+      }
+      
+      public void setArea(String area) {
+          this.area = area;
+      }
+      
+      @Override
+      public int hashCode() {
+          return name.hashCode() + area.hashCode();
+      }
+      
+      @Override
+      public boolean equals(Object obj) {
+          if(obj instanceof School) {
+              School school = (School) obj;
+             	return (school.name).equals(this.name)
+                  && (school.area).equals(this.area);
+          } else {
+              return false;
+          }
+      }
+  }
   
+  class Student {
+      private String name;
+      private Integer number;
+      
+      public Student(String name, Integer number) {
+          this.name = name;
+          this.number = number;
+      }
+      
+      public String getName() {
+          return name;
+      }
+      
+      public void setName(String name) {
+          this.name = name;
+      }
+      
+      public Integer getNumber() {
+          return number;
+      }
+      
+      public void setNumber(Integer number) {
+          this.number = number;
+      }
+  }
+  
+  public class MainClass {
+      public static void main(String[] args) {
+          School dsm = new School("DSM", "Daejeon");
+          School ghs = new School("GHS", "Gimhae");
+          
+          Map<School,Student> hashMap = new HashMap<>();
+          hashMap.put(dsm, new Student("Lee", 1));
+          hashMap.put(dsm, new Student("Kim", 2));
+          hashMap.put(dsm, new Student("Park", 3));
+          hashMap.put(ghs, new Student("Son", 1));
+          hashMap.put(ghs, new Student("Jung", 2));
+          
+          Set<Map.Entry<School,Student>> entrySet = hashMap.entrySet();
+         	for(Map.Entry e : entrySet) {
+              System.out.println("-----------------------------");
+              System.out.println("학교 : " + e.getKey().getName());
+              System.out.println("지역 : " + e.getKey().getArea());
+              System.out.println("이름 : " + e.getValue().getName());
+              System.out.println("번호 : " + e.getValue().getNumber());
+              System.out.println("-----------------------------");
+          }
+      }
+  }
+  
+  // -----------------------------
+  // 학교 : DSM
+  // 지역 : Daejeon
+  // 이름 : Lee
+  // 번호 : 1
+  // -----------------------------
+  // -----------------------------
+  // 학교 : DSM
+  // 지역 : Daejeon
+  // 이름 : Kim
+  // 번호 : 2
+  // -----------------------------
+  // -----------------------------
+  // 학교 : DSM
+  // 지역 : Daejeon
+  // 이름 : Park
+  // 번호 : 3
+  // -----------------------------
+  // -----------------------------
+  // 학교 : GHS
+  // 지역 : Gimhae
+  // 이름 : Son
+  // 번호 : 1
+  // -----------------------------
+  // -----------------------------
+  // 학교 : GHS
+  // 지역 : Gimhae
+  // 이름 : Jung
+  // 번호 : 2
+  // -----------------------------
+  ```
+
+
+
+#### 3-2. Hashtable
+
+- Hashtable은 Map의 구현 클래스이다.
+  내부구조와 사용하는 방법 등 모두 HashMap과 같다.
+  하지만 모든 메소드가 synchronized되어 있다는 점이 다른 점이다.
+  마치 ArrayList와 Vector와의 관계와 같다고 보면 된다.
+
+
+
+#### 3-2-1. Properties
+
+- Properties는 Hashtable 클래스를 상속받은 클래스이다.
+  그래서 Hashtable의 특성인 메소드의 동기화를 포함한 모든 기능을 가지고 있지만
+  Key와 Value가 모두 String이라는 점이 있어, 제네릭 타입을 사용하지 않는다.
+  이 Properties는 .properties 파일을 읽거나 데이터베이스의 내용을 꺼내오는데와 같이
+  여러 일에 많이 쓰인다.
+
+
+
+#### 3-3. TreeMap
+
+- TreeMap은 TreeSet과 마찬가지로 이진트리를 기반으로 해서 만들어진 Map이다.
+  대부분의 기능은 위의 Map들과 비슷하니 다른 점을 확인해보자.
+  다른 점은 이진트리를 기반으로 하기 때문에 정렬이 되어 있다는 것이다.
+  다음은 이러한 정렬을 이용하여 존재하는 메소드들이다.
+
+  ```java
+  Map.Entry<K,V> firstEntry();
+  Map.Entry<K,V> lastEntry();
+  Map.Entry<K,V> lowerEntry(K key);
+  Map.Entry<K,V> higherEntry(K key);
+  Map.Entry<K,V> floorEntry(K key);
+  Map.Entry<K,V> ceilingEntry(K key);
+  Map.Entry<K,V> pollFirstEntry();
+  Map.Entry<K,V> pollLastEntry();
+  ```
+
+- 첫 번째로 firstEntry() 메소드이다.
+  firstEntry() 메소드는 이진트리로 하면 가장 왼쪽에 존재하는 데이터를 리턴하는 것인데
+  가장 작은 Key를 가지고 있는 Map.Entry를 리턴한다.
+
+- 두 번째로 lastEntry() 메소드이다.
+  lastEntry() 메소드는 이진트리로 가장 오른쪽에 위치하는 Map.Entry를 리턴하는 것인데
+  말로 설명하면 가장 큰 Key를 가지고 있는 Map.Entry를 리턴하는 메소드이다.
+
+- 세 번째로 lowerEntry() 메소드이다.
+  lowerEntry() 메소드는 주어진 Key값의 바로 왼쪽 아래에 있는 노드 즉, Map.Entry를
+  리턴하는 메소드이다.
+
+- 네 번째로 higherEntry() 메소드이다.
+  higherEntry() 메소드는 주어진 Key값보다 하나 높은 Key값의
+  Map.Entry를 리턴하는 메소드이다.
+
+- 다섯 번째로 floorEntry() 메소드이다.
+  floorEntry() 메소드는 같은 우선순위를 가지는 Map.Entry가 있다면 그를 리턴하고
+  아니면 lowerEntry()와 같게 실행한다.
+
+- 여섯 번째로 ceilingEntry() 메소드이다.
+  ceilingEntry() 메소드는 같은 우선순위를 가지는 Map.Entry가 있다면 그를 리턴하고
+  아니면 higherEntry()와 같게 실행한다.
+
+- 일곱 번째로 pollFirstEntry() 메소드이다.
+  pollFirstEntry() 메소드는 firstEntry() 메소드와 같게 행동하나
+  꺼낸 후 그 노드를 삭제한다.
+
+- 여덟 번째로 pollLastEntry() 메소드이다.
+  pollLastEntry() 메소드는 lastEntry() 메소드와 같게 행동하나
+  꺼낸 후 그 노드를 삭제한다.
