@@ -1,0 +1,109 @@
+JS 본격 공부
+
+- 사이트 : https://learnjs.vlpt.us/basics/02-variables.html 참고
+
+
+15. 조건문 더 유용하게 사용하게 사용하기
+
+
+
+1 ) 특정 값이 여러 값중 하나인지 확인하기
+예 ) 
+function Flower(text) {
+  return (
+      text === '장미' || text === '안개꽃' || text === '시낸시스' || text === '해바라기'
+  );
+}
+
+console.log(Flower('안개꽃'));       //true
+console.log(Flower('자동차'));       //false
+
+
+===================================================================================================
+1 ] includes 함수 사용하기
+예 )
+function Flower(text) {
+  const flower = [ '장미' , '안개꽃' , '시낸시스' , '해바라기' ];
+  return flower.includes(text);
+}
+
+console.log(Flower('안개꽃'));       //true
+console.log(Flower('자동차'));       //false
+
+
+===================================================================================================
+2 ] 화살표 함수(includes 사용)
+예 )
+const Flower = text => [ '장미' , '안개꽃' , '시낸시스' , '해바라기' ].includes(text);
+
+console.log(Flower('안개꽃'));       //true
+console.log(Flower('자동차'));       //false
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2 ) 값에 따라 다른 결과물 반환하기 예 )
+function Sound(animal) {
+   if (animal === '뱀') return '쉬이익';
+   if (animal === '개;) return '왈왈';
+   return '(무음)';
+}
+
+console.log(Sound('뱀'));      // 쉬이익
+console.log(Sound('개'));            //왈왈
+
+
+===================================================================================================
+1 ] switch case  문 사용하기
+
+function Sound(animal) {
+   switch(animal) {
+       case  '뱀' :
+            return '쉬이익';   // return 사용시 break 는 생략해도 된다.
+       case  '개' : 
+            return '왈왈';
+       default :
+            return '(무음)';
+}
+
+console.log(Sound('뱀'));      // 쉬이익
+console.log(Sound('개'));            //왈왈
+
+
+===================================================================================================
+2 ] 객체 사용하기
+
+function Sound(animal) {
+   const sound =  {
+        뱀   :  '쉬이익' ,
+        개   :  '왈왈'
+   };
+   return sound[animal] || '(무음)';
+}
+
+console.log(Sound('뱀'));      // 쉬이익
+console.log(Sound('개'));            //왈왈
+
+===================================================================================================
+3 ] 값에 따라 실행해야 하는 코드가 다를 경우
+
+- 객체 내에 함수를 넣으면 됨
+예 )
+function Sound(animal) {
+  const sound = {
+     개( ) {
+        console.log('왈왈');
+      } ,
+     고양이( ) {
+        console.log('야옹');
+     }
+  };
+
+  if(!sound[animal]) {
+     console.log('(무음)');
+     return;
+  }
+  sound[animal]( );
+}
+
+Sound('개');             //왈왈
+Sound('고양이');        //야옹
