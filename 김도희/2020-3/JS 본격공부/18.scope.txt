@@ -1,0 +1,71 @@
+JS 본격 공부
+
+- 사이트 : https://learnjs.vlpt.us/basics/02-variables.html 참고
+
+
+18. scope
+- scope의 종류는 3가지가 있다.
+
+1 ) 전역(Global) scope : 코드의 모든 범위에서 사용 가능함
+2 ) 함수(Function) scope : 함수 안에서만 사용 가능함
+3 ) 블록(Block) scope : if , for , switch등 특정 블록 내부에서만 사용 가능함
+
+
+예1 )
+const text = 'Hi';     // Global Scope로 선언된 값(어디서든 사용 가능)
+
+function Print( ) {
+  console.log('print : ');
+  console.log(text);     // Global Scope로 선언된 값(Hi) 사용
+}
+
+function OtherPrint( ) {
+  console.log('OtherPrint : ');
+  const text = 'bye';      // Function Scope로 선언(OtherPrint함수 내에서만 유효)
+  console.log(text);    // Function Scope로 선언된 값(bye) 사용
+}
+
+Print( );    //  print : Hi
+OtherPrint( );    // OtherPrint : bye
+
+console.log(`Global scope : ${text}`);  // Global scope : Hi    // Global Scope로 선언된 값(Hi) 사용
+
+
+
+===================================================================================================
+
+예2 )
+const text = 'Hi';
+
+function OtherPrint( ) {
+  const text = 'bye';      // Function Scope로 선언(OtherPrint함수 내에서만 유효)
+  const Next = '!!';
+  function otherprint( ) {
+       consol.log('OtherPrint : ');
+        console.log(text);    // Function Scope로 선언된 값(bye) 사용. otherprint도 OtherPrint 함수 내 이므로 text가 사용 가능하다.
+        console.log(Next);  // !!
+  }
+  otherprint( );
+}
+
+OtherPrint( );    // OtherPrint : bye
+
+console.log(`Global scope : ${text}`);  // Global scope : Hi    // Global Scope로 선언된 값(Hi) 사용
+console.log(Next);  // 오류 발생(OtherPrint 밖에서는 Next를 조회할 수 없다.)
+
+
+===================================================================================================
+예3 )
+const text = 'hi';
+
+function first( ) {
+    const text = 'Hello';
+    if(true) {                       //무조건 실행
+       const text = 'bye';
+       console.log(`block scope: ${text}`);  // block scope : bye(모든 text를 var로 선언 시 bye로 출력됨 :: 호이스팅과 관련됨(다음 챕터)) 
+    }
+    console.log(`function scope : ${text}`);  // function scope : Hello(모든 text를 var로 선언 시 bye로 출력됨 :: 호이스팅과 관련됨) 
+}
+
+first( );
+console.log(`global scope : ${text}`);  //global scope : hi(모든 text를 var로 선언 시 hi로 출력됨 :: 호이스팅과 관련됨)      
