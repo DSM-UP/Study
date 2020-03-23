@@ -1,0 +1,142 @@
+JS 본격 공부
+
+- 사이트 : https://learnjs.vlpt.us/basics/02-variables.html 참고
+
+
+17. spread 와 rest
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1. Spread
+- 객체 혹은 배열을 펼칠 수 있음
+
+예 )
+const Dog = {
+     name : '초코'
+};
+
+const PrettyDog = {
+    name : '초코',
+    type : 'animal'
+};
+
+console.log(Dog);          //  Object { name : '초코' }
+console.log(PrettyDog);       // Object { name : '바닐라' , type : 'animal' }
+
+
+- 위 코드의 특징은 기존의 것을 그대로 둔체, 새로운 객체를 만드는 것이다. 이럴때 유용한 문법이 spread 이다.
+
+===================================================================================================
+Spread 사용 예 )
+
+1 ] 위의 코드 변형
+
+const Dog = {
+     name : '초코'
+};
+
+const PrettyDog = {
+    ...Dog ,
+    type : 'animal'
+};
+
+console.log(Dog);          //  Object { name : '초코' }
+console.log(PrettyDog);       // Object { name : '바닐라' , type : 'pretty' }
+
+
+2 ] 배열에 사용
+const animal = ['개' , '고양이' ];
+const Another = [ ...animal, '참새' ];
+
+console.log(animal);     // ['개' , '고양이' ]
+console.log(Another);     // ['개' , '고양이' , '참새' ]
+
+- animal 은 건들지 않은 상태에서 Another안에 animal 내용을 다 집어 넣고 '참새' 를 추가했다.
+
+
+3 ] spread 다중 사용
+const num = [ 1 ,2 ];
+const spreadNum = [ ...num , 3 , ...num ];
+console.log(spreadNum);  // [1 , 2 , 3 , 2 , 1]
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. spread와 반대되는 역할을 가지고 있다.
+
+예 )
+const PrettyDog = {
+    name : '초코',
+    type : 'animal',
+    age : 1
+};
+
+const { type , ...rest } = PrettyDog;   // 이때 추출값이 꼭 rest 라는 이름일 필요는 없다.(단 출력할때랑 같은 이름으로 바꿔줄 것)
+
+console.log(type);           // animal
+console.log(rest);            // Object { name : "초코" , age : 1 }    /  type을 제외한 값들이 들어있다.  
+
+===================================================================================================
+예 2 )
+const PrettyDog = {
+    name : '초코',
+    type : 'animal',
+    age : 1
+};
+
+const { type , ... Dog } = PrettyDog;   // 이때 추출값이 꼭 rest 라는 이름일 필요는 없다.(단 출력할때랑 같은 이름으로 바꿔줄 것)
+
+console.log(type);           // animal
+console.log(Dog);            // Object { name : "초코" , age : 1 }    /  type을 제외한 값들이 들어있다.  
+
+const { name , ...Age } = Dog;
+
+console.log(name);       // 초코
+console.log(Age);     // Object { age : 1 }
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3. 배열에서 rest
+
+const num = [ 1 ,2 , 3 ];
+const [ one, ...rest ] = num;   // 단 [...rest , three ] 와 같은 형태는 안된다.
+
+console.log(one);  // 1
+console.log(rest);  // [ 2 , 3]
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4. 함수 피라미터에서의 rest
+
+function sum(a,b,c) {
+  let sum = 0;
+  if(a) sum += a;
+  if(b) sum += b;
+  if(c) sum += c;
+  return sum;
+}
+
+const result = sum(1,2,3);  // 6(만약 값을 1,2 이런식으로 주었다면 c값이 undefined가 되기 때문에 sum을 더하는 과정중 NaN이 되버린다.)  
+console.log(result);
+
+
+NaN 방지하는 방법
+예 )
+function sum(...rest) {
+  return rest.reduce((acc,current) => acc + current , 0);  // 기억이 안날 시 9장 reduce 참고
+}
+
+const result = sum(1,2,3);
+console.log(result);  // 6
+  
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5. 함수 인자와 spread
+
+- 함수에서 읽는 값을 피라미터(매개변수) , 함수 내에서 값을 넣을 때, 그 값을 인자라 한다.
+예 ) function print(a)  // 피라미터 {  console.log(a);   //인자 }
+     print('hi');  // hi 는 인자이다.
+
+
+예 ) 
+function sum(...rest) {
+  return rest.reduce((acc , current ) => acc + current , 0 );
+}
+
+const num = [ 1 , 2 , 3 ];
+const result = sum(...number);
+console.log(result);  // 6
