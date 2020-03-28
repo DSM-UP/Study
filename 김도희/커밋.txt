@@ -1,1 +1,4 @@
 https://github.com/kimdohui/-Vacation-assignment   에 공부한 내용을 올림(react 관련 )
+
+
+방학이 너무 길어져서 과제를 수행하느라, 다른 repository와 이곳 두 곳에 올리는게 버겁고 불편해서 개학까지 위의 사이트로 커밋 주소를 니다!!!
