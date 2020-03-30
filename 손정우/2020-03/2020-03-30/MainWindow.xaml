@@ -1,0 +1,22 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+	<Grid>
+		<Label x:Name="labelName" Content="이름을 입력하세요" HorizontalAlignment="Left" Margin="133,117,0,0" VerticalAlignment="Top" Height="31" Width="143"/>
+		<Label x:Name="labelPhone" Content="전화번호를 입력하세요" HorizontalAlignment="Left" Margin="133,148,0,0" VerticalAlignment="Top" Height="31" Width="143"/>
+		<Button x:Name="buttonRegister" Content="가입" HorizontalAlignment="Left" Margin="133,197,0,0" VerticalAlignment="Top" Width="131" Click="buttonRegister_Click"/>
+		<TextBox x:Name="textBoxName" HorizontalAlignment="Left" Margin="308,124,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="textBoxPhone" HorizontalAlignment="Left" Margin="308,155,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+		<Label x:Name="labelRegisterCount" Content="가입자 수 : " HorizontalAlignment="Left" Margin="308,194,0,0" VerticalAlignment="Top" Height="31" Width="143"/>
+		<TextBox x:Name="textBoxSearchName" HorizontalAlignment="Left" Margin="133,246,0,0" Text="이름 입력" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+		<Button x:Name="buttonSearch" Content="전화번호 검색" HorizontalAlignment="Left" Margin="308,245,0,0" VerticalAlignment="Top" Width="131" Click="buttonSearch_Click"/>
+		<Label x:Name="labelSearchedPhone" Content="검색 전화번호 출력" HorizontalAlignment="Left" Margin="122,289,0,0" VerticalAlignment="Top" Height="31" Width="142"/>
+		<Label x:Name="labelNumberOfMember" Content="" HorizontalAlignment="Left" Margin="451,194,0,0" VerticalAlignment="Top" Height="31" Width="143"/>
+
+	</Grid>
+</Window>
