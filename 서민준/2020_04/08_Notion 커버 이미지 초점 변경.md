@@ -1,5 +1,8 @@
 # Notion 커버 초점 바꾸기
   
+**출처**  
+<a href = "https://www.inflearn.com/course/%EB%85%B8%EC%85%98-notion-%ED%99%9C%EC%9A%A9/dashboard">Notion 활용 강의 - 인프런</a>  
+  
 Notion에서 커버 페이지에 이미지를 넣게 되면 화면에 모든 이미지가 다 나오지 않는다.  
 ![cover image](https://user-images.githubusercontent.com/51042546/78733914-c9b44c80-7981-11ea-80f8-3abb957abbf5.JPG)  
   
