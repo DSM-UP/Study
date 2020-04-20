@@ -1,8 +1,7 @@
 # TranslateMessage 함수 레퍼런스 정리
   
-**출처**  
-<a href = "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-translatemessage">TranslateMessage function - MSDN</a>  
-<a href = "http://www.soen.kr/">SoEn:소프트웨어 공학 연구소</a>  
+<a href = "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-translatemessage" target = "_blank">TranslateMessage function - MSDN</a>  
+<a href = "http://www.soen.kr/" target = "_blank">SoEn:소프트웨어 공학 연구소</a>  
   
 ## TranslateMessage
   
