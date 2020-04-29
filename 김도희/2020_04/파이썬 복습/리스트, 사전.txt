@@ -1,0 +1,73 @@
+# 리스트 []   순서를 따지는 객체의 집합
+
+fruit = ['apple','orange','banana']
+print(fruit)
+print(fruit.index("apple"))  # apple위치 찾기
+
+fruit.append('pineapple')  # appeend로 맨 뒤에 붙이기
+print(fruit)
+
+fruit.insert(1,'cherry')  # 인덱스 1에 chrerry 넣기
+print(fruit)
+
+print(fruit.pop())  # 뒤부터 삭제
+print(fruit)
+
+# ----------------------------------------------------
+# 정렬
+
+print()
+num = [1,4,2,17,12]
+num.sort()  # 정렬
+print(num)
+num.reverse()  # 거꾸로 정렬
+print(num)
+num.clear()
+print(num)   # 비우기
+
+
+# -----------------------------------------------------
+# 리스트는 자료형 다양하게 쓸 수 있음
+
+print()
+mix = ['hana',12,False]  # 다양한 자료형
+print(mix)
+
+max = ['py','ko',2]
+mix.extend(max)  # mix 뒤에 max 리스트 붙이기
+print(mix)
+
+
+# --------------------------------------------------
+# 사전
+
+print()
+test1 = {10:"hana", 20:'Ha'}
+print(test1[10])  # 안에 키값 넣기
+print(test1.get(10))  # 안에 키값 넣기
+
+# print(test1[3])  # key값 내에 3이 없으므로 오류를 냄
+print(test1.get(5, "사용 가능")) # 위와 기본은 같으나 오류가 나진 않음
+# 만약 5가 없다면 "사용 가능"을 대신 주게 된다.
+
+
+print()
+print(10 in test1)  # test1에 10이 있다면 True 반환
+print('han' in test1)  # test1에 han이 없다면 False 반환
+
+
+print()
+test1[30] = 'koko'  # 키 30에 값 koko를 묶어 list 안에 넣기
+
+
+del test1[10]
+print(test1)  # 키 값이 10이던 hana는 삭제 됨
+
+
+print()
+print(test1.keys())  # 키 값만 출력
+print(test1.values())  # 값 자체만 출력
+print(test1.items())  # 둘 다 출력
+
+test1.clear()
+print(test1)
