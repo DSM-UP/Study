@@ -1,0 +1,53 @@
+menu = ("돈까스", "치즈까스")
+
+print(menu[0])
+print(menu[1])
+
+# menu.add 사용 불가(튜플은 내용을 건들 수 없음)
+
+name,age,hobby = ("hana",18,"drawing")  # 순서대로 넣기(튜플 활용)
+
+print(name,age,hobby)
+
+
+#-------------------------------------------------------------------
+# 집합(set)  중복이 안되고 순서가 없음
+myset = {1,2,2}
+print(myset)  # 1,2만 출력(중복값 무시)
+
+fruit = {'apple', 'orange','anything'}
+animal = set(['rabbit', 'dog','anything'])
+
+# 교집합(둘이 중복)
+print()
+print(fruit&animal)
+print(fruit.intersection(animal))
+
+# 합집합 ( 둘 중 하나)
+print()
+print(fruit or animal)
+print(fruit.union(animal))
+
+# 차집합 ( 둘 중 하나만 할 수 있는 것들) 중복 제거
+print()
+print(fruit - animal)
+print(fruit.difference(animal))
+
+fruit.add('banana')
+print(fruit)  # 집합 추가
+
+fruit.remove('banana')  # 바나나 삭제
+print(fruit)
+
+
+#------------------------------------------------------------
+# 자료 구조의 변경
+
+menu = {"커피", "케익"}
+print(type(menu)) #  메뉴의 타입 확인 (set 집합)
+
+menu = list(menu)
+print(type(menu))  # list로 변경
+
+menu = tuple(menu)
+print(type(menu))   # 튜플로 변경
