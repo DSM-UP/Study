@@ -168,6 +168,6 @@ sudo su - root
 
 zz142512
 
-sudo find / -name passwd
+sudo find /etc/passwd 
 
 sudo find / -name cp
