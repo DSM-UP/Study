@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en " xmls = "http://www.w3.org/1999/xhml">
+<head>
+    <meta charset="utf-8"/>
+
+    <title>
+    </title>
+    <style>
+
+        #header{
+            width:500px;
+            background-color: blue;
+            border: 1px solid red;
+            text-align: center;
+        }
+
+        #wrap{
+            width:500px;
+            background-color: blue;
+            border: 2px solid red;
+            text-align: center;
+            overflow: hidden;
+        }
+        #content{
+            width:350px;
+            border:1px solid red;
+            float:left;
+        }
+        #side_banner{
+        
+            border:1px solid red;
+            float:left;
+        }
+        #footer{
+            clear: both;
+            width:500px;
+            background-color: blue;
+            border: 3px solid red;
+            text-align: center;
+        }
+        
+        /*
+        li{
+            color : pink;
+        }
+        .menu1,.menu5,.menu3{
+            color : gray;
+
+        }
+        .menu2 {
+            color:hotpink;font-weight: bold;
+        } 
+        */
+        ul li.menu{
+            color:yellow;
+            font-size: 30px;
+        }
+        .menu{
+            color:green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id = "header">
+        <h1>HEADER</h1>
+        <div>
+    </div>
+        <div id="wrap"> 
+            <div id ="content">
+
+             <h1>Content</h1>
+        <ul>
+            <li class = "menu">menu</li>
+        </ul> 
+        
+        <oi>
+            <li class = "menu">menu1</li>
+            <li class = "menu2">menu2</li>
+            <li class = "menu3">menu3</li>
+            <li class = "menu4">menu4</li>
+            <li class = "menu5">menu5</li>
+        </oi>
+    </div>
+    <div>
+        <div id = "side_banner">
+            <h1>banner</h1>
+            <a herf="naver.com" target = "_blank"><img src ="6강.html">
+    </div>
+    </div>
+    <div id = "footer">
+        <h1>FOOTER</h1>
+    </div>
+</body>
+</html>
+<!-- 
+    id(#)와 class(.) 
+    overflow는 박스에 내용이 더길때 어떻게 보일지 선택하는거 hidden = 자름, float 위에서 아래로 흐름 7.2까지함
+-->
