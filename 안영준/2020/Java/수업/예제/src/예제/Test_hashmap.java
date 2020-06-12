@@ -1,6 +1,5 @@
 package 예제;
 
-import java.util.Collection;
 import java.util.HashMap;
 
 public class Test_hashmap {
@@ -15,7 +14,7 @@ public class Test_hashmap {
         System.out.println("English의 키값 : " + map.get("English"));        
         //value값을 얻을수있음, key 값
         
-        System.out.println("Englishd의 있나 없나 확인 =" + map.containsKey("English"));
+        System.out.println("English 있나 없나 확인 =" + map.containsKey("English"));
         //맵(Map)에 해당 키(key)가 있는지를 조사하여 그 결과값을 리턴한다.
         
         System.out.println("value 값 반환 : " + map.values());
