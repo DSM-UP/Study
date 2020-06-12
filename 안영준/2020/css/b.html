@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Particles</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            #particles {
+                height: 300px;
+                width: 100%;
+            }
+            
+        </style>
+        
+    </head>
+    <body>
+        
+        
+        <div id="particles"></div>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
+        <script type="text/javascript" src="https://rawgit.com/VincentGarreau/particles.js/master/particles.js"></script>
+        
+        <script>
+        
+        function initParticles() {
+            $('#particles').hide();
+            $('#particles').fadeIn(1000);
+
+            var options = {
+                retina_detect: true,
+                particles: {
+                    color: '#329644',
+                    shape: 'circle', // "circle", "edge" or "triangle"
+                    opacity: 0.7,
+                    size: 3,
+                    size_random: true,
+                    nb: 80,
+                    line_linked: {
+                        enable_auto: true,
+                        distance: 150,
+                        color: '#329644',
+                        opacity: 0.5,
+                        width: 1.5
+                    },
+                    anim: {
+                        enable: true,
+                        speed: 1
+                    }
+                },
+                interactivity: {
+                    enable: true,
+                    mouse: {
+                        distance: 50
+                    },
+                    detect_on: 'canvas',
+                    mode: 'grab'
+                }
+            };
+            
+            particlesJS('particles', options);
+        }
+        initParticles();
+        </script>
+    </body>
+</html>
