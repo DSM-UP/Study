@@ -72,23 +72,23 @@
 
 
     client_hello 메시지를 보낸 후 클라이언트는 해당 메시지와 동일한 매개변수를 가지는 server_hello 메시지를 기다린다.
-
+    
     - server_hello message
-
+    
         - version
             클라이언트가 제시한 버전 중 가장 낮은 버전과 서버에서 제공할 수 있는 가장 높은 버전을 택해서 포함
-
+    
         - random
             클라이언트의 random 필드와는 무관하게 생성
-
+    
         - session id
             클라이언트의 session id 필드가 0이 아니라면 서버는 동일한 값을 사용
-
+    
             클라이언트의 session id 필드가 0이라면 서버의 session id 필드는 새 세션을 위한 값으로 채워짐
-
+    
         - ciphersuite
             클라이언트가 제안한 것 중 서버가 선택한 압호 도구
-
+    
         - compression method
             클라이언트가 제안한 것 중에서 서버가 선택한 압축 방법
 
@@ -104,11 +104,11 @@
 
     1. 서버가 고정된 Diffie-Hellman 매개 변수와 함께 인증서를 보냈을 경우
     2. RSA 키 교환을 사용할 경우
-        
+       
 
 
     서명 : 일반적으로 메시지에 해시를 취하고 송시나의 개인 키를 이용해그 해시를 함호화를 해서 생성함
-
+    
     ```
     hash(ClientHello.random || ServerHello.random || ServerParams);
     ```
@@ -116,16 +116,17 @@
 
     초기 hello message에서 얻은 두 개의 random 값을 포함시켜 적용하기 때문에 재전송 공격과 위장된 개체를 확실히 막을 수 있다.
 
-    
-    다음으로, 익명 Diffie-Hellman을 사용하지 않는 서버는 클라이언트로부터 인증서를 요구할 수 있다.
 
+​    
+    다음으로, 익명 Diffie-Hellman을 사용하지 않는 서버는 클라이언트로부터 인증서를 요구할 수 있다.
+    
     - certificate type : 공개 키 알고리즘과 그것의 사용 목적을 나타냄
         - RSA, 서명만
         - DSS, 서명만
         - 고정된 Diffie-Hellman에 대한 RSA : 서명은 RSA로 서명된 인증서를 보내는 것으로 인증만을 위해 사용
         - 고정된 Diffie-Hellaman에 대한 DSS : 위와 비슷, 인증만을 위해 사용
     - certificate_authorities : 수용할 수 있는 인증기관 이름 목록
-        
+
 
     항상 요구되는 메시지는 server_done message이다. server_hello와 연관된 메시지의 끝을 나타내기 위해 서버가 보냄
     이 메시지를 보낸 이후는 서버가 클라이언트의 응답을 기다림
@@ -167,3 +168,17 @@
     이 두 메시지에 대한 응답으로 서버는 change_cipher_spec message를 보내고, 계류 상태를 현재 상태 암호 명세로 전송하고, 자신의 finisehd message를 보낸다.
 
     이 시점에서 핸드셰이크가 완료되며 클라이언트와 서버는 응용 계층에서 데이터 교환을 시작할 수 있음
+
+### 암호 명세 변경 프로토콜 (Change Cipher Spec Protocol)
+
+SSL 레콛 프로토콜을 사용하는 3가지 TLS-지정 프로토콜 중 하나, 가장 간단
+
+1 바이트로 구성, 값 1을 갖는 한 개의 메시지로 구성
+
+| 1        |
+| -------- |
+| 1 바이트 |
+
+계류 상태를 현재 상태에 복사하는 것이 유일한 목적
+
+이 연결에 사용될 암호 도구를 갱신
