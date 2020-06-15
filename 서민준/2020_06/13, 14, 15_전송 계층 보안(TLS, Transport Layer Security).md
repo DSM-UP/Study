@@ -118,14 +118,14 @@
 
 
 ​    
-    다음으로, 익명 Diffie-Hellman을 사용하지 않는 서버는 클라이언트로부터 인증서를 요구할 수 있다.
-    
-    - certificate type : 공개 키 알고리즘과 그것의 사용 목적을 나타냄
-        - RSA, 서명만
-        - DSS, 서명만
-        - 고정된 Diffie-Hellman에 대한 RSA : 서명은 RSA로 서명된 인증서를 보내는 것으로 인증만을 위해 사용
-        - 고정된 Diffie-Hellaman에 대한 DSS : 위와 비슷, 인증만을 위해 사용
-    - certificate_authorities : 수용할 수 있는 인증기관 이름 목록
+​    다음으로, 익명 Diffie-Hellman을 사용하지 않는 서버는 클라이언트로부터 인증서를 요구할 수 있다.
+​    
+​    - certificate type : 공개 키 알고리즘과 그것의 사용 목적을 나타냄
+​        - RSA, 서명만
+​        - DSS, 서명만
+​        - 고정된 Diffie-Hellman에 대한 RSA : 서명은 RSA로 서명된 인증서를 보내는 것으로 인증만을 위해 사용
+​        - 고정된 Diffie-Hellaman에 대한 DSS : 위와 비슷, 인증만을 위해 사용
+​    - certificate_authorities : 수용할 수 있는 인증기관 이름 목록
 
 
     항상 요구되는 메시지는 server_done message이다. server_hello와 연관된 메시지의 끝을 나타내기 위해 서버가 보냄
@@ -182,3 +182,40 @@ SSL 레콛 프로토콜을 사용하는 3가지 TLS-지정 프로토콜 중 하�
 계류 상태를 현재 상태에 복사하는 것이 유일한 목적
 
 이 연결에 사용될 암호 도구를 갱신
+
+### 경고 프로토콜
+
+대등 개체에게 TLS-관련 경고를 할 때 사용
+
+| Level    | Alert    |
+| -------- | -------- |
+| 1 바이트 | 1 바이트 |
+
+- Level : 메시지의 엄밀성을 전달하기 위해 경고(1) 혹은 심각(2) 중 하나의 값을 가짐
+    - 심각(fatal) : TLS는 즉시 연결 단절, 이 세션에서 어떤 새로운 연결을 설정할 수 없음
+- Alert : 특정 경고를 나타내는 코드가 들어있음
+    - 항상 심각(always fatal)
+        - unexpected_message : 적합하지 않은 메시지 수신
+        - bad_record_mac : 부정확한 MAC 주소 수신
+        - decompressed_failure : 압축풀기 함수에 적합하지 않은 입력
+        - handshake_failure : 사용할 수 있는 옵션이 주어졌을 때 수용할 수 있는 보안 매개 변수의 집합을 송신자가 협상할 수 없음
+        - illegal_parameter : 핸드셰이크 메시지 안의 한 필드가 범위 밖에 있거나 다른 필드와 모순
+        - decryption_failed : 부정확하게 복호화된 암호문
+        - record_overflow : TLS 레코드의 길이가 페이로드와 함께 수신 || 복호화된 암호문의 길이가 페이로드보다 길다.
+        - unknown_ca : 올바른 인증서 체인(부분 체인) 수신 && CA 인증서 위치 확인 불가 || 알고 있거나 신뢰할 만한 CA와 매칭 불가
+        - access_denied : 올바른 인증서를 수신 && 접근 통제가 적용해 송신자와 협상을 진행하지 않기로 결정
+        - decode_error : 필드가 해당 영역을 벗어남 || 메시지 길이가 달라 메시지 복호화 불가
+        - export_restriction : 키 길이 규제를 따르지 않는 협상 탐지
+        - protocol_version : client가 협상을 시도한 protocol 버전이 지원되지 않는 버전이다.
+        - insufficient_security : 협상 실패, handshake_failure 대신 이 경고 반환
+        - internal_error : 대등과 무관한 내부 오류 || 올바른 프로토콜과는 무관한 오류 -> 지속 불가
+    - 이외의 경고
+        - close_notify : 송신자가 이 연결에서 더 이상 메시지를 전송하지 않을 것을 수신자엑 알림
+        - bad_certificate : 수신된 인증서에 문제가 있음
+        - unsupported_certificate : 수신된 인증서의 유형을 지원하지 않음
+        - certificate_revoked : 인증서가 서명자에 의해 취소됨
+        - certificate_expired : 인증서의 유효기간이 지남
+        - certificate_unknown : 인증서 처리 중 알 수 없는 문제 발생
+        - decrypt_error : 핸드셰이크 암호 동작 실패
+        - user_canceled : 프로토콜 실패와는 무관한 이유로 인해 이 핸드셰이크가 취소됨
+        - no_renegotiation : 송신측이 재협상을 할 수 없다는 것을 나타냄, 항상 경고이다.
