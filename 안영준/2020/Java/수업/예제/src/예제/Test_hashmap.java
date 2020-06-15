@@ -5,6 +5,7 @@ import java.util.HashMap;
 public class Test_hashmap {
     public static void main(String[] args) {
         HashMap<String, String> map = new HashMap<String, String>();
+        //리턴타입 변수 = <구체적 타입> 메소드명(매개값)
         HashMap<String, String> map2 = new HashMap<String, String>();
         map.put("English", "영어");
         map.put("World", "세계");
@@ -25,7 +26,7 @@ public class Test_hashmap {
         //맵의 항복삭제 , key,value 삭제하고 value값 리턴
         
         System.out.println("삭제된 후 사이즈: " + map.size());
-        //value 크기보여줌
+        //value 크기보여줌=
         System.out.println("value 값 반환 : " + map.values());
         //value 보여줌
         
