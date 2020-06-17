@@ -68,7 +68,19 @@ public class a {
 }	
 */
 public class d {
-    public int outterValue = 10;
+	public int run(int a,int b){
+		return a+b;
+	}
+		  public static void main(String... args) {
+			 
+		    Runnable r = new Runnable() {
+		      public void run() {
+		        System.out.println("Howdy, world!");
+		      }
+		    };
+		    r.run();
+		  }
+		}/*  public int outterValue = 10;
 
     class Inner{
         int innerValue = 20;
@@ -95,3 +107,4 @@ public class d {
     }
 }
 
+*/
