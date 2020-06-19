@@ -1,7 +1,5 @@
 # Study
-Today your study  
-
- 검사 순서  
+Please upload file what you studied today.  
 
 어짜피 백서영이 다한다고 합니다.
 
