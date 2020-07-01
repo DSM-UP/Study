@@ -9,9 +9,10 @@ public class ArrayList_EX {
 		
 		list.add("abcd");
 		list.add("1234");
-		list.add("1, abcd");
+		list.add(1," abcd");
 		list.add("abcd");
-		
+		list.set(1, "Ebc");
+
 		int size = list.size();
 		System.out.println("ÃÑ ¿¹Á¦¼ö"+ size);
 		System.out.println();
@@ -24,7 +25,7 @@ public class ArrayList_EX {
 			String str = list.get(i);
 			System.out.println(i+":"+str);
 		}
-		System.out.println();
+		System.out.println();	
 		for(String str:list) {
 			System.out.println(str);
 		}
