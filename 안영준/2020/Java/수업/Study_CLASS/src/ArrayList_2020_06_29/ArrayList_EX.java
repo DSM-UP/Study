@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArrayList_EX {
-	public static void main(String[] args) {
+	public static  void main(String[] args) {
 		List<String> list = new ArrayList<String>();
 		
 		list.add("abcd");
@@ -32,6 +32,8 @@ public class ArrayList_EX {
 		list.remove(2);
 		System.out.println();
 		System.out.println(list);
+	
 	}
+	
 
 }
