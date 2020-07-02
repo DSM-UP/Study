@@ -1,11 +1,18 @@
-package HashMap_2020_06_30;
-
+ package HashMap_2020_06_30;
 import java.util.*;
 //키로 사용할 객체는 hashcode의 equals 메소드를 재정의해서 동등 객체가 될 조건을 정해야 한다.
 public class HashMap_Ex {
+	void sum(String ...str) {
+		for(String a:str) System.out.println(a);
+	}
+	void sum1(String[] str1) {
+		for(String b : str1) System.out.println(b);
+	}
 	public static void main(String[] args) {
 		Map<String,Integer> map = new HashMap<String,Integer>();
-		
+		HashMap_Ex v = new 	HashMap_Ex();
+        v.sum("-","a","b","c");
+
 		map.put("a", 1);
 		map.put("a2", 1);
 		map.put("a3", 1);
@@ -22,8 +29,9 @@ public class HashMap_Ex {
 			String key = keyIterator.next();
 			Integer value = map.get(key);
 			System.out.println(key+value);
-			
+				
 		}
+		
 		System.out.println();
 	map.remove("a");
 	System.out.println("entry:"+map.size());
