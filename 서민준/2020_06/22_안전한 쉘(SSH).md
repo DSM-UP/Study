@@ -8,7 +8,7 @@
 
 ## 프로토콜
 
-![SSH 프로토콜 스택](C:\Users\user\Desktop\SSH 프로토콜 스택.JPG)
+![SSH 프로토콜 스택](C:\Users\user\Desktop\정리 자료\정보보안 도서 사진 자료\SSH 프로토콜 스택.JPG)
 
 일반적으로 수행되는 3개의 프로토콜로 구성된다.
 
