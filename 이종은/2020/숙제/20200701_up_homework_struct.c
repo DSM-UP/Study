@@ -1,9 +1,9 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <stdlib.h>
+//#include <stdlib.h>
 typedef struct{
     int num;
-    char blood[2];
+    char blood[3];
     float eyes;
     int weight;
 
@@ -17,11 +17,11 @@ int main()
 
     for (i = 0; i < 2; i++)
     {
-        scanf("%d %c %f %d", &man[i].num, &man[i].blood[i], &man[i].eyes, &man[i].weight);
+        scanf("%d %s %f %d", &man[i].num, &man[i].blood, &man[i].eyes, &man[i].weight); //함수로 만들기!
     }
     for (i = 0; i < 2; i++)
     {
-        printf("%d %c %.1f %d", man[i].num, man[i].blood[i], man[i].eyes, man[i].weight);
+        printf("%d %s %.1f %d", man[i].num, man[i].blood, man[i].eyes, man[i].weight);
         putchar('\n');
     }
 
