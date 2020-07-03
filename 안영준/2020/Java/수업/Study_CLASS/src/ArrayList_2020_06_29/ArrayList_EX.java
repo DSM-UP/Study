@@ -6,7 +6,8 @@ import java.util.List;
 public class ArrayList_EX {
 	public static  void main(String[] args) {
 		List<String> list = new ArrayList<String>();
-		
+		//List<String> list = new ArrayList<String>();
+		//List<String> List = new LinkedList<String>();
 		list.add("abcd");
 		list.add("1234");
 		list.add(1," abcd");
@@ -34,6 +35,23 @@ public class ArrayList_EX {
 		System.out.println(list);
 	
 	}
-	
+	/*
+	 List<String> list = new ArrayList<String>();
+	 list.add("Abcd");
+ 	 list.add("Abcd");
+
+	 int size =list.size()
+	 list.remove("1")
+	 
+	 for(int i=0;i<list.size();i++)
+	 {
+	 information = list.get(i)
+	 System.out.println(i+information);
+	 }
+	 
+	 
+	 
+	 
+	 */
 
 }
