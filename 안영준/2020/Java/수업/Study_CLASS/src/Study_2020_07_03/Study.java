@@ -136,9 +136,16 @@ public class Study {
  	}
  	
  	
- 	
- 	
- 	
+
+
+
+
+
+
+
+
+ 	ejs = html -> js(≈€«√∏¥) 
+ 	groovy
  	
  	
  	
