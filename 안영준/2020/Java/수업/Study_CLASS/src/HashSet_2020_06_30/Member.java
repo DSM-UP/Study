@@ -21,8 +21,49 @@ public class Member {
 	}
 	@Override
 	public int hashCode() {
-		return name.hashCode()+age;	
+		return Student.name.hashCode()+age;	
 	}
 	
 	
 }
+/*
+ public boolean equals(Object obj){
+ if(obj instaceof Member){
+ Member member = (Member) obj;
+ return mamber.name.equals(name)&&(member.age==age);
+ 
+ 
+ 
+ 
+ 
+ public boolean equals(Object obj){
+ if(obj instanceof Member){
+ Memberm ember = (member)obj
+ return member.name.equals(name)&&(member.age.==age);
+ 
+ else{
+ return false;}
+ 
+ public int hashCode(){
+ return name.hashCode()+age;
+
+public int hashCode(){
+return name.hashCode()+age;
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+public boolean equals(Object obj){
+	if(obj instanceof Member){
+	Member meber = (Membe
+	}
+}
+ 
+ 
+ */

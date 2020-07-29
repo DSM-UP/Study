@@ -21,7 +21,51 @@ public class HashMap_Ex {
 		System.out.println("entry: "+map.size());
 		
 		System.out.println("ȫ�浿:"+map.get("a"));
+		System.out.println(map);
 		System.out.println();
+		/*
+		 Set<String> keyset1 = map.keySet();
+		 Iterator<String> KeyIterator = keyset1.Iterator();
+		 while(keyIterator.hasnext()){
+		 String key1 = keyset.next();
+		 String value = keyset.get(key1)
+		   
+		   
+		   
+		   Set<String> keyset= map.keySet();
+		   Iterator<String> keyIterator = keyset.iterator();
+		   While(keyIterator.hasnext()){
+		   String key = KeyIterator.next();
+		   String value = map.get(key);
+		   }
+		   
+		   Set<Map.Entry<String,Integer>> entryset= map.entrySet();
+		   Iterator<Map.Entry<String,Integer>> entryIterator =  entryset.iterator();
+		   while(entryIterator.hasnext()){
+		   	Map.entry<String,Integer> entrykeyset = entryIterator.next();
+		   	String key = entrykeyset.getkey();
+		   	String value = entrykeyset.getvalue();
+		   	
+		   	}
+	   
+		   
+		   
+		   
+		 set<String> keyset = map.keyset();
+		 Iterator<String> keyInterator= keyset.iterator();
+		 while(keyInterator.hasnext()){
+		 String key = keyInterator.next();
+		 Integer value = map.get(key);
+		 -
+		 Set<Map.entry<String, Integer>> eyset1 =map.entryset();
+		 Integer<map.entry<String,Integer>> entryInteger = entryset.iterator();
+		 while(entryInteger.hasnext()){
+		 Map.Entry<String, Integer> entry = entryInteger.next();
+		 String key = entry.getkey();
+		 String value = entry.getvelue();
+		 }
+		 
+		 */
 		
 		Set<String> keyset = map.keySet();
 		Iterator<String> keyIterator = keyset.iterator();
