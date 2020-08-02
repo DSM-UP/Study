@@ -39,7 +39,7 @@ int main(){
 }
 ```
 
-#### 3. 첫째 줄부터 2×N-1번째 줄까지 차례대로 별을 찍는 문제
+#### 3. 옆으로 돌린 모양으로 별 찍는 문제
 
 ```c
 #include <stdio.h>
@@ -65,7 +65,35 @@ int main(){
 
 
 
-#### 4.
+#### 4. 모래시계 모양으로 별 찍는 문제
+
+```c
+#include <stdio.h>
+
+int main(){
+	int a;
+	scanf("%d", &a);
+	for(int i=1;i<=a;i++){
+		for(int j=1;j<i;j++){
+			printf(" ");
+		}
+		for(int j=0;j<=2*a-2*i;j++){
+			printf("*");
+		}
+		printf("\n");
+	}
+	for(int i=1;i<a;i++){
+		for(int j=i;j<a-1;j++){
+			printf(" ");
+		}
+		for(int j=0;j<=2*i;j++){
+			printf("*");
+		}
+		printf("\n");
+	}
+	return 0;
+}
+```
 
 
 
