@@ -1,0 +1,117 @@
+메인 
+#include <stdio.h>
+#include "Accounting.h"
+
+/*
+int main()
+{
+	Acc acc[1000];
+	
+	char name1[10]; //내 이름
+	char name2[10]; //상대 이름
+	int acnum1; //내 계좌번호
+	int acnum2; //상대 계좌번호
+	int money; //송금 및 입금, 출금시 돈의 규모
+	int chic; //서비스 선택 변수
+	char cort; // 서비스 선택 변수
+	
+	printf("1.계좌 관리\n2.계좌의 돈 관리");
+	scanf("%d", &chic);
+	if (chic == 1)
+	{
+		printf("1.계좌 추가\n2.계좌 삭제\n3.계좌 관리");
+		scanf("%d", &chic);
+		if (chic == 1) {
+			printf("계좌를 만들 이름을 입력하시오");
+			scanf("%s", name1);
+			add_account(name1);
+		}
+		else if (chic == 2) {
+			printf("삭제할 계좌의 이름과 계좌번호를 입력하시오");
+			scanf("%s %d", name1, &acnum1);
+			printf("정말 계좌를 삭제하시겠습니까?(y or n)");
+			scanf("%s", cort);
+			if (cort == 'y')
+				delete_account(name1, acnum1);
+		}
+		else if (chic == 3) {
+			printf("조회할 이름을 입력하세요");
+			scanf("%s", name1);
+			show_info(name1);
+		}
+		else {
+			printf("존재하지 않는 명령입니다");
+		}
+	}
+	else if (chic == 2)
+	{
+		printf("1.송금\n2.입금\n3.출금");
+		scanf("%d", &chic);
+		if (chic == 1)
+		{
+			printf("자신의 이름, 자신의 계좌번호, 보낼 상대의 이름, 보낼 상대의 계좌번호, 송금할 돈을 입력하시오");
+			scanf("%s %d %s %d %d", name1, &acnum1, name2, &acnum2, &money);
+			send(name1, acnum1, name2, acnum2, money);
+		}
+		else if (chic == 2)
+		{
+			printf("자신의 이름과 계좌번호, 입금할 돈을 입력하시오");
+			scanf("%s %d %d", name1, &acnum1, &money);
+			pay_push(name1, acnum1, money);
+		}
+		else if (chic == 3)
+		{
+			printf("자신의 이름과 계좌번호, 출금할 돈을 입력하시오");
+			scanf("%s %d %d", name1, &acnum1, &money);
+			pay_pop(name1, acnum1, money);
+		}
+		else
+			printf("존재하지 않는 명령입니다");
+	}
+	else
+		printf("존재하지 않는 명령입니다");
+}*/
+헤더
+#ifndef __ACCOUNTING__
+#define __ACCOUNTING__
+#define MAX_CLIENT 1000
+
+int num_of_account = 0;
+
+typedef struct _Acc
+{
+	char name[20];
+	int bal;	// 잔액
+	int acnum;	// 계좌번호
+}Acc;
+
+void add_account(const char* name, int bal, Acc* account_arr);
+void delete_account(int acnum);
+void show_info(char name);
+#endif  
+정의
+#include "Accounting.h"
+#include <string.h>
+
+void add_account(const char* name, int bal, Acc* account_arr)
+{
+	if (num_of_account >= MAX_CLIENT)
+	{
+		printf("더 이상 계좌를 만들 수 없습니다\n");
+		return;
+	}
+	strcpy(account_arr[num_of_account].name, name);
+	account_arr[num_of_account].bal = bal;
+	account_arr[num_of_account].acnum = num_of_account + 1;
+	num_of_account++;
+}
+
+void delete_account(int acnum)
+{
+	
+}
+
+void show_info(char name)
+{
+
+}

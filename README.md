@@ -13,4 +13,6 @@ Please upload file what you studied today.
 
 -2020.05.20 정은 선생님 왔다감-
 
+-2020.07.16 04년생들 왤케 빠짐? (김대웅 어록 中)-
+
 이름변경 테스트

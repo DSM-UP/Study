@@ -9,6 +9,7 @@ public class ArrayLinkedList_EX {
 		
 		long startTime;
 		long endTime;
+
 		
 		startTime = System.nanoTime();
 		
