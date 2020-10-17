@@ -1,4 +1,6 @@
-# CSS Diner 정리
+# CSS - Diner 
+
+> css속성을 조금 더 쉽게 알 수 있는 Diner 게임 답 + 풀이
 
 ### 1. plate
 
@@ -76,23 +78,37 @@
 
 ### 23. plate apple.small:only-of-type
 
-### 24. orange:last-of-type , apple:last-of-type
+### 24. orange:last-of-type, apple:last-of-type
 
 ### 25. bento:empty
+
+: 자식이 없는 bento를 선택 
 
 ### 26. apple:not(.small)
 
 ### 27. [for]
 
+: for으로 이름이 정해져있는 것들을 선택
+
 ### 28. plate[for]
+
+: for로 지정되어 있는 plate를 선택
 
 ### 29. [for="Vitaly"]
 
+: for로 지정되어 있는 한 이름을 선택
+
 ### 30. [for^="Sa"]
 
-### 31. [for$="ato"]
+: for로 지정되어 있으면서 시작으로 Sa가 들어가 있는 것을 선택
+
+### 31. [for$="to"]
+
+: for로 지정되어 있으면서 끝으로 to가 들어가 있는 것을 선택
 
 ### 32. [for*="obb"]
+
+: for로 지정되어 있으면서 시작과 끝의 특징을 한정지은 것이 아닌 이름 전체에서 obb가 들어가 있는 것을 선택
 
 
 
